@@ -63,8 +63,9 @@ button,input,textarea{font:inherit}
 .inn-status{font-size:12px;color:var(--ink-3);min-height:18px;display:flex;align-items:center;gap:6px;margin-bottom:8px}
 .spin{width:13px;height:13px;border:1.5px solid var(--cream-3);border-top-color:var(--ink);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
 @keyframes sp{to{transform:rotate(360deg)}}
+
+/* ИСТОРИИ */
 .stories-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
-.stories-wrap{position:relative;margin-bottom:12px}
 .story-card{display:none;background:var(--paper);border:1px solid var(--rule);padding:18px;border-left:3px solid var(--red)}
 .story-card.active{display:block}
 .story-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
@@ -77,11 +78,26 @@ button,input,textarea{font:inherit}
 .story-grant{text-align:right;flex-shrink:0}
 .story-grant-sum{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--green);line-height:1}
 .story-grant-name{font-size:11px;color:var(--ink-3);margin-top:2px}
-.story-dots{display:flex;gap:6px;margin-bottom:12px}
+.story-dots{display:flex;gap:6px;margin:12px 0}
 .sdot{width:20px;height:3px;background:var(--cream-3);cursor:pointer;transition:.15s}
 .sdot.active{background:var(--ink)}
 .story-footer{font-size:11px;color:var(--ink-3);line-height:1.6;padding:10px 0;border-top:1px solid var(--rule)}
 .story-footer b{color:var(--ink)}
+
+/* УМНЫЙ ОПРОСНИК */
+.quiz-block{display:none;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--amber);padding:16px;margin-bottom:8px}
+.quiz-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.quiz-sub{font-size:11px;color:var(--ink-3);margin-bottom:14px}
+.quiz-options{display:grid;gap:7px;margin-bottom:14px}
+.qopt{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--rule);background:var(--cream);cursor:pointer;transition:.15s;font-size:13px;color:var(--ink-2);line-height:1.4}
+.qopt:hover{border-color:var(--ink);background:var(--paper)}
+.qopt.sel{border-color:var(--amber);background:#FEF9EC;color:var(--ink);font-weight:500}
+.qopt-icon{font-size:16px;flex-shrink:0;line-height:1.3}
+.quiz-btn{width:100%;padding:11px;background:var(--amber);color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.quiz-btn:hover{background:#92400E}
+.quiz-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* РЕЗУЛЬТАТЫ */
 .result-wrap{display:none}
 .rblock{border:1px solid var(--rule);background:var(--paper);margin-bottom:8px}
 .rb-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--cream)}
@@ -239,40 +255,40 @@ button,input,textarea{font:inherit}
           <span class="ic" onclick="go('7702070139')">Газпром</span>
         </div>
         <div class="inn-status" id="inn-status"></div>
+
+        <!-- ИСТОРИИ -->
         <div id="stories-block">
           <div class="stories-label">Истории предпринимателей</div>
-          <div class="stories-wrap">
-            <div class="story-card active" id="sc0">
-              <div class="story-tag">IT / Москва</div>
-              <div class="story-quote">«Мы не знали что вообще существует программа СТАРТ. Грантовик нашёл её за минуту — получили 4 млн без потери доли»</div>
-              <div class="story-bottom">
-                <div class="story-person"><div class="story-avatar">АК</div><div><div class="story-name">Алексей К.</div><div class="story-biz">Основатель SaaS-стартапа</div></div></div>
-                <div class="story-grant"><div class="story-grant-sum">4 млн ₽</div><div class="story-grant-name">СТАРТ-1</div></div>
-              </div>
+          <div class="story-card active" id="sc0">
+            <div class="story-tag">IT / Москва</div>
+            <div class="story-quote">«Мы не знали что вообще существует программа СТАРТ. Грантовик нашёл её за минуту — получили 4 млн без потери доли»</div>
+            <div class="story-bottom">
+              <div class="story-person"><div class="story-avatar">АК</div><div><div class="story-name">Алексей К.</div><div class="story-biz">Основатель SaaS-стартапа</div></div></div>
+              <div class="story-grant"><div class="story-grant-sum">4 млн ₽</div><div class="story-grant-name">СТАРТ-1</div></div>
             </div>
-            <div class="story-card" id="sc1">
-              <div class="story-tag">Агротех / Краснодар</div>
-              <div class="story-quote">«Региональный фонд давал субсидию именно под наше направление. Без Грантовика никогда бы не нашли — сайт фонда вообще не гуглится»</div>
-              <div class="story-bottom">
-                <div class="story-person"><div class="story-avatar">МС</div><div><div class="story-name">Марина С.</div><div class="story-biz">Фермерское хозяйство</div></div></div>
-                <div class="story-grant"><div class="story-grant-sum">2.5 млн ₽</div><div class="story-grant-name">Региональная субсидия</div></div>
-              </div>
+          </div>
+          <div class="story-card" id="sc1">
+            <div class="story-tag">Торговля → Производство / Краснодар</div>
+            <div class="story-quote">«У нас был торговый ОКВЭД, но мы хотели открыть производство. Грантовик понял это и нашёл программу Минпромторга — получили 8 млн»</div>
+            <div class="story-bottom">
+              <div class="story-person"><div class="story-avatar">МС</div><div><div class="story-name">Марина С.</div><div class="story-biz">Владелец торговой сети</div></div></div>
+              <div class="story-grant"><div class="story-grant-sum">8 млн ₽</div><div class="story-grant-name">Минпромторг</div></div>
             </div>
-            <div class="story-card" id="sc2">
-              <div class="story-tag">Медтех / СПб</div>
-              <div class="story-quote">«Подали заявку на Сколково по черновику от Грантовика. Получили статус резидента и 0% налог на прибыль — это важнее денег»</div>
-              <div class="story-bottom">
-                <div class="story-person"><div class="story-avatar">ДВ</div><div><div class="story-name">Дмитрий В.</div><div class="story-biz">CEO медтех-компании</div></div></div>
-                <div class="story-grant"><div class="story-grant-sum">Резидент</div><div class="story-grant-name">Сколково</div></div>
-              </div>
+          </div>
+          <div class="story-card" id="sc2">
+            <div class="story-tag">Медтех / СПб</div>
+            <div class="story-quote">«Подали заявку на Сколково по черновику от Грантовика. Получили статус резидента и 0% налог на прибыль — это важнее денег»</div>
+            <div class="story-bottom">
+              <div class="story-person"><div class="story-avatar">ДВ</div><div><div class="story-name">Дмитрий В.</div><div class="story-biz">CEO медтех-компании</div></div></div>
+              <div class="story-grant"><div class="story-grant-sum">Резидент</div><div class="story-grant-name">Сколково</div></div>
             </div>
-            <div class="story-card" id="sc3">
-              <div class="story-tag">EdTech / Казань</div>
-              <div class="story-quote">«Я думал гранты только для крупных. Оказалось УМНИК даётся молодым до 30 лет — получил 500К на прототип»</div>
-              <div class="story-bottom">
-                <div class="story-person"><div class="story-avatar">ИМ</div><div><div class="story-name">Илья М.</div><div class="story-biz">Основатель EdTech-проекта</div></div></div>
-                <div class="story-grant"><div class="story-grant-sum">500 тыс ₽</div><div class="story-grant-name">УМНИК</div></div>
-              </div>
+          </div>
+          <div class="story-card" id="sc3">
+            <div class="story-tag">EdTech / Казань</div>
+            <div class="story-quote">«Я думал гранты только для крупных. Оказалось УМНИК даётся молодым до 30 лет — получил 500К на прототип»</div>
+            <div class="story-bottom">
+              <div class="story-person"><div class="story-avatar">ИМ</div><div><div class="story-name">Илья М.</div><div class="story-biz">Основатель EdTech-проекта</div></div></div>
+              <div class="story-grant"><div class="story-grant-sum">500 тыс ₽</div><div class="story-grant-name">УМНИК</div></div>
             </div>
           </div>
           <div class="story-dots">
@@ -283,6 +299,16 @@ button,input,textarea{font:inherit}
           </div>
           <div class="story-footer">🟢 Открыто сейчас: <b>УМНИК</b>, <b>СТАРТ-1</b>, <b>Сколково</b> · Следующий дедлайн через <b>12 дней</b></div>
         </div>
+
+        <!-- УМНЫЙ ОПРОСНИК -->
+        <div class="quiz-block" id="quiz-block">
+          <div class="quiz-title" id="quiz-title">Мы видим, что ваша компания занимается торговлей. Что планируете развивать?</div>
+          <div class="quiz-sub">Выберите направление — подберём гранты именно под вашу цель</div>
+          <div class="quiz-options" id="quiz-options"></div>
+          <button class="quiz-btn" id="quiz-btn" onclick="runWithGoal()" disabled>Найти гранты под мою цель →</button>
+        </div>
+
+        <!-- РЕЗУЛЬТАТЫ -->
         <div class="result-wrap" id="result-wrap">
           <div class="rblock">
             <div class="rb-head">
@@ -339,8 +365,8 @@ button,input,textarea{font:inherit}
   <div class="wrap">
     <div class="sec-kicker">Как работает</div>
     <div class="three-col">
-      <div class="col" style="padding-left:0"><div class="col-n">01</div><h3>Введите ИНН</h3><p>Система мгновенно подтягивает данные из реестра ФНС — название, ОКВЭД, регион, форму. Никаких анкет вручную.</p></div>
-      <div class="col"><div class="col-n">02</div><h3>ИИ разбирается вместо вас</h3><p>Анализирует 200+ программ поддержки и отбирает только те, которые реально подходят вашей компании.</p></div>
+      <div class="col" style="padding-left:0"><div class="col-n">01</div><h3>Введите ИНН</h3><p>Система мгновенно подтягивает данные из реестра ФНС. Если ваши планы шире ОКВЭД — умный опросник уточнит цель.</p></div>
+      <div class="col"><div class="col-n">02</div><h3>ИИ разбирается вместо вас</h3><p>Анализирует 200+ программ и отбирает только те, которые подходят именно вашей цели — не просто коду деятельности.</p></div>
       <div class="col" style="padding-right:0"><div class="col-n">03</div><h3>Получите план и заявку</h3><p>Список грантов с объяснением, конкретные шаги с дедлайнами и совет эксперта — всё за 30 секунд.</p></div>
     </div>
   </div>
@@ -387,8 +413,76 @@ button,input,textarea{font:inherit}
 const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
 let bestGrant='';
 let storyTimer;
+let currentCompany=null;
+let selectedGoal='';
+
 const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм / HoReCa','56':'Туризм / HoReCa','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство / недвижимость','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО / соцпроект','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
 
+// Карты опросника по отраслям
+const QUIZ_MAP={
+  'Торговля':{
+    title:'Мы видим, что ваша компания занимается торговлей. Что планируете развивать?',
+    options:[
+      {icon:'🏭',text:'Открыть собственное производство',goal:'запуск производства на базе торговой компании'},
+      {icon:'🔬',text:'Разработать собственный продукт / бренд',goal:'разработка собственного продукта и торговой марки'},
+      {icon:'📈',text:'Масштабировать торговлю — выйти в новые регионы',goal:'масштабирование торговли и выход на новые рынки'},
+      {icon:'🤝',text:'Найти партнёра-производителя',goal:'поиск производственного партнёра и кооперация'},
+      {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств и ликвидность'},
+    ]
+  },
+  'Логистика':{
+    title:'Ваша компания в логистике. Какая цель приоритетна?',
+    options:[
+      {icon:'🚛',text:'Обновить автопарк / склад',goal:'обновление парка транспорта и складской инфраструктуры'},
+      {icon:'💻',text:'Автоматизировать процессы',goal:'цифровизация и автоматизация логистики'},
+      {icon:'🌍',text:'Выйти на экспортные маршруты',goal:'выход на международные логистические маршруты'},
+      {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
+    ]
+  },
+  'Производство':{
+    title:'Ваша компания производит продукцию. Что в приоритете?',
+    options:[
+      {icon:'🏗',text:'Модернизировать оборудование',goal:'модернизация производственного оборудования'},
+      {icon:'🔬',text:'Разработать новый продукт / R&D',goal:'исследования и разработка нового продукта'},
+      {icon:'🌍',text:'Выйти на экспорт',goal:'экспорт продукции на зарубежные рынки'},
+      {icon:'📈',text:'Масштабировать производство',goal:'расширение производственных мощностей'},
+      {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
+    ]
+  },
+  'IT / ИИ':{
+    title:'Ваша компания в IT. Что планируете?',
+    options:[
+      {icon:'🚀',text:'Запустить новый продукт',goal:'разработка и запуск нового IT-продукта'},
+      {icon:'🤖',text:'Внедрить ИИ в продукт',goal:'внедрение искусственного интеллекта'},
+      {icon:'🌍',text:'Выйти на зарубежные рынки',goal:'международная экспансия IT-продукта'},
+      {icon:'👥',text:'Нанять команду разработчиков',goal:'найм и развитие IT-команды'},
+      {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
+    ]
+  },
+  'Агротех':{
+    title:'Ваша компания в агросекторе. Что в приоритете?',
+    options:[
+      {icon:'🌱',text:'Внедрить современные технологии',goal:'агротехнологии и цифровизация фермерства'},
+      {icon:'🏭',text:'Открыть переработку',goal:'переработка сельскохозяйственной продукции'},
+      {icon:'📦',text:'Выйти в розницу / экспорт',goal:'выход агропродукции в розницу и на экспорт'},
+      {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
+    ]
+  },
+};
+
+// Дефолтный опросник для всех остальных отраслей
+const DEFAULT_QUIZ={
+  title:'Уточните вашу цель — подберём программы точнее',
+  options:[
+    {icon:'🚀',text:'Запустить новый продукт или направление',goal:'запуск нового продукта или бизнес-направления'},
+    {icon:'🔬',text:'Провести исследования и разработку',goal:'научные исследования и разработка инноваций'},
+    {icon:'📈',text:'Масштабировать существующий бизнес',goal:'масштабирование и рост бизнеса'},
+    {icon:'🌍',text:'Выйти на экспорт',goal:'экспорт продукции или услуг'},
+    {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств и поддержка ликвидности'},
+  ]
+};
+
+// ИСТОРИИ
 let currentStory=0;
 function showStory(n){
   document.querySelectorAll('.story-card').forEach((c,i)=>c.classList.toggle('active',i===n));
@@ -396,23 +490,29 @@ function showStory(n){
   currentStory=n;
 }
 function autoStory(){
-  storyTimer=setInterval(()=>{
-    showStory((currentStory+1)%4);
-  },4000);
+  storyTimer=setInterval(()=>showStory((currentStory+1)%4),4000);
 }
 autoStory();
 
 function go(v){document.getElementById('inn').value=v;run();}
-function setSt(type,txt){const el=document.getElementById('inn-status');if(type==='load')el.innerHTML=`<span class="spin"></span>${txt}`;else if(type==='ok')el.innerHTML=`<span style="color:var(--green);font-weight:600">✓ ${txt}</span>`;else if(type==='err')el.innerHTML=`<span style="color:var(--red)">${txt}</span>`;else el.innerHTML='';}
+function setSt(type,txt){
+  const el=document.getElementById('inn-status');
+  if(type==='load')el.innerHTML=`<span class="spin"></span>${txt}`;
+  else if(type==='ok')el.innerHTML=`<span style="color:var(--green);font-weight:600">✓ ${txt}</span>`;
+  else if(type==='err')el.innerHTML=`<span style="color:var(--red)">${txt}</span>`;
+  else el.innerHTML='';
+}
 
 async function run(){
   const raw=document.getElementById('inn').value.replace(/\D/g,'');
   if(raw.length<10){setSt('err','Введите ИНН — 10 цифр для юрлица, 12 для ИП');return;}
   clearInterval(storyTimer);
   document.getElementById('go-btn').disabled=true;
-  document.getElementById('result-wrap').style.display='none';
   document.getElementById('stories-block').style.display='none';
+  document.getElementById('quiz-block').style.display='none';
+  document.getElementById('result-wrap').style.display='none';
   setSt('load','Запрос в реестр ФНС...');
+
   let d=await fetchFromDaData(raw);
   if(!d){
     setSt('err','Компания не найдена. Проверьте ИНН.');
@@ -421,12 +521,57 @@ async function run(){
     autoStory();
     return;
   }
+
+  currentCompany=d;
   fillCompany(d,raw);
-  document.getElementById('result-wrap').style.display='block';
-  setSt('ok','Данные из ФНС получены — анализ запущен');
+  setSt('ok','Данные из ФНС получены');
   document.getElementById('go-btn').disabled=false;
+
+  // Показываем опросник
+  showQuiz(d);
+}
+
+function showQuiz(d){
+  // Определяем базовую отрасль для опросника
+  const okvedCode=(d.okved||'').split(' ')[0];
+  const industry=d.industry||'';
+
+  let quiz=DEFAULT_QUIZ;
+  for(const key of Object.keys(QUIZ_MAP)){
+    if(industry.includes(key)){quiz=QUIZ_MAP[key];break;}
+  }
+
+  document.getElementById('quiz-title').textContent=quiz.title;
+  document.getElementById('quiz-options').innerHTML=quiz.options.map((o,i)=>`
+    <div class="qopt" onclick="selectGoal(this,'${o.goal}')">
+      <span class="qopt-icon">${o.icon}</span>
+      <span>${o.text}</span>
+    </div>`).join('');
+
+  selectedGoal='';
+  document.getElementById('quiz-btn').disabled=true;
+  document.getElementById('quiz-block').style.display='block';
+  document.getElementById('quiz-block').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function selectGoal(el,goal){
+  document.querySelectorAll('.qopt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  selectedGoal=goal;
+  document.getElementById('quiz-btn').disabled=false;
+}
+
+async function runWithGoal(){
+  if(!selectedGoal||!currentCompany)return;
+  document.getElementById('quiz-btn').disabled=true;
+  document.getElementById('quiz-btn').textContent='Анализируем...';
+  document.getElementById('result-wrap').style.display='block';
   document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
-  loadGrants(d);loadSteps(d);loadAdvice(d);
+  setSt('load','ИИ подбирает программы под вашу цель...');
+
+  const d={...currentCompany, goal: selectedGoal};
+  await Promise.all([loadGrants(d),loadSteps(d),loadAdvice(d)]);
+  setSt('ok','Анализ готов — программы подобраны под вашу цель');
 }
 
 async function fetchFromDaData(inn){
@@ -465,7 +610,8 @@ function fillCompany(d,inn){
 }
 
 async function loadGrants(d){
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.\nПодбери 4 подходящих российских гранта. Верни ТОЛЬКО JSON массив без markdown:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок или постоянный","why":"1 предложение почему подходит"}]`;
+  const goal=d.goal?`\nЦЕЛЬ ПРЕДПРИНИМАТЕЛЯ: ${d.goal}`:'';
+  const p=`Компания: ${d.name}, отрасль по ОКВЭД: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.${goal}\n\nПодбери 4 подходящих российских гранта именно под эту цель — не просто по отрасли ОКВЭД. Верни ТОЛЬКО JSON массив без markdown:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок или постоянный","why":"1 предложение почему подходит под указанную цель"}]`;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:600,messages:[{role:'user',content:p}]})});
     const data=await r.json();
@@ -477,7 +623,8 @@ async function loadGrants(d){
 }
 
 async function loadSteps(d){
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}.\nСоставь план из 4 шагов с чего начать получение гранта. Верни ТОЛЬКО JSON без markdown:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  const goal=d.goal?`Цель: ${d.goal}.`:'';
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\nСоставь план из 4 конкретных шагов для получения гранта под эту цель. Верни ТОЛЬКО JSON без markdown:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:500,messages:[{role:'user',content:p}]})});
     const data=await r.json();
@@ -488,26 +635,30 @@ async function loadSteps(d){
 }
 
 async function loadAdvice(d){
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}, размер: ${d.size}.\nНапиши персональный совет эксперта — 3-4 предложения. Типичные ошибки, на что обратить внимание, что повысит шанс одобрения. Только текст.`;
+  const goal=d.goal?`Цель предпринимателя: ${d.goal}.`:'';
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\nНапиши персональный совет эксперта — 3-4 предложения. Учти цель. Типичные ошибки, на что обратить внимание, что повысит шанс одобрения. Только текст.`;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:300,messages:[{role:'user',content:p}]})});
     const data=await r.json();
     document.getElementById('advice-body').textContent=data.content.map(b=>b.text||'').join('').trim();
-  }catch(e){document.getElementById('advice-body').textContent='Главная ошибка при подаче — слишком общее описание проекта. Пишите конкретно: какую проблему решаете, кто ваши клиенты, какой результат за какой срок.';}
+    document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
+  }catch(e){document.getElementById('advice-body').textContent='Главная ошибка — описывать ОКВЭД а не реальную цель. Пишите в заявке конкретно что хотите построить и какой результат получите.';}
 }
 
 function applyAction(){
-  const name=document.getElementById('r-name').textContent;
   document.getElementById('f-inn').value=document.getElementById('inn').value;
-  document.getElementById('f-project').value=`Хочу подать заявку на "${bestGrant}" для компании ${name}`;
+  document.getElementById('f-project').value=`Цель: ${selectedGoal||'развитие бизнеса'}. Хочу подать заявку на "${bestGrant}" для компании ${currentCompany?.name||''}`;
   document.getElementById('access').scrollIntoView({behavior:'smooth'});
 }
 
 function resetAll(){
   document.getElementById('inn').value='';
   document.getElementById('result-wrap').style.display='none';
+  document.getElementById('quiz-block').style.display='none';
   document.getElementById('stories-block').style.display='block';
   setSt('','');
+  currentCompany=null;
+  selectedGoal='';
   document.getElementById('grants-body').innerHTML='<div class="ld">Подбираем программы...</div>';
   document.getElementById('steps-body').innerHTML='<div class="ld">Формируем план...</div>';
   document.getElementById('advice-body').innerHTML='<span class="ld">Анализируем...</span>';
@@ -525,8 +676,8 @@ async function loadNews(){
     document.getElementById('news-grid').innerHTML=news.map(n=>`<div class="news-card"><div class="news-tag">${n.tag}</div><h3>${n.title}</h3><p>${n.desc}</p><div class="news-meta"><span class="news-date">${n.date}</span><span class="news-src">${n.source}</span></div></div>`).join('');
   }catch(e){
     document.getElementById('news-grid').innerHTML=`
-      <div class="news-card"><div class="news-tag">Грант</div><h3>Фонд Бортника открыл приём заявок на СТАРТ-1</h3><p>Малые инновационные компании могут получить до 4 млн рублей на разработку продукта без потери доли.</p><div class="news-meta"><span class="news-date">18.06.2026</span><span class="news-src">fasie.ru</span></div></div>
-      <div class="news-card"><div class="news-tag">Программа</div><h3>Сколково расширяет IT-трек для стартапов</h3><p>Новые условия резидентства позволяют получить грант до 50 млн рублей и налоговые льготы.</p><div class="news-meta"><span class="news-date">17.06.2026</span><span class="news-src">Сколково</span></div></div>
+      <div class="news-card"><div class="news-tag">Грант</div><h3>Фонд Бортника открыл приём заявок на СТАРТ-1</h3><p>Малые инновационные компании могут получить до 4 млн рублей на разработку без потери доли.</p><div class="news-meta"><span class="news-date">18.06.2026</span><span class="news-src">fasie.ru</span></div></div>
+      <div class="news-card"><div class="news-tag">Программа</div><h3>Сколково расширяет IT-трек для стартапов</h3><p>Новые условия резидентства — грант до 50 млн рублей и налоговые льготы.</p><div class="news-meta"><span class="news-date">17.06.2026</span><span class="news-src">Сколково</span></div></div>
       <div class="news-card"><div class="news-tag">Субсидии</div><h3>МСП Банк снизил ставки по льготным кредитам</h3><p>Малый бизнес может получить финансирование под 4% годовых по программе Минэкономразвития.</p><div class="news-meta"><span class="news-date">16.06.2026</span><span class="news-src">МСП Банк</span></div></div>
       <div class="news-card"><div class="news-tag">Стартапы</div><h3>РФРИТ принимает заявки на цифровые гранты</h3><p>До 30 млн рублей для российских IT-компаний на разработку отечественного ПО.</p><div class="news-meta"><span class="news-date">15.06.2026</span><span class="news-src">РФРИТ</span></div></div>`;
   }
