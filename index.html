@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Грантовик — найдите финансирование по ИНН</title>
+<meta name="description" content="Введите ИНН — Грантовик за 30 секунд подберёт подходящие гранты и составит план действий для вашего бизнеса."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --cream:#F2EFE6;--cream-2:#E8E4D8;--cream-3:#DDD8C8;
+  --ink:#1A1810;--ink-2:#3A3828;--ink-3:#6A6858;
+  --rule:rgba(26,24,16,.12);--rule-heavy:rgba(26,24,16,.5);
+  --red:#C0392B;--paper:#FAF8F2;--blue:#1A3FD8;
+  --green:#0E7A3A;--green-bg:#E3F7EC;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
+.masthead{border-bottom:3px solid var(--ink);padding:0 clamp(20px,5vw,72px)}
+.mast-top{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
+.mast-date{font-size:12px;color:var(--ink-3);font-weight:500;letter-spacing:.04em}
+.mast-tag{font-size:12px;color:var(--ink-3);font-weight:500}
+.mast-center{text-align:center;padding:16px 0 12px}
+.logo{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,100px);font-weight:900;letter-spacing:-.04em;line-height:.92;color:var(--ink)}
+.logo span{color:var(--red)}
+.logo-sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:6px}
+.nav-strip{display:flex;justify-content:space-between;align-items:center;padding:9px 0 0;border-top:1px solid var(--rule);flex-wrap:wrap;gap:8px}
+.nav-strip a{font-size:13px;font-weight:600;color:var(--ink-2)}
+.nav-strip a:hover{color:var(--red)}
+.nav-cta{background:var(--ink);color:var(--cream)!important;padding:7px 16px;font-size:13px;font-weight:600}
+.nav-cta:hover{background:var(--red)!important}
+.hero{padding:40px 0 0;border-bottom:2px solid var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:start}
+.hero-left{border-right:1px solid var(--rule);padding-right:40px;padding-bottom:40px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";display:block;width:24px;height:2px;background:var(--red)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,68px);font-weight:900;line-height:.97;letter-spacing:-.03em;margin-bottom:18px}
+.hero-title em{font-style:italic;color:var(--red)}
+.hero-deck{font-size:16px;line-height:1.68;color:var(--ink-2);border-left:3px solid var(--red);padding-left:14px;margin-bottom:28px;max-width:460px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);padding-top:18px;gap:0}
+.stat{padding-right:16px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat-l{font-size:11px;color:var(--ink-3);margin-top:3px;font-weight:500}
+.inn-panel{padding-left:40px;padding-bottom:40px}
+.inn-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.inn-input-row{display:flex;gap:0;border:1.5px solid var(--ink);overflow:hidden;margin-bottom:10px}
+.inn-input-row input{flex:1;border:none;padding:14px 16px;font-size:18px;font-weight:500;letter-spacing:.06em;background:var(--paper);outline:none;color:var(--ink)}
+.inn-input-row input::placeholder{font-size:14px;font-weight:400;letter-spacing:0;color:var(--ink-3)}
+.inn-btn{padding:0 22px;background:var(--ink);color:var(--cream);border:none;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.15s;min-width:130px}
+.inn-btn:hover{background:var(--red)}
+.inn-btn:disabled{opacity:.4;cursor:not-allowed}
+.inn-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.ic{font-size:11px;padding:4px 12px;border:1px solid var(--rule-heavy);color:var(--ink-2);cursor:pointer;font-weight:600;transition:.1s}
+.ic:hover{border-color:var(--red);color:var(--red)}
+.inn-status{font-size:12px;color:var(--ink-3);min-height:18px;display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.spin{width:13px;height:13px;border:1.5px solid var(--cream-3);border-top-color:var(--ink);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
+@keyframes sp{to{transform:rotate(360deg)}}
+.result-wrap{display:none}
+.rblock{border:1px solid var(--rule);background:var(--paper);margin-bottom:8px}
+.rb-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--rule);background:var(--cream)}
+.rb-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid var(--rule-heavy);color:var(--ink-2);flex-shrink:0}
+.rb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.rb-title{font-size:13px;font-weight:600;color:var(--ink);margin-top:1px}
+.rb-body{padding:14px 16px}
+.co-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.co-f{background:var(--cream);padding:8px 10px}
+.co-l{font-size:10px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.co-v{font-size:12px;font-weight:600;color:var(--ink-2)}
+.co-v.ok{color:var(--green)}
+.gi{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--rule)}
+.gi:last-child{border-bottom:none}
+.gi-pct{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--ink);min-width:40px;text-align:right;flex-shrink:0;line-height:1.1}
+.gi-pct small{font-size:11px;font-weight:400;color:var(--ink-3);font-family:'Inter',sans-serif}
+.gi-info .gname{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.gi-info .gorg{font-size:11px;color:var(--ink-3);margin-bottom:3px}
+.gi-info .gwhy{font-size:11px;color:var(--ink-2);line-height:1.5}
+.gi-info .gmeta{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.gi-info .gmeta span{font-size:10px;color:var(--ink-3)}
+.gbar{height:2px;background:var(--cream-3);margin-top:5px}
+.gfill{height:2px;background:var(--ink)}
+.step-list{display:grid;gap:8px}
+.step{display:flex;gap:10px;align-items:flex-start}
+.snum{width:24px;height:24px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink);flex-shrink:0;margin-top:1px}
+.snum.urg{background:var(--red);border-color:var(--red);color:#fff}
+.stitle{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.sdesc{font-size:12px;color:var(--ink-2);line-height:1.55}
+.stag{display:inline-block;font-size:10px;padding:2px 8px;border:1px solid;margin-top:4px;font-weight:600}
+.t-now{border-color:var(--red);color:var(--red)}
+.t-week{border-color:var(--amber);color:var(--amber)}
+.t-month{border-color:var(--green);color:var(--green)}
+.advice-txt{font-size:13px;color:var(--ink-2);line-height:1.75;white-space:pre-line}
+.act-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn-ink{padding:10px 20px;background:var(--ink);color:var(--cream);border:none;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.btn-ink:hover{background:var(--red)}
+.btn-out{padding:10px 16px;background:transparent;border:1px solid var(--rule-heavy);font-size:13px;color:var(--ink-2);cursor:pointer}
+.btn-out:hover{border-color:var(--red);color:var(--red)}
+.ld{font-size:12px;color:var(--ink-3);font-style:italic}
+.sources{border-bottom:1px solid var(--rule);padding:12px 0}
+.src-inner{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.src-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.src-item{font-size:12px;font-weight:600;color:var(--ink-2)}
+.how-section{border-bottom:2px solid var(--ink);padding:32px 0}
+.sec-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:16px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.col{padding:0 28px 0 0;border-right:1px solid var(--rule)}
+.col:last-child{border-right:none;padding-right:0;padding-left:28px}
+.col:not(:first-child){padding-left:28px;padding-right:28px}
+.col-n{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;line-height:.85;letter-spacing:-.05em;color:var(--cream-3);margin-bottom:14px}
+.col h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px;line-height:1.15}
+.col p{font-size:13px;color:var(--ink-2);line-height:1.65}
+.why-section{border-bottom:2px solid var(--ink);padding:32px 0}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.wi{padding:0 24px 0 0;border-right:1px solid var(--rule)}
+.wi:last-child{border-right:none;padding-right:0;padding-left:24px}
+.wi:not(:first-child){padding-left:24px}
+.wi-letter{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;font-style:italic;color:var(--cream-3);line-height:1;margin-bottom:10px}
+.wi h3{font-size:14px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.wi p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.cta-section{padding:48px 0 56px;border-bottom:2px solid var(--ink)}
+.cta-box{background:var(--ink);color:var(--cream);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cta-hed{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,52px);font-weight:900;letter-spacing:-.04em;line-height:1.02;margin-bottom:14px}
+.cta-hed em{font-style:italic;color:var(--red)}
+.cta-deck{font-size:14px;color:rgba(242,239,230,.6);line-height:1.68}
+.form input,.form textarea{display:block;width:100%;border:none;border-bottom:1px solid rgba(242,239,230,.2);background:transparent;color:var(--cream);padding:12px 0;font-size:14px;margin-bottom:10px;outline:none;transition:.15s}
+.form input:focus,.form textarea:focus{border-bottom-color:var(--red)}
+.form input::placeholder,.form textarea::placeholder{color:rgba(242,239,230,.35)}
+.form textarea{min-height:72px;resize:vertical}
+.form-btn{width:100%;background:var(--cream);color:var(--ink);border:none;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;transition:.15s}
+.form-btn:hover{background:var(--red);color:var(--cream)}
+.form-note{font-size:11px;color:rgba(242,239,230,.35);text-align:center;margin-top:8px}
+.footer{padding:18px 0 30px;border-top:3px solid var(--ink)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.03em}
+.footer-logo span{color:var(--red)}
+.footer-copy{font-size:12px;color:var(--ink-3)}
+.footer-links{display:flex;gap:18px}
+.footer-links a{font-size:12px;color:var(--ink-3)}
+.footer-links a:hover{color:var(--red)}
+@media(max-width:900px){
+  .hero-grid,.cta-box{grid-template-columns:1fr}
+  .hero-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:28px}
+  .inn-panel{padding-left:0;padding-top:24px}
+  .three-col,.why-grid{grid-template-columns:1fr 1fr}
+  .col,.col:not(:first-child),.col:last-child,.wi,.wi:not(:first-child),.wi:last-child{border-right:none;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .mast-top{display:none}
+  .cta-box{padding:28px}
+}
+@media(max-width:560px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .three-col,.why-grid{grid-template-columns:1fr}
+  .co-grid{grid-template-columns:1fr}
+  .inn-btn{min-width:90px;padding:0 12px;font-size:13px}
+}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="mast-top">
+    <span class="mast-date">Среда, 18 июня 2026 · Выпуск №001</span>
+    <span class="mast-tag">Платформа поиска финансирования для российского бизнеса</span>
+  </div>
+  <div class="mast-center">
+    <div class="logo">Грант<span>о</span>вик</div>
+    <div class="logo-sub">Российские гранты · субсидии · программы поддержки</div>
+  </div>
+  <nav class="nav-strip">
+    <a href="#how">Как работает</a>
+    <a href="#why">Почему Грантовик</a>
+    <a href="#access">Ранний доступ</a>
+    <a class="nav-cta" href="#inn-input">Ввести ИНН →</a>
+  </nav>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="kicker">Главное</div>
+        <h1 class="hero-title">Введите ИНН —<br>получите гранты<br>и <em>план действий</em></h1>
+        <p class="hero-deck">Грантовик подтягивает данные компании из реестра ФНС и за 30 секунд показывает подходящие программы поддержки, конкретные шаги и персональный совет.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-n">200+</div><div class="stat-l">программ в базе</div></div>
+          <div class="stat" style="padding-left:16px"><div class="stat-n">85</div><div class="stat-l">регионов России</div></div>
+          <div class="stat" style="padding-left:16px"><div class="stat-n">30 сек</div><div class="stat-l">до результата</div></div>
+        </div>
+      </div>
+      <div class="inn-panel" id="inn-input">
+        <div class="inn-eyebrow">Анализ компании по ИНН — бесплатно</div>
+        <div class="inn-input-row">
+          <input id="inn" type="text" placeholder="ИНН (10 или 12 цифр)" maxlength="12" inputmode="numeric" autocomplete="off"/>
+          <button class="inn-btn" id="go-btn" onclick="run()">Анализировать →</button>
+        </div>
+        <div class="inn-chips">
+          <span class="ic" onclick="go('7704407589')">Яндекс</span>
+          <span class="ic" onclick="go('7736050003')">Сбербанк</span>
+          <span class="ic" onclick="go('5010054180')">ИП (малый бизнес)</span>
+        </div>
+        <div class="inn-status" id="inn-status"></div>
+        <div class="result-wrap" id="result-wrap">
+          <div class="rblock">
+            <div class="rb-head">
+              <div class="rb-icon">Г</div>
+              <div><div class="rb-lbl">Реестр ФНС</div><div class="rb-title" id="r-name">—</div></div>
+              <span id="r-badge" style="margin-left:auto;font-size:11px;padding:3px 10px;font-weight:600"></span>
+            </div>
+            <div class="rb-body">
+              <div class="co-grid">
+                <div class="co-f"><div class="co-l">ИНН</div><div class="co-v"
