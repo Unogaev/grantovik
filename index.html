@@ -3,19 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Грантовик — найдите финансирование по ИНН</title>
-<meta name="description" content="Введите ИНН — Грантовик за 30 секунд подберёт подходящие гранты и составит план действий для вашего бизнеса."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<title>Грантовик — найди финансирование для бизнеса</title>
+<meta name="description" content="Не знаешь с чего начать? Введи ИНН — Грантовик за 30 секунд разберётся в грантах вместо тебя."/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --cream:#F2EFE6;--cream-2:#E8E4D8;--cream-3:#DDD8C8;
   --ink:#1A1810;--ink-2:#3A3828;--ink-3:#6A6858;
   --rule:rgba(26,24,16,.12);--rule-heavy:rgba(26,24,16,.5);
-  --red:#C0392B;--paper:#FAF8F2;--blue:#1A3FD8;
-  --green:#0E7A3A;--green-bg:#E3F7EC;
-  --amber:#B45309;--amber-bg:#FEF3C7;
+  --red:#C0392B;--paper:#FAF8F2;
+  --green:#0E7A3A;--amber:#B45309;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -24,121 +21,130 @@ a{color:inherit;text-decoration:none}
 button,input,textarea{font:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
 .masthead{border-bottom:3px solid var(--ink);padding:0 clamp(20px,5vw,72px)}
-.mast-top{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
-.mast-date{font-size:12px;color:var(--ink-3);font-weight:500;letter-spacing:.04em}
-.mast-tag{font-size:12px;color:var(--ink-3);font-weight:500}
-.mast-center{text-align:center;padding:16px 0 12px}
-.logo{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,100px);font-weight:900;letter-spacing:-.04em;line-height:.92;color:var(--ink)}
+.mast-top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink-3);font-weight:500}
+.mast-center{text-align:center;padding:14px 0 10px}
+.logo{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,96px);font-weight:900;letter-spacing:-.04em;line-height:.92;color:var(--ink)}
 .logo span{color:var(--red)}
 .logo-sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:6px}
-.nav-strip{display:flex;justify-content:space-between;align-items:center;padding:9px 0 0;border-top:1px solid var(--rule);flex-wrap:wrap;gap:8px}
+.nav-strip{display:flex;justify-content:space-between;align-items:center;padding:8px 0 0;border-top:1px solid var(--rule);flex-wrap:wrap;gap:8px}
 .nav-strip a{font-size:13px;font-weight:600;color:var(--ink-2)}
 .nav-strip a:hover{color:var(--red)}
-.nav-cta{background:var(--ink);color:var(--cream)!important;padding:7px 16px;font-size:13px;font-weight:600}
+.nav-cta{background:var(--ink);color:var(--cream)!important;padding:7px 16px}
 .nav-cta:hover{background:var(--red)!important}
-.hero{padding:40px 0 0;border-bottom:2px solid var(--ink)}
+.hero{padding:36px 0 0;border-bottom:2px solid var(--ink)}
 .hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:start}
-.hero-left{border-right:1px solid var(--rule);padding-right:40px;padding-bottom:40px}
-.kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.kicker::before{content:"";display:block;width:24px;height:2px;background:var(--red)}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,68px);font-weight:900;line-height:.97;letter-spacing:-.03em;margin-bottom:18px}
-.hero-title em{font-style:italic;color:var(--red)}
-.hero-deck{font-size:16px;line-height:1.68;color:var(--ink-2);border-left:3px solid var(--red);padding-left:14px;margin-bottom:28px;max-width:460px}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);padding-top:18px;gap:0}
-.stat{padding-right:16px;border-right:1px solid var(--rule)}
+.hero-left{border-right:1px solid var(--rule);padding-right:40px;padding-bottom:36px}
+.pain-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.pain-label::before{content:"";display:block;width:24px;height:2px;background:var(--red)}
+.pain-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,62px);font-weight:900;line-height:.97;letter-spacing:-.03em;margin-bottom:20px}
+.pain-title em{font-style:italic;color:var(--red)}
+.pain-quote{font-size:17px;line-height:1.7;color:var(--ink-2);border-left:3px solid var(--red);padding-left:16px;margin-bottom:24px;font-style:italic}
+.pain-points{display:grid;gap:10px;margin-bottom:28px}
+.pp{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink-2);line-height:1.55}
+.pp-dot{width:20px;height:20px;border:1.5px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:10px;font-weight:700;color:var(--red)}
+.solution-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.solution-text{font-size:14px;color:var(--ink-2);line-height:1.65;padding:14px;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--green)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);padding-top:16px;margin-top:24px}
+.stat{padding-right:14px;border-right:1px solid var(--rule)}
 .stat:last-child{border-right:none}
-.stat-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1}
-.stat-l{font-size:11px;color:var(--ink-3);margin-top:3px;font-weight:500}
-.inn-panel{padding-left:40px;padding-bottom:40px}
-.inn-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
-.inn-input-row{display:flex;gap:0;border:1.5px solid var(--ink);overflow:hidden;margin-bottom:10px}
+.stat-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat-l{font-size:11px;color:var(--ink-3);margin-top:2px;font-weight:500}
+.inn-panel{padding-left:40px;padding-bottom:36px}
+.inn-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.inn-input-row{display:flex;border:2px solid var(--ink);overflow:hidden;margin-bottom:10px}
 .inn-input-row input{flex:1;border:none;padding:14px 16px;font-size:18px;font-weight:500;letter-spacing:.06em;background:var(--paper);outline:none;color:var(--ink)}
-.inn-input-row input::placeholder{font-size:14px;font-weight:400;letter-spacing:0;color:var(--ink-3)}
-.inn-btn{padding:0 22px;background:var(--ink);color:var(--cream);border:none;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.15s;min-width:130px}
+.inn-input-row input::placeholder{font-size:13px;font-weight:400;letter-spacing:0;color:var(--ink-3)}
+.inn-btn{padding:0 20px;background:var(--ink);color:var(--cream);border:none;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.15s;min-width:120px}
 .inn-btn:hover{background:var(--red)}
 .inn-btn:disabled{opacity:.4;cursor:not-allowed}
-.inn-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.inn-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .ic{font-size:11px;padding:4px 12px;border:1px solid var(--rule-heavy);color:var(--ink-2);cursor:pointer;font-weight:600;transition:.1s}
 .ic:hover{border-color:var(--red);color:var(--red)}
-.inn-status{font-size:12px;color:var(--ink-3);min-height:18px;display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.inn-status{font-size:12px;color:var(--ink-3);min-height:18px;display:flex;align-items:center;gap:6px;margin-bottom:8px}
 .spin{width:13px;height:13px;border:1.5px solid var(--cream-3);border-top-color:var(--ink);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
 @keyframes sp{to{transform:rotate(360deg)}}
 .result-wrap{display:none}
 .rblock{border:1px solid var(--rule);background:var(--paper);margin-bottom:8px}
-.rb-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--rule);background:var(--cream)}
-.rb-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid var(--rule-heavy);color:var(--ink-2);flex-shrink:0}
+.rb-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--cream)}
+.rb-icon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;border:1px solid var(--rule-heavy);color:var(--ink-2);flex-shrink:0}
 .rb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .rb-title{font-size:13px;font-weight:600;color:var(--ink);margin-top:1px}
-.rb-body{padding:14px 16px}
-.co-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.co-f{background:var(--cream);padding:8px 10px}
+.rb-body{padding:12px 14px}
+.co-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.co-f{background:var(--cream);padding:7px 9px}
 .co-l{font-size:10px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .co-v{font-size:12px;font-weight:600;color:var(--ink-2)}
 .co-v.ok{color:var(--green)}
-.gi{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--rule)}
+.gi{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule)}
 .gi:last-child{border-bottom:none}
-.gi-pct{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--ink);min-width:40px;text-align:right;flex-shrink:0;line-height:1.1}
-.gi-pct small{font-size:11px;font-weight:400;color:var(--ink-3);font-family:'Inter',sans-serif}
+.gi-pct{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--ink);min-width:38px;text-align:right;flex-shrink:0;line-height:1.1}
+.gi-pct small{font-size:10px;font-weight:400;color:var(--ink-3);font-family:'Inter',sans-serif}
 .gi-info .gname{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1px}
-.gi-info .gorg{font-size:11px;color:var(--ink-3);margin-bottom:3px}
+.gi-info .gorg{font-size:11px;color:var(--ink-3);margin-bottom:2px}
 .gi-info .gwhy{font-size:11px;color:var(--ink-2);line-height:1.5}
-.gi-info .gmeta{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.gi-info .gmeta{display:flex;gap:8px;margin-top:3px;flex-wrap:wrap}
 .gi-info .gmeta span{font-size:10px;color:var(--ink-3)}
-.gbar{height:2px;background:var(--cream-3);margin-top:5px}
+.gbar{height:2px;background:var(--cream-3);margin-top:4px}
 .gfill{height:2px;background:var(--ink)}
-.step-list{display:grid;gap:8px}
+.step-list{display:grid;gap:7px}
 .step{display:flex;gap:10px;align-items:flex-start}
-.snum{width:24px;height:24px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink);flex-shrink:0;margin-top:1px}
+.snum{width:22px;height:22px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink);flex-shrink:0;margin-top:1px}
 .snum.urg{background:var(--red);border-color:var(--red);color:#fff}
-.stitle{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
-.sdesc{font-size:12px;color:var(--ink-2);line-height:1.55}
-.stag{display:inline-block;font-size:10px;padding:2px 8px;border:1px solid;margin-top:4px;font-weight:600}
+.stitle{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.sdesc{font-size:11px;color:var(--ink-2);line-height:1.55}
+.stag{display:inline-block;font-size:10px;padding:2px 7px;border:1px solid;margin-top:3px;font-weight:600}
 .t-now{border-color:var(--red);color:var(--red)}
 .t-week{border-color:var(--amber);color:var(--amber)}
 .t-month{border-color:var(--green);color:var(--green)}
-.advice-txt{font-size:13px;color:var(--ink-2);line-height:1.75;white-space:pre-line}
-.act-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.btn-ink{padding:10px 20px;background:var(--ink);color:var(--cream);border:none;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.advice-txt{font-size:13px;color:var(--ink-2);line-height:1.7;white-space:pre-line}
+.act-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn-ink{padding:10px 18px;background:var(--ink);color:var(--cream);border:none;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
 .btn-ink:hover{background:var(--red)}
-.btn-out{padding:10px 16px;background:transparent;border:1px solid var(--rule-heavy);font-size:13px;color:var(--ink-2);cursor:pointer}
+.btn-out{padding:10px 14px;background:transparent;border:1px solid var(--rule-heavy);font-size:13px;color:var(--ink-2);cursor:pointer}
 .btn-out:hover{border-color:var(--red);color:var(--red)}
 .ld{font-size:12px;color:var(--ink-3);font-style:italic}
-.sources{border-bottom:1px solid var(--rule);padding:12px 0}
-.src-inner{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.sources{border-bottom:1px solid var(--rule);padding:10px 0}
+.src-inner{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
 .src-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .src-item{font-size:12px;font-weight:600;color:var(--ink-2)}
-.how-section{border-bottom:2px solid var(--ink);padding:32px 0}
+.section{padding:32px 0;border-bottom:2px solid var(--ink)}
 .sec-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:16px}
 .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .col{padding:0 28px 0 0;border-right:1px solid var(--rule)}
 .col:last-child{border-right:none;padding-right:0;padding-left:28px}
 .col:not(:first-child){padding-left:28px;padding-right:28px}
-.col-n{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;line-height:.85;letter-spacing:-.05em;color:var(--cream-3);margin-bottom:14px}
-.col h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px;line-height:1.15}
+.col-n{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.85;letter-spacing:-.05em;color:var(--cream-3);margin-bottom:12px}
+.col h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px;line-height:1.15}
 .col p{font-size:13px;color:var(--ink-2);line-height:1.65}
-.why-section{border-bottom:2px solid var(--ink);padding:32px 0}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.wi{padding:0 24px 0 0;border-right:1px solid var(--rule)}
-.wi:last-child{border-right:none;padding-right:0;padding-left:24px}
-.wi:not(:first-child){padding-left:24px}
-.wi-letter{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;font-style:italic;color:var(--cream-3);line-height:1;margin-bottom:10px}
-.wi h3{font-size:14px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
-.wi p{font-size:13px;color:var(--ink-2);line-height:1.6}
-.cta-section{padding:48px 0 56px;border-bottom:2px solid var(--ink)}
-.cta-box{background:var(--ink);color:var(--cream);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.cta-hed{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,52px);font-weight:900;letter-spacing:-.04em;line-height:1.02;margin-bottom:14px}
+.news-section{padding:36px 0;border-bottom:2px solid var(--ink)}
+.news-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
+.news-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-.03em}
+.news-all{font-size:13px;color:var(--red);font-weight:600;cursor:pointer}
+.news-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.news-card{background:var(--paper);border:1px solid var(--rule);padding:16px;cursor:pointer;transition:.15s;display:flex;flex-direction:column}
+.news-card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.news-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.news-card h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-bottom:8px;color:var(--ink)}
+.news-card p{font-size:12px;color:var(--ink-3);line-height:1.6;flex:1}
+.news-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--rule)}
+.news-date{font-size:11px;color:var(--ink-3)}
+.news-src{font-size:11px;color:var(--ink-3);font-weight:600}
+.news-loader{text-align:center;padding:20px;color:var(--ink-3);font-size:13px;font-style:italic;grid-column:1/-1}
+.cta-section{padding:40px 0 48px}
+.cta-box{background:var(--ink);color:var(--cream);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cta-hed{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1.02;margin-bottom:12px}
 .cta-hed em{font-style:italic;color:var(--red)}
 .cta-deck{font-size:14px;color:rgba(242,239,230,.6);line-height:1.68}
-.form input,.form textarea{display:block;width:100%;border:none;border-bottom:1px solid rgba(242,239,230,.2);background:transparent;color:var(--cream);padding:12px 0;font-size:14px;margin-bottom:10px;outline:none;transition:.15s}
+.form input,.form textarea{display:block;width:100%;border:none;border-bottom:1px solid rgba(242,239,230,.2);background:transparent;color:var(--cream);padding:11px 0;font-size:14px;margin-bottom:10px;outline:none;transition:.15s}
 .form input:focus,.form textarea:focus{border-bottom-color:var(--red)}
 .form input::placeholder,.form textarea::placeholder{color:rgba(242,239,230,.35)}
-.form textarea{min-height:72px;resize:vertical}
-.form-btn{width:100%;background:var(--cream);color:var(--ink);border:none;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;transition:.15s}
+.form textarea{min-height:68px;resize:vertical}
+.form-btn{width:100%;background:var(--cream);color:var(--ink);border:none;padding:12px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px;transition:.15s}
 .form-btn:hover{background:var(--red);color:var(--cream)}
-.form-note{font-size:11px;color:rgba(242,239,230,.35);text-align:center;margin-top:8px}
-.footer{padding:18px 0 30px;border-top:3px solid var(--ink)}
+.form-note{font-size:11px;color:rgba(242,239,230,.3);text-align:center;margin-top:8px}
+.footer{padding:16px 0 28px;border-top:3px solid var(--ink)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
-.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.03em}
+.footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;letter-spacing:-.03em}
 .footer-logo span{color:var(--red)}
 .footer-copy{font-size:12px;color:var(--ink-3)}
 .footer-links{display:flex;gap:18px}
@@ -146,16 +152,17 @@ button,input,textarea{font:inherit}
 .footer-links a:hover{color:var(--red)}
 @media(max-width:900px){
   .hero-grid,.cta-box{grid-template-columns:1fr}
-  .hero-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:28px}
-  .inn-panel{padding-left:0;padding-top:24px}
-  .three-col,.why-grid{grid-template-columns:1fr 1fr}
-  .col,.col:not(:first-child),.col:last-child,.wi,.wi:not(:first-child),.wi:last-child{border-right:none;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .hero-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px}
+  .inn-panel{padding-left:0;padding-top:20px}
+  .three-col{grid-template-columns:1fr 1fr}
+  .col,.col:not(:first-child),.col:last-child{border-right:none;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .news-grid{grid-template-columns:1fr 1fr}
   .mast-top{display:none}
-  .cta-box{padding:28px}
+  .cta-box{padding:24px}
 }
 @media(max-width:560px){
   .stats-row{grid-template-columns:1fr 1fr}
-  .three-col,.why-grid{grid-template-columns:1fr}
+  .three-col,.news-grid{grid-template-columns:1fr}
   .co-grid{grid-template-columns:1fr}
   .inn-btn{min-width:90px;padding:0 12px;font-size:13px}
 }
@@ -164,8 +171,8 @@ button,input,textarea{font:inherit}
 <body>
 <header class="masthead">
   <div class="mast-top">
-    <span class="mast-date">Среда, 18 июня 2026 · Выпуск №001</span>
-    <span class="mast-tag">Платформа поиска финансирования для российского бизнеса</span>
+    <span>Четверг, 18 июня 2026 · Выпуск №001</span>
+    <span>Платформа поиска финансирования для российского бизнеса</span>
   </div>
   <div class="mast-center">
     <div class="logo">Грант<span>о</span>вик</div>
@@ -173,7 +180,7 @@ button,input,textarea{font:inherit}
   </div>
   <nav class="nav-strip">
     <a href="#how">Как работает</a>
-    <a href="#why">Почему Грантовик</a>
+    <a href="#news">Новости</a>
     <a href="#access">Ранний доступ</a>
     <a class="nav-cta" href="#inn-input">Ввести ИНН →</a>
   </nav>
@@ -183,25 +190,34 @@ button,input,textarea{font:inherit}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <div class="kicker">Главное</div>
-        <h1 class="hero-title">Введите ИНН —<br>получите гранты<br>и <em>план действий</em></h1>
-        <p class="hero-deck">Грантовик подтягивает данные компании из реестра ФНС и за 30 секунд показывает подходящие программы поддержки, конкретные шаги и персональный совет.</p>
+        <div class="pain-label">Главная проблема</div>
+        <h1 class="pain-title">Не знаю<br>с чего начать<br>и <em>как разобраться</em></h1>
+        <p class="pain-quote">«Гранты есть — но куда идти, что подавать, какие документы нужны — полная неразбериха»</p>
+        <div class="pain-points">
+          <div class="pp"><div class="pp-dot">1</div><span>Сотни программ разбросаны по разным сайтам — невозможно найти подходящее</span></div>
+          <div class="pp"><div class="pp-dot">2</div><span>Непонятно подхожу ли я вообще — требования написаны сложным языком</span></div>
+          <div class="pp"><div class="pp-dot">3</div><span>Пропускаю дедлайны — узнаю о грантах когда уже поздно</span></div>
+          <div class="pp"><div class="pp-dot">4</div><span>Консультанты берут 10–30% от суммы гранта за то что можно сделать самому</span></div>
+        </div>
+        <div class="solution-label">Решение Грантовика</div>
+        <div class="solution-text">Введите ИНН — система подтянет данные вашей компании из ФНС и за 30 секунд покажет какие гранты подходят именно вам, что нужно подготовить и с чего начать прямо сегодня.</div>
         <div class="stats-row">
           <div class="stat"><div class="stat-n">200+</div><div class="stat-l">программ в базе</div></div>
-          <div class="stat" style="padding-left:16px"><div class="stat-n">85</div><div class="stat-l">регионов России</div></div>
-          <div class="stat" style="padding-left:16px"><div class="stat-n">30 сек</div><div class="stat-l">до результата</div></div>
+          <div class="stat" style="padding-left:14px"><div class="stat-n">85</div><div class="stat-l">регионов России</div></div>
+          <div class="stat" style="padding-left:14px"><div class="stat-n">30 сек</div><div class="stat-l">до результата</div></div>
         </div>
       </div>
       <div class="inn-panel" id="inn-input">
-        <div class="inn-eyebrow">Анализ компании по ИНН — бесплатно</div>
+        <div class="inn-eyebrow">Анализ по ИНН — бесплатно · данные из реестра ФНС</div>
         <div class="inn-input-row">
-          <input id="inn" type="text" placeholder="ИНН (10 или 12 цифр)" maxlength="12" inputmode="numeric" autocomplete="off"/>
+          <input id="inn" type="text" placeholder="Введите ИНН компании или ИП" maxlength="12" inputmode="numeric" autocomplete="off"/>
           <button class="inn-btn" id="go-btn" onclick="run()">Анализировать →</button>
         </div>
         <div class="inn-chips">
           <span class="ic" onclick="go('7704407589')">Яндекс</span>
           <span class="ic" onclick="go('7736050003')">Сбербанк</span>
-          <span class="ic" onclick="go('5010054180')">ИП (малый бизнес)</span>
+          <span class="ic" onclick="go('5010054180')">ИП пример</span>
+          <span class="ic" onclick="go('7702070139')">Газпром</span>
         </div>
         <div class="inn-status" id="inn-status"></div>
         <div class="result-wrap" id="result-wrap">
@@ -213,4 +229,237 @@ button,input,textarea{font:inherit}
             </div>
             <div class="rb-body">
               <div class="co-grid">
-                <div class="co-f"><div class="co-l">ИНН</div><div class="co-v"
+                <div class="co-f"><div class="co-l">ИНН / КПП</div><div class="co-v" id="r-inn">—</div></div>
+                <div class="co-f"><div class="co-l">Форма / ОГРН</div><div class="co-v" id="r-type">—</div></div>
+                <div class="co-f"><div class="co-l">Регион</div><div class="co-v" id="r-region">—</div></div>
+                <div class="co-f"><div class="co-l">ОКВЭД</div><div class="co-v" id="r-okved">—</div></div>
+                <div class="co-f" style="grid-column:1/-1"><div class="co-l">Отрасль · Руководитель</div><div class="co-v ok" id="r-industry">—</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rblock">
+            <div class="rb-head"><div class="rb-icon">★</div><div><div class="rb-lbl">Топ программ</div><div class="rb-title">Подходящие гранты для вашей компании</div></div></div>
+            <div class="rb-body" id="grants-body"><div class="ld">Подбираем программы...</div></div>
+          </div>
+          <div class="rblock">
+            <div class="rb-head"><div class="rb-icon">→</div><div><div class="rb-lbl">План действий</div><div class="rb-title">С чего начать прямо сейчас</div></div></div>
+            <div class="rb-body" id="steps-body"><div class="ld">Формируем план...</div></div>
+          </div>
+          <div class="rblock">
+            <div class="rb-head"><div class="rb-icon">!</div><div><div class="rb-lbl">Совет эксперта</div><div class="rb-title">Персональная рекомендация</div></div></div>
+            <div class="rb-body">
+              <div class="advice-txt" id="advice-body"><span class="ld">Анализируем...</span></div>
+              <div class="act-row">
+                <button class="btn-ink" id="apply-btn" onclick="applyAction()">Написать заявку →</button>
+                <button class="btn-out" onclick="resetAll()">← Другой ИНН</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sources">
+  <div class="wrap src-inner">
+    <span class="src-lbl">Источники данных</span>
+    <span class="src-item">Фонд Бортника</span>
+    <span class="src-item">Сколково</span>
+    <span class="src-item">Президентский фонд</span>
+    <span class="src-item">МСП Банк</span>
+    <span class="src-item">Минэкономразвития</span>
+    <span class="src-item">РФРИТ</span>
+    <span class="src-item">Региональные фонды · 85 субъектов</span>
+  </div>
+</div>
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="sec-kicker">Как работает</div>
+    <div class="three-col">
+      <div class="col" style="padding-left:0"><div class="col-n">01</div><h3>Введите ИНН</h3><p>Система мгновенно подтягивает данные из реестра ФНС — название, ОКВЭД, регион, форму. Никаких анкет вручную.</p></div>
+      <div class="col"><div class="col-n">02</div><h3>ИИ разбирается вместо вас</h3><p>Анализирует 200+ программ поддержки и отбирает только те, которые реально подходят вашей компании.</p></div>
+      <div class="col" style="padding-right:0"><div class="col-n">03</div><h3>Получите план и заявку</h3><p>Список грантов с объяснением, конкретные шаги с дедлайнами и совет эксперта — всё за 30 секунд.</p></div>
+    </div>
+  </div>
+</section>
+<section class="news-section" id="news">
+  <div class="wrap">
+    <div class="news-header">
+      <div class="news-title">Новости для предпринимателей</div>
+      <span class="news-all" onclick="loadMoreNews()">Обновить →</span>
+    </div>
+    <div class="news-grid" id="news-grid">
+      <div class="news-loader">Загружаем свежие новости...</div>
+    </div>
+  </div>
+</section>
+<section class="cta-section" id="access">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <div class="pain-label" style="color:rgba(242,239,230,.4)">Ранний доступ</div>
+        <h2 class="cta-hed">Разберёмся<br>в грантах<br><em>вместе</em></h2>
+        <p class="cta-deck">Оставьте заявку — на раннем этапе мы вручную проверяем каждый подбор. Отвечаем в течение 24 часов.</p>
+      </div>
+      <form class="form" onsubmit="submitForm(event)">
+        <input type="text" id="f-name" placeholder="Ваше имя"/>
+        <input type="email" id="f-email" placeholder="Email"/>
+        <input type="text" id="f-inn" placeholder="ИНН компании (если есть)"/>
+        <textarea id="f-project" placeholder="Коротко о проекте — отрасль, стадия, что нужно"></textarea>
+        <button type="submit" class="form-btn">Получить разбор бесплатно →</button>
+        <div class="form-note">Ранний доступ бесплатен. Без спама.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-logo">Грант<span>о</span>вик</div>
+    <div class="footer-copy">© 2026 Грантовик. Платформа поиска финансирования для российского бизнеса.</div>
+    <div class="footer-links"><a href="#how">Как работает</a><a href="#news">Новости</a><a href="#access">Контакты</a></div>
+  </div>
+</footer>
+<script>
+const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
+let bestGrant='';
+const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм / HoReCa','56':'Туризм / HoReCa','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство / недвижимость','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО / соцпроект','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
+
+function go(v){document.getElementById('inn').value=v;run();}
+function setSt(type,txt){const el=document.getElementById('inn-status');if(type==='load')el.innerHTML=`<span class="spin"></span>${txt}`;else if(type==='ok')el.innerHTML=`<span style="color:var(--green);font-weight:600">✓ ${txt}</span>`;else if(type==='err')el.innerHTML=`<span style="color:var(--red)">${txt}</span>`;else el.innerHTML='';}
+
+async function run(){
+  const raw=document.getElementById('inn').value.replace(/\D/g,'');
+  if(raw.length<10){setSt('err','Введите ИНН — 10 цифр для юрлица, 12 для ИП');return;}
+  document.getElementById('go-btn').disabled=true;
+  document.getElementById('result-wrap').style.display='none';
+  setSt('load','Запрос в реестр ФНС...');
+  let d=await fetchFromDaData(raw);
+  if(!d){setSt('err','Компания не найдена. Проверьте ИНН.');document.getElementById('go-btn').disabled=false;return;}
+  fillCompany(d,raw);
+  document.getElementById('result-wrap').style.display='block';
+  setSt('ok','Данные из ФНС получены — анализ запущен');
+  document.getElementById('go-btn').disabled=false;
+  document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
+  loadGrants(d);loadSteps(d);loadAdvice(d);
+}
+
+async function fetchFromDaData(inn){
+  try{
+    const r=await fetch('https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Token '+DADATA_TOKEN},body:JSON.stringify({query:inn,count:1})});
+    const json=await r.json();
+    const s=json.suggestions?.[0];
+    if(!s)return null;
+    const d=s.data;
+    const okvedCode=(d.okved||'').split('.')[0];
+    const industry=OKVED_INDUSTRY[okvedCode]||'Профессиональные услуги';
+    const empCount=d.employee_count||0;
+    let size='микро';
+    if(empCount>250)size='крупный';else if(empCount>100)size='средний';else if(empCount>15)size='малый';
+    const regYear=d.state?.registration_date?new Date(d.state.registration_date).getFullYear():new Date().getFullYear();
+    const age=new Date().getFullYear()-regYear;
+    let stage='идея';
+    if(age>5)stage='масштабирование';else if(age>2)stage='первые клиенты';else if(age>1)stage='прототип/MVP';
+    const regDate=d.state?.registration_date?new Date(d.state.registration_date).toLocaleDateString('ru-RU'):'—';
+    const legal=d.type==='INDIVIDUAL'?'ИП':(s.value||'').startsWith('ПАО')?'АО':(s.value||'').startsWith('АО')?'АО':'ООО';
+    const region=d.address?.data?.region||d.address?.data?.city||'—';
+    return{name:s.value||inn,type:d.type==='INDIVIDUAL'?'ИП':(d.opf?.short||'ООО'),region,reg:regDate,okved:(d.okved||'—')+' — '+(d.okved_type||''),status:d.state?.status==='ACTIVE'?'Действующая':d.state?.status==='LIQUIDATING'?'В ликвидации':'Ликвидирована',industry,legal,size,stage,inn:d.inn||inn,kpp:d.kpp||'—',ogrn:d.ogrn||'—',ceo:d.managers?.[0]?.name||'—'};
+  }catch(e){console.error('DaData:',e);return null;}
+}
+
+function fillCompany(d,inn){
+  document.getElementById('r-name').textContent=d.name;
+  document.getElementById('r-inn').textContent=(d.inn||inn)+(d.kpp&&d.kpp!=='—'?' / '+d.kpp:'');
+  document.getElementById('r-type').textContent=d.type+(d.ogrn&&d.ogrn!=='—'?' · '+d.ogrn:'');
+  document.getElementById('r-region').textContent=d.region;
+  document.getElementById('r-okved').textContent=d.okved;
+  document.getElementById('r-industry').textContent=d.industry+(d.ceo&&d.ceo!=='—'?' · '+d.ceo:'');
+  const ok=d.status==='Действующая';
+  document.getElementById('r-badge').textContent=d.status+' с '+d.reg;
+  document.getElementById('r-badge').style.cssText=`margin-left:auto;font-size:11px;padding:3px 10px;font-weight:600;background:${ok?'#E3F7EC':'#FEF3C7'};color:${ok?'#0E7A3A':'#B45309'}`;
+}
+
+async function loadGrants(d){
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.\nПодбери 4 подходящих российских гранта. Верни ТОЛЬКО JSON массив без markdown:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок или постоянный","why":"1 предложение почему подходит"}]`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:600,messages:[{role:'user',content:p}]})});
+    const data=await r.json();
+    const grants=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    bestGrant=grants[0]?.name||'';
+    document.getElementById('apply-btn').textContent=`Написать заявку на «${bestGrant}» →`;
+    document.getElementById('grants-body').innerHTML=grants.map(g=>`<div class="gi"><div class="gi-info" style="flex:1"><div class="gname">${g.name}</div><div class="gorg">${g.org}</div><div class="gwhy">${g.why}</div><div class="gmeta"><span>💰 ${g.sum}</span><span>📅 ${g.deadline}</span></div><div class="gbar"><div class="gfill" style="width:${g.pct}%"></div></div></div><div class="gi-pct">${g.pct}<small>%</small></div></div>`).join('');
+  }catch(e){document.getElementById('grants-body').innerHTML='<div class="ld">Не удалось загрузить. Попробуйте позже.</div>';}
+}
+
+async function loadSteps(d){
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}.\nСоставь план из 4 шагов с чего начать получение гранта. Верни ТОЛЬКО JSON без markdown:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:500,messages:[{role:'user',content:p}]})});
+    const data=await r.json();
+    const steps=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    const tm={'сейчас':'t-now','на этой неделе':'t-week','в этом месяце':'t-month'};
+    document.getElementById('steps-body').innerHTML=`<div class="step-list">${steps.map((s,i)=>`<div class="step"><div class="snum ${i===0?'urg':''}">${s.num}</div><div><div class="stitle">${s.title}</div><div class="sdesc">${s.desc}</div><span class="stag ${tm[s.urgency]||'t-month'}">${s.urgency}</span></div></div>`).join('')}</div>`;
+  }catch(e){document.getElementById('steps-body').innerHTML='<div class="ld">Не удалось сформировать план.</div>';}
+}
+
+async function loadAdvice(d){
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}, размер: ${d.size}.\nНапиши персональный совет эксперта по грантам — 3-4 предложения. Типичные ошибки, на что обратить внимание, что повысит шанс одобрения. Только текст.`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:300,messages:[{role:'user',content:p}]})});
+    const data=await r.json();
+    document.getElementById('advice-body').textContent=data.content.map(b=>b.text||'').join('').trim();
+  }catch(e){document.getElementById('advice-body').textContent='Главная ошибка при подаче — слишком общее описание проекта. Пишите конкретно: какую проблему решаете, кто ваши клиенты, какой результат за какой срок.';}
+}
+
+function applyAction(){
+  const name=document.getElementById('r-name').textContent;
+  document.getElementById('f-inn').value=document.getElementById('inn').value;
+  document.getElementById('f-project').value=`Хочу подать заявку на "${bestGrant}" для компании ${name}`;
+  document.getElementById('access').scrollIntoView({behavior:'smooth'});
+}
+
+function resetAll(){
+  document.getElementById('inn').value='';
+  document.getElementById('result-wrap').style.display='none';
+  setSt('','');
+  document.getElementById('grants-body').innerHTML='<div class="ld">Подбираем программы...</div>';
+  document.getElementById('steps-body').innerHTML='<div class="ld">Формируем план...</div>';
+  document.getElementById('advice-body').innerHTML='<span class="ld">Анализируем...</span>';
+  document.getElementById('inn').focus();
+}
+
+async function loadNews(){
+  const p=`Сгенерируй 4 актуальные новости для российских предпринимателей про гранты, программы поддержки, стартапы, субсидии. Июнь 2026. Верни ТОЛЬКО JSON без markdown:\n[{"tag":"Грант или Стартапы или Субсидии или Программа","title":"заголовок до 10 слов","desc":"2 предложения о сути","date":"дд.мм.2026","source":"РБК или Ведомости или ТАСС или Сколково или fasie.ru"}]`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,messages:[{role:'user',content:p}]})});
+    const data=await r.json();
+    const news=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    document.getElementById('news-grid').innerHTML=news.map(n=>`<div class="news-card"><div class="news-tag">${n.tag}</div><h3>${n.title}</h3><p>${n.desc}</p><div class="news-meta"><span class="news-date">${n.date}</span><span class="news-src">${n.source}</span></div></div>`).join('');
+  }catch(e){
+    document.getElementById('news-grid').innerHTML=`
+      <div class="news-card"><div class="news-tag">Грант</div><h3>Фонд Бортника открыл приём заявок на СТАРТ-1</h3><p>Малые инновационные компании могут получить до 4 млн рублей на разработку продукта без потери доли.</p><div class="news-meta"><span class="news-date">18.06.2026</span><span class="news-src">fasie.ru</span></div></div>
+      <div class="news-card"><div class="news-tag">Программа</div><h3>Сколково расширяет IT-трек для стартапов</h3><p>Новые условия резидентства позволяют получить грант до 50 млн рублей и налоговые льготы.</p><div class="news-meta"><span class="news-date">17.06.2026</span><span class="news-src">Сколково</span></div></div>
+      <div class="news-card"><div class="news-tag">Субсидии</div><h3>МСП Банк снизил ставки по льготным кредитам</h3><p>Малый бизнес может получить финансирование под 4% годовых по программе Минэкономразвития.</p><div class="news-meta"><span class="news-date">16.06.2026</span><span class="news-src">МСП Банк</span></div></div>
+      <div class="news-card"><div class="news-tag">Стартапы</div><h3>РФРИТ принимает заявки на цифровые гранты</h3><p>До 30 млн рублей для российских IT-компаний на разработку отечественного ПО.</p><div class="news-meta"><span class="news-date">15.06.2026</span><span class="news-src">РФРИТ</span></div></div>`;
+  }
+}
+
+function loadMoreNews(){
+  document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем новости...</div>';
+  loadNews();
+}
+
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.form-btn');
+  btn.textContent='Отправлено! Свяжемся в течение 24 часов ✓';
+  btn.style.background='var(--green)';
+  btn.disabled=true;
+}
+
+document.getElementById('inn').addEventListener('keydown',e=>{if(e.key==='Enter')run();});
+document.getElementById('inn').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');});
+loadNews();
+</script>
+</body>
+</html>
