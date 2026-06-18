@@ -63,6 +63,25 @@ button,input,textarea{font:inherit}
 .inn-status{font-size:12px;color:var(--ink-3);min-height:18px;display:flex;align-items:center;gap:6px;margin-bottom:8px}
 .spin{width:13px;height:13px;border:1.5px solid var(--cream-3);border-top-color:var(--ink);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
 @keyframes sp{to{transform:rotate(360deg)}}
+.stories-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+.stories-wrap{position:relative;margin-bottom:12px}
+.story-card{display:none;background:var(--paper);border:1px solid var(--rule);padding:18px;border-left:3px solid var(--red)}
+.story-card.active{display:block}
+.story-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.story-quote{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;line-height:1.55;color:var(--ink);margin-bottom:16px}
+.story-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.story-person{display:flex;align-items:center;gap:10px}
+.story-avatar{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.story-name{font-size:13px;font-weight:600;color:var(--ink)}
+.story-biz{font-size:11px;color:var(--ink-3)}
+.story-grant{text-align:right;flex-shrink:0}
+.story-grant-sum{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--green);line-height:1}
+.story-grant-name{font-size:11px;color:var(--ink-3);margin-top:2px}
+.story-dots{display:flex;gap:6px;margin-bottom:12px}
+.sdot{width:20px;height:3px;background:var(--cream-3);cursor:pointer;transition:.15s}
+.sdot.active{background:var(--ink)}
+.story-footer{font-size:11px;color:var(--ink-3);line-height:1.6;padding:10px 0;border-top:1px solid var(--rule)}
+.story-footer b{color:var(--ink)}
 .result-wrap{display:none}
 .rblock{border:1px solid var(--rule);background:var(--paper);margin-bottom:8px}
 .rb-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--cream)}
@@ -220,6 +239,50 @@ button,input,textarea{font:inherit}
           <span class="ic" onclick="go('7702070139')">Газпром</span>
         </div>
         <div class="inn-status" id="inn-status"></div>
+        <div id="stories-block">
+          <div class="stories-label">Истории предпринимателей</div>
+          <div class="stories-wrap">
+            <div class="story-card active" id="sc0">
+              <div class="story-tag">IT / Москва</div>
+              <div class="story-quote">«Мы не знали что вообще существует программа СТАРТ. Грантовик нашёл её за минуту — получили 4 млн без потери доли»</div>
+              <div class="story-bottom">
+                <div class="story-person"><div class="story-avatar">АК</div><div><div class="story-name">Алексей К.</div><div class="story-biz">Основатель SaaS-стартапа</div></div></div>
+                <div class="story-grant"><div class="story-grant-sum">4 млн ₽</div><div class="story-grant-name">СТАРТ-1</div></div>
+              </div>
+            </div>
+            <div class="story-card" id="sc1">
+              <div class="story-tag">Агротех / Краснодар</div>
+              <div class="story-quote">«Региональный фонд давал субсидию именно под наше направление. Без Грантовика никогда бы не нашли — сайт фонда вообще не гуглится»</div>
+              <div class="story-bottom">
+                <div class="story-person"><div class="story-avatar">МС</div><div><div class="story-name">Марина С.</div><div class="story-biz">Фермерское хозяйство</div></div></div>
+                <div class="story-grant"><div class="story-grant-sum">2.5 млн ₽</div><div class="story-grant-name">Региональная субсидия</div></div>
+              </div>
+            </div>
+            <div class="story-card" id="sc2">
+              <div class="story-tag">Медтех / СПб</div>
+              <div class="story-quote">«Подали заявку на Сколково по черновику от Грантовика. Получили статус резидента и 0% налог на прибыль — это важнее денег»</div>
+              <div class="story-bottom">
+                <div class="story-person"><div class="story-avatar">ДВ</div><div><div class="story-name">Дмитрий В.</div><div class="story-biz">CEO медтех-компании</div></div></div>
+                <div class="story-grant"><div class="story-grant-sum">Резидент</div><div class="story-grant-name">Сколково</div></div>
+              </div>
+            </div>
+            <div class="story-card" id="sc3">
+              <div class="story-tag">EdTech / Казань</div>
+              <div class="story-quote">«Я думал гранты только для крупных. Оказалось УМНИК даётся молодым до 30 лет — получил 500К на прототип»</div>
+              <div class="story-bottom">
+                <div class="story-person"><div class="story-avatar">ИМ</div><div><div class="story-name">Илья М.</div><div class="story-biz">Основатель EdTech-проекта</div></div></div>
+                <div class="story-grant"><div class="story-grant-sum">500 тыс ₽</div><div class="story-grant-name">УМНИК</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="story-dots">
+            <span class="sdot active" onclick="showStory(0)"></span>
+            <span class="sdot" onclick="showStory(1)"></span>
+            <span class="sdot" onclick="showStory(2)"></span>
+            <span class="sdot" onclick="showStory(3)"></span>
+          </div>
+          <div class="story-footer">🟢 Открыто сейчас: <b>УМНИК</b>, <b>СТАРТ-1</b>, <b>Сколково</b> · Следующий дедлайн через <b>12 дней</b></div>
+        </div>
         <div class="result-wrap" id="result-wrap">
           <div class="rblock">
             <div class="rb-head">
@@ -323,7 +386,21 @@ button,input,textarea{font:inherit}
 <script>
 const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
 let bestGrant='';
+let storyTimer;
 const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм / HoReCa','56':'Туризм / HoReCa','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство / недвижимость','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО / соцпроект','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
+
+let currentStory=0;
+function showStory(n){
+  document.querySelectorAll('.story-card').forEach((c,i)=>c.classList.toggle('active',i===n));
+  document.querySelectorAll('.sdot').forEach((d,i)=>d.classList.toggle('active',i===n));
+  currentStory=n;
+}
+function autoStory(){
+  storyTimer=setInterval(()=>{
+    showStory((currentStory+1)%4);
+  },4000);
+}
+autoStory();
 
 function go(v){document.getElementById('inn').value=v;run();}
 function setSt(type,txt){const el=document.getElementById('inn-status');if(type==='load')el.innerHTML=`<span class="spin"></span>${txt}`;else if(type==='ok')el.innerHTML=`<span style="color:var(--green);font-weight:600">✓ ${txt}</span>`;else if(type==='err')el.innerHTML=`<span style="color:var(--red)">${txt}</span>`;else el.innerHTML='';}
@@ -331,11 +408,19 @@ function setSt(type,txt){const el=document.getElementById('inn-status');if(type=
 async function run(){
   const raw=document.getElementById('inn').value.replace(/\D/g,'');
   if(raw.length<10){setSt('err','Введите ИНН — 10 цифр для юрлица, 12 для ИП');return;}
+  clearInterval(storyTimer);
   document.getElementById('go-btn').disabled=true;
   document.getElementById('result-wrap').style.display='none';
+  document.getElementById('stories-block').style.display='none';
   setSt('load','Запрос в реестр ФНС...');
   let d=await fetchFromDaData(raw);
-  if(!d){setSt('err','Компания не найдена. Проверьте ИНН.');document.getElementById('go-btn').disabled=false;return;}
+  if(!d){
+    setSt('err','Компания не найдена. Проверьте ИНН.');
+    document.getElementById('go-btn').disabled=false;
+    document.getElementById('stories-block').style.display='block';
+    autoStory();
+    return;
+  }
   fillCompany(d,raw);
   document.getElementById('result-wrap').style.display='block';
   setSt('ok','Данные из ФНС получены — анализ запущен');
@@ -403,7 +488,7 @@ async function loadSteps(d){
 }
 
 async function loadAdvice(d){
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}, размер: ${d.size}.\nНапиши персональный совет эксперта по грантам — 3-4 предложения. Типичные ошибки, на что обратить внимание, что повысит шанс одобрения. Только текст.`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}, размер: ${d.size}.\nНапиши персональный совет эксперта — 3-4 предложения. Типичные ошибки, на что обратить внимание, что повысит шанс одобрения. Только текст.`;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:300,messages:[{role:'user',content:p}]})});
     const data=await r.json();
@@ -421,11 +506,14 @@ function applyAction(){
 function resetAll(){
   document.getElementById('inn').value='';
   document.getElementById('result-wrap').style.display='none';
+  document.getElementById('stories-block').style.display='block';
   setSt('','');
   document.getElementById('grants-body').innerHTML='<div class="ld">Подбираем программы...</div>';
   document.getElementById('steps-body').innerHTML='<div class="ld">Формируем план...</div>';
   document.getElementById('advice-body').innerHTML='<span class="ld">Анализируем...</span>';
   document.getElementById('inn').focus();
+  showStory(0);
+  autoStory();
 }
 
 async function loadNews(){
