@@ -18,7 +18,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-button,input,textarea{font:inherit}
+button,input,textarea,select{font:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
 .masthead{border-bottom:3px solid var(--ink);padding:0 clamp(20px,5vw,72px)}
 .mast-top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink-3);font-weight:500}
@@ -161,8 +161,6 @@ button,input,textarea{font:inherit}
 .news-date{font-size:11px;color:var(--ink-3)}
 .news-src{font-size:11px;color:var(--red);font-weight:600}
 .news-loader{text-align:center;padding:20px;color:var(--ink-3);font-size:13px;font-style:italic;grid-column:1/-1}
-
-/* CTA — профессиональная форма */
 .cta-section{padding:0;border-bottom:2px solid var(--ink)}
 .cta-box{background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:0}
 .cta-left{padding:56px clamp(24px,5vw,72px)}
@@ -176,19 +174,18 @@ button,input,textarea{font:inherit}
 .cc-icon{width:36px;height:36px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .cc-label{font-size:11px;color:rgba(242,239,230,.4);margin-bottom:2px}
 .cc-val{font-size:14px;font-weight:600;color:var(--cream)}
-.cc-val a{color:var(--cream);text-decoration:none}
+.cc-val a{color:var(--cream)}
 .cc-val a:hover{color:var(--red)}
 .form-title{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
-.form-grid{display:grid;gap:0}
-.form-field{position:relative;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:0}
+.form-field{border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:0}
 .form-field:last-of-type{border-bottom:none}
 .form-field label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,230,.35);padding:14px 0 4px}
-.form-field input,.form-field textarea,.form-field select{display:block;width:100%;border:none;background:transparent;color:var(--cream);font-size:14px;padding:0 0 14px;outline:none;transition:.15s}
+.form-field input,.form-field textarea,.form-field select{display:block;width:100%;border:none;background:transparent;color:var(--cream);font-size:14px;padding:0 0 14px;outline:none}
 .form-field textarea{min-height:72px;resize:none}
 .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(242,239,230,.25)}
 .form-field select{color:rgba(242,239,230,.7);-webkit-appearance:none}
 .form-field select option{background:var(--ink);color:var(--cream)}
-.form-submit{width:100%;background:var(--red);color:#fff;border:none;padding:15px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;transition:.15s;letter-spacing:.02em}
+.form-submit{width:100%;background:var(--red);color:#fff;border:none;padding:15px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;transition:.15s}
 .form-submit:hover{background:#9B2D22}
 .form-submit:disabled{opacity:.5;cursor:not-allowed}
 .form-note{font-size:11px;color:rgba(242,239,230,.25);text-align:center;margin-top:10px;line-height:1.5}
@@ -196,23 +193,20 @@ button,input,textarea{font:inherit}
 .form-success-icon{font-size:40px;margin-bottom:12px}
 .form-success h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cream);margin-bottom:8px}
 .form-success p{font-size:14px;color:rgba(242,239,230,.6);line-height:1.6}
-
-.footer{padding:0;border-top:3px solid var(--ink)}
+.footer{border-top:3px solid var(--ink)}
 .footer-top{padding:28px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
-.footer-brand .footer-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;letter-spacing:-.03em;margin-bottom:8px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;letter-spacing:-.03em;margin-bottom:8px}
 .footer-logo span{color:var(--red)}
 .footer-brand p{font-size:13px;color:var(--ink-3);line-height:1.6;max-width:240px}
 .footer-col h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
 .footer-col a{display:block;font-size:13px;color:var(--ink-2);margin-bottom:7px}
 .footer-col a:hover{color:var(--red)}
-.footer-col .mail-link{font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
-.footer-col .mail-link:hover{color:var(--red)}
+.mail-link{font-size:14px;font-weight:600;color:var(--ink)!important}
 .footer-bottom{padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .footer-copy{font-size:12px;color:var(--ink-3)}
 .footer-legal{display:flex;gap:20px}
 .footer-legal a{font-size:12px;color:var(--ink-3)}
 .footer-legal a:hover{color:var(--red)}
-
 @media(max-width:900px){
   .hero-grid,.cta-box,.footer-top{grid-template-columns:1fr}
   .hero-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px}
@@ -233,7 +227,6 @@ button,input,textarea{font:inherit}
 </style>
 </head>
 <body>
-
 <header class="masthead">
   <div class="mast-top">
     <span>Четверг, 18 июня 2026 · Выпуск №001</span>
@@ -250,7 +243,6 @@ button,input,textarea{font:inherit}
     <a class="nav-cta" href="#inn-input">Ввести ИНН →</a>
   </nav>
 </header>
-
 <main>
 <section class="hero">
   <div class="wrap">
@@ -273,7 +265,6 @@ button,input,textarea{font:inherit}
           <div class="stat" style="padding-left:14px"><div class="stat-n">30 сек</div><div class="stat-l">до результата</div></div>
         </div>
       </div>
-
       <div class="inn-panel" id="inn-input">
         <div class="inn-eyebrow">Анализ по ИНН — бесплатно · данные из реестра ФНС</div>
         <div class="inn-input-row">
@@ -287,7 +278,6 @@ button,input,textarea{font:inherit}
           <span class="ic" onclick="go('7702070139')">Газпром</span>
         </div>
         <div class="inn-status" id="inn-status"></div>
-
         <div id="stories-block">
           <div class="stories-label">Истории предпринимателей</div>
           <div class="story-card active" id="sc0">
@@ -300,7 +290,7 @@ button,input,textarea{font:inherit}
           </div>
           <div class="story-card" id="sc1">
             <div class="story-tag">Торговля → Производство / Краснодар</div>
-            <div class="story-quote">«У нас был торговый ОКВЭД, но мы хотели открыть производство. Грантовик понял это и нашёл программу — получили 8 млн»</div>
+            <div class="story-quote">«У нас был торговый ОКВЭД, но мы хотели открыть производство. Грантовик понял это — получили 8 млн»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">МС</div><div><div class="story-name">Марина С.</div><div class="story-biz">Владелец торговой сети</div></div></div>
               <div class="story-grant"><div class="story-grant-sum">8 млн ₽</div><div class="story-grant-name">Минпромторг</div></div>
@@ -330,14 +320,12 @@ button,input,textarea{font:inherit}
           </div>
           <div class="story-footer">🟢 Открыто сейчас: <b>УМНИК</b>, <b>СТАРТ-1</b>, <b>Сколково</b> · Следующий дедлайн через <b>12 дней</b></div>
         </div>
-
         <div class="quiz-block" id="quiz-block">
           <div class="quiz-title" id="quiz-title">Уточните вашу цель</div>
           <div class="quiz-sub">Выберите направление — подберём гранты именно под вашу задачу</div>
           <div class="quiz-options" id="quiz-options"></div>
           <button class="quiz-btn" id="quiz-btn" onclick="runWithGoal()" disabled>Найти гранты под мою цель →</button>
         </div>
-
         <div class="result-wrap" id="result-wrap">
           <div class="rblock">
             <div class="rb-head">
@@ -378,7 +366,6 @@ button,input,textarea{font:inherit}
     </div>
   </div>
 </section>
-
 <div class="sources">
   <div class="wrap src-inner">
     <span class="src-lbl">Источники</span>
@@ -391,7 +378,6 @@ button,input,textarea{font:inherit}
     <span class="src-item">85 региональных фондов</span>
   </div>
 </div>
-
 <section class="section" id="how">
   <div class="wrap">
     <div class="sec-kicker">Как работает</div>
@@ -402,7 +388,6 @@ button,input,textarea{font:inherit}
     </div>
   </div>
 </section>
-
 <section class="news-section" id="news">
   <div class="wrap">
     <div class="news-header">
@@ -414,7 +399,6 @@ button,input,textarea{font:inherit}
     </div>
   </div>
 </section>
-
 <section id="access">
   <div class="cta-box">
     <div class="cta-left">
@@ -422,83 +406,50 @@ button,input,textarea{font:inherit}
       <h2 class="cta-hed">Разберёмся<br>в грантах<br><em>вместе</em></h2>
       <p class="cta-deck">На раннем этапе мы лично проверяем каждый подбор и помогаем подготовить заявку. Отвечаем в течение 24 часов.</p>
       <div class="cta-contacts">
-        <div class="cc">
-          <div class="cc-icon">✉</div>
-          <div>
-            <div class="cc-label">Почта</div>
-            <div class="cc-val"><a href="mailto:info@grantovik.ru">info@grantovik.ru</a></div>
-          </div>
-        </div>
-        <div class="cc">
-          <div class="cc-icon">🌐</div>
-          <div>
-            <div class="cc-label">Сайт</div>
-            <div class="cc-val"><a href="https://grantovik.ru">grantovik.ru</a></div>
-          </div>
-        </div>
-        <div class="cc">
-          <div class="cc-icon">⏱</div>
-          <div>
-            <div class="cc-label">Время ответа</div>
-            <div class="cc-val">В течение 24 часов</div>
-          </div>
-        </div>
+        <div class="cc"><div class="cc-icon">✉</div><div><div class="cc-label">Почта</div><div class="cc-val"><a href="mailto:info@grantovik.ru">info@grantovik.ru</a></div></div></div>
+        <div class="cc"><div class="cc-icon">🌐</div><div><div class="cc-label">Сайт</div><div class="cc-val"><a href="https://grantovik.ru">grantovik.ru</a></div></div></div>
+        <div class="cc"><div class="cc-icon">⏱</div><div><div class="cc-label">Время ответа</div><div class="cc-val">В течение 24 часов</div></div></div>
       </div>
     </div>
     <div class="cta-right">
       <div class="form-title">Оставить заявку</div>
       <div id="form-wrap">
         <form id="contact-form" onsubmit="submitForm(event)">
-          <div class="form-grid">
-            <div class="form-field">
-              <label>Ваше имя</label>
-              <input type="text" id="f-name" placeholder="Как вас зовут" required/>
-            </div>
-            <div class="form-field">
-              <label>Email</label>
-              <input type="email" id="f-email" placeholder="your@email.com" required/>
-            </div>
-            <div class="form-field">
-              <label>ИНН компании</label>
-              <input type="text" id="f-inn" placeholder="Если уже анализировали — подставится автоматически"/>
-            </div>
-            <div class="form-field">
-              <label>Направление</label>
-              <select id="f-direction">
-                <option value="">Выберите направление</option>
-                <option>IT / ИИ / программное обеспечение</option>
-                <option>Производство / промышленность</option>
-                <option>Агротех / сельское хозяйство</option>
-                <option>Биотех / медтех</option>
-                <option>EdTech / образование</option>
-                <option>Торговля / e-commerce</option>
-                <option>Строительство / недвижимость</option>
-                <option>Логистика / транспорт</option>
-                <option>Финтех</option>
-                <option>CleanTech / экология</option>
-                <option>НКО / социальный проект</option>
-                <option>Другое</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label>Расскажите о проекте и цели</label>
-              <textarea id="f-project" placeholder="Коротко: что делаете, на какой стадии, что нужно" required></textarea>
-            </div>
+          <div class="form-field"><label>Ваше имя</label><input type="text" id="f-name" placeholder="Как вас зовут" required/></div>
+          <div class="form-field"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com" required/></div>
+          <div class="form-field"><label>ИНН компании</label><input type="text" id="f-inn" placeholder="Подставится автоматически после анализа"/></div>
+          <div class="form-field">
+            <label>Направление</label>
+            <select id="f-direction">
+              <option value="">Выберите направление</option>
+              <option>IT / ИИ / программное обеспечение</option>
+              <option>Производство / промышленность</option>
+              <option>Агротех / сельское хозяйство</option>
+              <option>Биотех / медтех</option>
+              <option>EdTech / образование</option>
+              <option>Торговля / e-commerce</option>
+              <option>Строительство / недвижимость</option>
+              <option>Логистика / транспорт</option>
+              <option>Финтех</option>
+              <option>CleanTech / экология</option>
+              <option>НКО / социальный проект</option>
+              <option>Другое</option>
+            </select>
           </div>
+          <div class="form-field"><label>О проекте и цели</label><textarea id="f-project" placeholder="Коротко: что делаете, на какой стадии, что нужно" required></textarea></div>
           <button type="submit" class="form-submit" id="form-submit-btn">Отправить заявку →</button>
-          <div class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Без спама.</div>
+          <div class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
         </form>
         <div class="form-success" id="form-success">
           <div class="form-success-icon">✓</div>
           <h3>Заявка отправлена!</h3>
-          <p>Мы получили вашу заявку и свяжемся<br>по адресу <span id="success-email"></span><br>в течение 24 часов.</p>
+          <p>Свяжемся по адресу <span id="success-email"></span><br>в течение 24 часов.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 </main>
-
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
@@ -521,35 +472,23 @@ button,input,textarea{font:inherit}
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Грантовик. Все права защищены.</div>
-      <div class="footer-legal">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Пользовательское соглашение</a>
-      </div>
+      <div class="footer-legal"><a href="#">Политика конфиденциальности</a><a href="#">Соглашение</a></div>
     </div>
   </div>
 </footer>
 <script>
 const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
-let bestGrant='';
-let storyTimer;
-let currentCompany=null;
-let selectedGoal='';
+let bestGrant='',storyTimer,currentCompany=null,selectedGoal='';
 
-const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм / HoReCa','56':'Туризм / HoReCa','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
+const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм','56':'Туризм','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
 
 const QUIZ_MAP={
-  'Торговля':{title:'Ваша компания занимается торговлей. Что планируете развивать?',options:[
+  'Торговля':{title:'Ваша компания занимается торговлей. Что планируете?',options:[
     {icon:'🏭',text:'Открыть собственное производство',goal:'запуск производства на базе торговой компании'},
     {icon:'🔬',text:'Разработать собственный продукт / бренд',goal:'разработка собственного продукта и торговой марки'},
     {icon:'📈',text:'Масштабировать торговлю — новые регионы',goal:'масштабирование торговли и выход на новые рынки'},
     {icon:'🤝',text:'Найти партнёра-производителя',goal:'поиск производственного партнёра и кооперация'},
     {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств и поддержка ликвидности'},
-  ]},
-  'Логистика':{title:'Ваша компания в логистике. Что в приоритете?',options:[
-    {icon:'🚛',text:'Обновить автопарк / склад',goal:'обновление транспорта и складской инфраструктуры'},
-    {icon:'💻',text:'Автоматизировать процессы',goal:'цифровизация и автоматизация логистики'},
-    {icon:'🌍',text:'Выйти на экспортные маршруты',goal:'международные логистические маршруты'},
-    {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
   ]},
   'Производство':{title:'Ваша компания производит продукцию. Что в приоритете?',options:[
     {icon:'🏗',text:'Модернизировать оборудование',goal:'модернизация производственного оборудования'},
@@ -571,6 +510,12 @@ const QUIZ_MAP={
     {icon:'📦',text:'Выйти в розницу / экспорт',goal:'выход агропродукции в розницу и на экспорт'},
     {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
   ]},
+  'Логистика':{title:'Ваша компания в логистике. Что в приоритете?',options:[
+    {icon:'🚛',text:'Обновить автопарк / склад',goal:'обновление транспорта и склада'},
+    {icon:'💻',text:'Автоматизировать процессы',goal:'цифровизация логистики'},
+    {icon:'🌍',text:'Выйти на экспортные маршруты',goal:'международные маршруты'},
+    {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
+  ]},
 };
 
 const DEFAULT_QUIZ={title:'Уточните вашу цель — подберём программы точнее',options:[
@@ -578,7 +523,7 @@ const DEFAULT_QUIZ={title:'Уточните вашу цель — подберё
   {icon:'🔬',text:'Провести исследования и разработку',goal:'научные исследования и разработка инноваций'},
   {icon:'📈',text:'Масштабировать существующий бизнес',goal:'масштабирование и рост бизнеса'},
   {icon:'🌍',text:'Выйти на экспорт',goal:'экспорт продукции или услуг'},
-  {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств и поддержка ликвидности'},
+  {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
 ]};
 
 let currentStory=0;
@@ -655,7 +600,7 @@ async function runWithGoal(){
   setSt('load','ИИ подбирает программы под вашу цель...');
   const d={...currentCompany,goal:selectedGoal};
   await Promise.all([loadGrants(d),loadSteps(d),loadAdvice(d)]);
-  setSt('ok','Анализ готов — программы подобраны под вашу цель');
+  setSt('ok','Готово — программы подобраны под вашу цель');
   document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
   document.getElementById('quiz-btn').disabled=false;
 }
@@ -702,13 +647,26 @@ function fillCompany(d,inn){
   document.getElementById('r-badge').style.cssText=`margin-left:auto;font-size:11px;padding:3px 10px;font-weight:600;background:${ok?'#E3F7EC':'#FEF3C7'};color:${ok?'#0E7A3A':'#B45309'}`;
 }
 
+async function claudeAPI(prompt){
+  const r=await fetch('/api/claude',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model:'claude-sonnet-4-6',
+      max_tokens:700,
+      messages:[{role:'user',content:prompt}]
+    })
+  });
+  const data=await r.json();
+  return data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
+}
+
 async function loadGrants(d){
-  const goal=d.goal?`\nЦЕЛЬ ПРЕДПРИНИМАТЕЛЯ: ${d.goal}`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.${goal}\nПодбери 4 подходящих российских гранта под эту цель. ТОЛЬКО JSON без markdown:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок или постоянный","why":"1 предложение почему подходит под цель"}]`;
+  const goal=d.goal?`\nЦЕЛЬ: ${d.goal}`:'';
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.${goal}\nПодбери 4 российских гранта под эту цель. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок","why":"почему подходит"}]`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:600,messages:[{role:'user',content:p}]})});
-    const data=await r.json();
-    const grants=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    const txt=await claudeAPI(p);
+    const grants=JSON.parse(txt);
     bestGrant=grants[0]?.name||'';
     document.getElementById('apply-btn').textContent=`Оставить заявку на «${bestGrant}» →`;
     document.getElementById('f-inn').value=document.getElementById('inn').value;
@@ -728,11 +686,10 @@ async function loadGrants(d){
 
 async function loadSteps(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\nПлан из 4 шагов для получения гранта. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:500,messages:[{role:'user',content:p}]})});
-    const data=await r.json();
-    const steps=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    const txt=await claudeAPI(p);
+    const steps=JSON.parse(txt);
     const tm={'сейчас':'t-now','на этой неделе':'t-week','в этом месяце':'t-month'};
     document.getElementById('steps-body').innerHTML=`<div class="step-list">${steps.map((s,i)=>`
       <div class="step">
@@ -745,11 +702,10 @@ async function loadSteps(d){
 
 async function loadAdvice(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n3-4 предложения — персональный совет эксперта. Типичные ошибки, что повысит шанс одобрения. Только текст.`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n3-4 предложения — совет эксперта. Типичные ошибки, что повысит шанс одобрения. Только текст.`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:300,messages:[{role:'user',content:p}]})});
-    const data=await r.json();
-    document.getElementById('advice-body').textContent=data.content.map(b=>b.text||'').join('').trim();
+    const txt=await claudeAPI(p);
+    document.getElementById('advice-body').textContent=txt;
   }catch(e){document.getElementById('advice-body').textContent='Главная ошибка — описывать ОКВЭД а не реальную цель. Пишите конкретно что хотите построить и какой результат получите.';}
 }
 
@@ -775,29 +731,12 @@ function resetAll(){
   showStory(0);autoStory();
 }
 
-// НОВОСТИ — реальные из поиска через ИИ с актуальными источниками
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
-  const today=new Date().toLocaleDateString('ru-RU');
-  const p=`Ты редактор новостного агрегатора для российских предпринимателей. Сегодня ${today}.
-
-Составь 4 реальные актуальные новости о грантах, субсидиях и программах поддержки бизнеса в России. Используй только реально существующие программы и организации: Фонд Бортника (fasie.ru), Сколково (sk.ru), Фонд президентских грантов, МСП Банк, РФРИТ, Минэкономразвития, Минпромторг, региональные фонды.
-
-Важно: новости должны быть правдоподобными и основанными на реальных программах, которые действительно существуют. Не выдумывай суммы и даты которых не было.
-
-Верни ТОЛЬКО JSON без markdown:
-[{
-  "tag": "Грант или Субсидии или Программа или Стартапы",
-  "title": "заголовок новости до 10 слов",
-  "desc": "2 предложения — суть новости о реальной программе",
-  "source": "fasie.ru или sk.ru или mspbank.ru или economy.gov.ru или rfrit.ru",
-  "url": "реальный URL сайта программы"
-}]`;
-
+  const p=`Составь 4 новости о реальных российских программах поддержки бизнеса. Используй только реально существующие программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг, Президентские гранты. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Стартапы","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"https://fasie.ru или https://sk.ru или https://mspbank.ru или https://rfrit.ru"}]`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,messages:[{role:'user',content:p}]})});
-    const data=await r.json();
-    const news=JSON.parse(data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim());
+    const txt=await claudeAPI(p);
+    const news=JSON.parse(txt);
     document.getElementById('news-grid').innerHTML=news.map(n=>`
       <div class="news-card">
         <a href="${n.url}" target="_blank" rel="noopener">
@@ -811,81 +750,48 @@ async function loadNews(){
         </a>
       </div>`).join('');
   }catch(e){
-    // Фолбэк — реальные постоянные программы
     document.getElementById('news-grid').innerHTML=`
-      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank">
-        <div class="news-tag">Грант</div>
-        <h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3>
-        <p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора на первом этапе.</p>
-        <div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div>
-      </a></div>
-      <div class="news-card"><a href="https://fasie.ru/programs/programm-umnik/" target="_blank">
-        <div class="news-tag">Грант</div>
-        <h3>УМНИК: 500 тыс ₽ для молодых учёных до 30 лет</h3>
-        <p>Программа поддерживает молодых инноваторов с научно-техническими идеями в приоритетных направлениях развития.</p>
-        <div class="news-meta"><span class="news-date">Дважды в год</span><span class="news-src">→ fasie.ru</span></div>
-      </a></div>
-      <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank">
-        <div class="news-tag">Программа</div>
-        <h3>Сколково: резидентство и гранты до 50 млн ₽</h3>
-        <p>Статус резидента даёт льготы по налогам, доступ к грантам и инфраструктуре для технологических компаний.</p>
-        <div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div>
-      </a></div>
-      <div class="news-card"><a href="https://mspbank.ru" target="_blank">
-        <div class="news-tag">Субсидии</div>
-        <h3>МСП Банк: льготные кредиты от 4% для малого бизнеса</h3>
-        <p>Государственная программа льготного кредитования малых и средних предприятий по ставке значительно ниже рыночной.</p>
-        <div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ mspbank.ru</span></div>
-      </a></div>`;
+      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора на первом этапе.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
+      <div class="news-card"><a href="https://fasie.ru/programs/programm-umnik/" target="_blank"><div class="news-tag">Грант</div><h3>УМНИК: 500 тыс ₽ для молодых учёных до 30 лет</h3><p>Программа поддерживает молодых инноваторов с научно-техническими идеями в приоритетных направлениях.</p><div class="news-meta"><span class="news-date">Дважды в год</span><span class="news-src">→ fasie.ru</span></div></a></div>
+      <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank"><div class="news-tag">Программа</div><h3>Сколково: резидентство и гранты до 50 млн ₽</h3><p>Статус резидента даёт льготы по налогам, доступ к грантам и инфраструктуре для технологических компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div></a></div>
+      <div class="news-card"><a href="https://mspbank.ru" target="_blank"><div class="news-tag">Субсидии</div><h3>МСП Банк: льготные кредиты от 4% годовых</h3><p>Государственная программа льготного кредитования малых и средних предприятий по ставке ниже рыночной.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ mspbank.ru</span></div></a></div>`;
   }
 }
 
-// ФОРМА — отправка через Formspree на info@grantovik.ru
 async function submitForm(e){
   e.preventDefault();
   const btn=document.getElementById('form-submit-btn');
-  btn.disabled=true;
-  btn.textContent='Отправляем...';
-
+  btn.disabled=true;btn.textContent='Отправляем...';
   const email=document.getElementById('f-email').value;
-
   try{
     const resp=await fetch('https://formspree.io/f/xpwzgvkd',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
         name:document.getElementById('f-name').value,
-        email:email,
+        email,
         inn:document.getElementById('f-inn').value,
         direction:document.getElementById('f-direction').value,
         project:document.getElementById('f-project').value,
-        _subject:`Новая заявка с grantovik.ru от ${document.getElementById('f-name').value}`,
+        _subject:`Заявка с grantovik.ru от ${document.getElementById('f-name').value}`,
         _replyto:email,
       })
     });
-
     if(resp.ok){
       document.getElementById('contact-form').style.display='none';
       document.getElementById('form-success').style.display='block';
       document.getElementById('success-email').textContent=email;
-    }else{
-      throw new Error('Form error');
-    }
-  }catch(err){
-    // Фолбэк — открываем почту
-    btn.disabled=false;
-    btn.textContent='Отправить заявку →';
+    }else{throw new Error();}
+  }catch{
+    btn.disabled=false;btn.textContent='Отправить заявку →';
     const name=document.getElementById('f-name').value;
     const project=document.getElementById('f-project').value;
-    const inn=document.getElementById('f-inn').value;
-    window.location.href=`mailto:info@grantovik.ru?subject=Заявка с сайта от ${encodeURIComponent(name)}&body=Имя: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AИНН: ${encodeURIComponent(inn)}%0A%0AПроект: ${encodeURIComponent(project)}`;
+    window.location.href=`mailto:info@grantovik.ru?subject=${encodeURIComponent('Заявка от '+name)}&body=${encodeURIComponent('Имя: '+name+'\nEmail: '+email+'\n\nПроект: '+project)}`;
   }
 }
 
 document.getElementById('inn').addEventListener('keydown',e=>{if(e.key==='Enter')run();});
 document.getElementById('inn').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');});
-
-// Загружаем новости при старте
 loadNews();
 </script>
 </body>
