@@ -177,7 +177,7 @@ button,input,textarea,select{font:inherit}
 .cc-val a{color:var(--cream)}
 .cc-val a:hover{color:var(--red)}
 .form-title{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
-.form-field{border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:0}
+.form-field{border-bottom:1px solid rgba(255,255,255,.1)}
 .form-field:last-of-type{border-bottom:none}
 .form-field label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,230,.35);padding:14px 0 4px}
 .form-field input,.form-field textarea,.form-field select{display:block;width:100%;border:none;background:transparent;color:var(--cream);font-size:14px;padding:0 0 14px;outline:none}
@@ -417,7 +417,7 @@ button,input,textarea,select{font:inherit}
         <form id="contact-form" onsubmit="submitForm(event)">
           <div class="form-field"><label>Ваше имя</label><input type="text" id="f-name" placeholder="Как вас зовут" required/></div>
           <div class="form-field"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com" required/></div>
-          <div class="form-field"><label>ИНН компании</label><input type="text" id="f-inn" placeholder="Подставится автоматически после анализа"/></div>
+          <div class="form-field"><label>ИНН компании</label><input type="text" id="f-inn" placeholder="Подставится автоматически"/></div>
           <div class="form-field">
             <label>Направление</label>
             <select id="f-direction">
@@ -599,10 +599,9 @@ async function runWithGoal(){
   document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
   setSt('load','ИИ подбирает программы под вашу цель...');
   const d={...currentCompany,goal:selectedGoal};
-  await Promise.all([loadGrants(d),loadSteps(d),loadAdvice(d)]);
-  setSt('ok','Готово — программы подобраны под вашу цель');
-  document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
-  document.getElementById('quiz-btn').disabled=false;
+  loadGrants(d);
+  loadSteps(d);
+  loadAdvice(d);
 }
 
 async function fetchFromDaData(inn){
@@ -647,25 +646,26 @@ function fillCompany(d,inn){
   document.getElementById('r-badge').style.cssText=`margin-left:auto;font-size:11px;padding:3px 10px;font-weight:600;background:${ok?'#E3F7EC':'#FEF3C7'};color:${ok?'#0E7A3A':'#B45309'}`;
 }
 
-async function claudeAPI(prompt){
+async function claudeAPI(prompt,maxTokens){
   const r=await fetch('/api/claude',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
       model:'claude-sonnet-4-6',
-      max_tokens:700,
+      max_tokens:maxTokens||1000,
       messages:[{role:'user',content:prompt}]
     })
   });
   const data=await r.json();
+  if(data.error)throw new Error(data.error);
   return data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
 }
 
 async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ: ${d.goal}`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.${goal}\nПодбери 4 российских гранта под эту цель. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":число 62-97,"sum":"сумма","deadline":"срок","why":"почему подходит"}]`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, юрформа: ${d.legal}, размер: ${d.size}, стадия: ${d.stage}.${goal}\nПодбери 4 российских гранта под эту цель. ТОЛЬКО JSON без лишнего текста:\n[{"name":"название","org":"организация","pct":число от 62 до 97,"sum":"сумма","deadline":"срок","why":"почему подходит"}]`;
   try{
-    const txt=await claudeAPI(p);
+    const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
     bestGrant=grants[0]?.name||'';
     document.getElementById('apply-btn').textContent=`Оставить заявку на «${bestGrant}» →`;
@@ -681,14 +681,20 @@ async function loadGrants(d){
         </div>
         <div class="gi-pct">${g.pct}<small>%</small></div>
       </div>`).join('');
-  }catch(e){document.getElementById('grants-body').innerHTML='<div class="ld">Не удалось загрузить. Попробуйте позже.</div>';}
+    setSt('ok','Готово — программы подобраны под вашу цель');
+    document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
+    document.getElementById('quiz-btn').disabled=false;
+  }catch(e){
+    console.error('Grants error:',e);
+    document.getElementById('grants-body').innerHTML='<div class="ld">Не удалось загрузить. Попробуйте позже.</div>';
+  }
 }
 
 async function loadSteps(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта. ТОЛЬКО JSON без лишнего текста:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
-    const txt=await claudeAPI(p);
+    const txt=await claudeAPI(p,800);
     const steps=JSON.parse(txt);
     const tm={'сейчас':'t-now','на этой неделе':'t-week','в этом месяце':'t-month'};
     document.getElementById('steps-body').innerHTML=`<div class="step-list">${steps.map((s,i)=>`
@@ -697,16 +703,21 @@ async function loadSteps(d){
         <div><div class="stitle">${s.title}</div><div class="sdesc">${s.desc}</div>
         <span class="stag ${tm[s.urgency]||'t-month'}">${s.urgency}</span></div>
       </div>`).join('')}</div>`;
-  }catch(e){document.getElementById('steps-body').innerHTML='<div class="ld">Не удалось сформировать план.</div>';}
+  }catch(e){
+    console.error('Steps error:',e);
+    document.getElementById('steps-body').innerHTML='<div class="ld">Не удалось сформировать план.</div>';
+  }
 }
 
 async function loadAdvice(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n3-4 предложения — совет эксперта. Типичные ошибки, что повысит шанс одобрения. Только текст.`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n3-4 предложения — совет эксперта по грантам. Типичные ошибки, что повысит шанс одобрения. Только текст без заголовков.`;
   try{
-    const txt=await claudeAPI(p);
+    const txt=await claudeAPI(p,500);
     document.getElementById('advice-body').textContent=txt;
-  }catch(e){document.getElementById('advice-body').textContent='Главная ошибка — описывать ОКВЭД а не реальную цель. Пишите конкретно что хотите построить и какой результат получите.';}
+  }catch(e){
+    document.getElementById('advice-body').textContent='Главная ошибка — описывать ОКВЭД а не реальную цель. Пишите конкретно что хотите построить и какой результат получите.';
+  }
 }
 
 function applyAction(){
@@ -733,9 +744,9 @@ function resetAll(){
 
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
-  const p=`Составь 4 новости о реальных российских программах поддержки бизнеса. Используй только реально существующие программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг, Президентские гранты. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Стартапы","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"https://fasie.ru или https://sk.ru или https://mspbank.ru или https://rfrit.ru"}]`;
+  const p=`Составь 4 новости о реальных российских программах поддержки бизнеса. Используй только реально существующие программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг. ТОЛЬКО JSON без лишнего текста:\n[{"tag":"Грант или Субсидии или Программа или Стартапы","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"https://fasie.ru или https://sk.ru или https://mspbank.ru или https://rfrit.ru"}]`;
   try{
-    const txt=await claudeAPI(p);
+    const txt=await claudeAPI(p,800);
     const news=JSON.parse(txt);
     document.getElementById('news-grid').innerHTML=news.map(n=>`
       <div class="news-card">
@@ -751,7 +762,7 @@ async function loadNews(){
       </div>`).join('');
   }catch(e){
     document.getElementById('news-grid').innerHTML=`
-      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора на первом этапе.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
+      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
       <div class="news-card"><a href="https://fasie.ru/programs/programm-umnik/" target="_blank"><div class="news-tag">Грант</div><h3>УМНИК: 500 тыс ₽ для молодых учёных до 30 лет</h3><p>Программа поддерживает молодых инноваторов с научно-техническими идеями в приоритетных направлениях.</p><div class="news-meta"><span class="news-date">Дважды в год</span><span class="news-src">→ fasie.ru</span></div></a></div>
       <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank"><div class="news-tag">Программа</div><h3>Сколково: резидентство и гранты до 50 млн ₽</h3><p>Статус резидента даёт льготы по налогам, доступ к грантам и инфраструктуре для технологических компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div></a></div>
       <div class="news-card"><a href="https://mspbank.ru" target="_blank"><div class="news-tag">Субсидии</div><h3>МСП Банк: льготные кредиты от 4% годовых</h3><p>Государственная программа льготного кредитования малых и средних предприятий по ставке ниже рыночной.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ mspbank.ru</span></div></a></div>`;
