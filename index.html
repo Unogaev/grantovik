@@ -176,7 +176,8 @@ button,input,textarea,select{font:inherit}
 .cc-val{font-size:14px;font-weight:600;color:var(--cream)}
 .cc-val a{color:var(--cream)}
 .cc-val a:hover{color:var(--red)}
-.form-title{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.form-title{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.form-subtitle{font-size:13px;color:rgba(242,239,230,.5);margin-bottom:16px;line-height:1.5}
 .form-field{border-bottom:1px solid rgba(255,255,255,.1)}
 .form-field:last-of-type{border-bottom:none}
 .form-field label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,230,.35);padding:14px 0 4px}
@@ -202,9 +203,9 @@ button,input,textarea,select{font:inherit}
 .footer-col a{display:block;font-size:13px;color:var(--ink-2);margin-bottom:7px}
 .footer-col a:hover{color:var(--red)}
 .mail-link{font-size:14px;font-weight:600;color:var(--ink)!important}
-.footer-bottom{padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.footer-copy{font-size:12px;color:var(--ink-3)}
-.footer-legal{display:flex;gap:20px}
+.footer-bottom{padding:16px 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--ink-3);max-width:600px;line-height:1.6}
+.footer-legal{display:flex;gap:20px;flex-shrink:0}
 .footer-legal a{font-size:12px;color:var(--ink-3)}
 .footer-legal a:hover{color:var(--red)}
 @media(max-width:900px){
@@ -229,7 +230,7 @@ button,input,textarea,select{font:inherit}
 <body>
 <header class="masthead">
   <div class="mast-top">
-    <span>Четверг, 18 июня 2026 · Выпуск №001</span>
+    <span id="site-date"></span>
     <a href="mailto:info@grantovik.ru">info@grantovik.ru</a>
   </div>
   <div class="mast-center">
@@ -279,9 +280,9 @@ button,input,textarea,select{font:inherit}
         </div>
         <div class="inn-status" id="inn-status"></div>
         <div id="stories-block">
-          <div class="stories-label">Истории предпринимателей</div>
+          <div class="stories-label">Примеры сценариев · как это работает</div>
           <div class="story-card active" id="sc0">
-            <div class="story-tag">IT / Москва</div>
+            <div class="story-tag">Пример · IT / Москва</div>
             <div class="story-quote">«Мы не знали что вообще существует программа СТАРТ. Грантовик нашёл её за минуту — получили 4 млн без потери доли»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">АК</div><div><div class="story-name">Алексей К.</div><div class="story-biz">Основатель SaaS-стартапа</div></div></div>
@@ -289,24 +290,24 @@ button,input,textarea,select{font:inherit}
             </div>
           </div>
           <div class="story-card" id="sc1">
-            <div class="story-tag">Торговля → Производство / Краснодар</div>
-            <div class="story-quote">«У нас был торговый ОКВЭД, но мы хотели открыть производство. Грантовик понял это — получили 8 млн»</div>
+            <div class="story-tag">Пример · Торговля → Производство</div>
+            <div class="story-quote">«У нас был торговый ОКВЭД, но мы хотели открыть производство. Грантовик понял это — нашёл программу Минпромторга»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">МС</div><div><div class="story-name">Марина С.</div><div class="story-biz">Владелец торговой сети</div></div></div>
-              <div class="story-grant"><div class="story-grant-sum">8 млн ₽</div><div class="story-grant-name">Минпромторг</div></div>
+              <div class="story-grant"><div class="story-grant-sum">до 50 млн ₽</div><div class="story-grant-name">Минпромторг</div></div>
             </div>
           </div>
           <div class="story-card" id="sc2">
-            <div class="story-tag">Медтех / СПб</div>
-            <div class="story-quote">«Подали заявку на Сколково по черновику от Грантовика. Получили статус резидента и 0% налог на прибыль»</div>
+            <div class="story-tag">Пример · Медтех / СПб</div>
+            <div class="story-quote">«Подали заявку на Сколково по плану от Грантовика. Получили статус резидента и 0% налог на прибыль»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">ДВ</div><div><div class="story-name">Дмитрий В.</div><div class="story-biz">CEO медтех-компании</div></div></div>
               <div class="story-grant"><div class="story-grant-sum">Резидент</div><div class="story-grant-name">Сколково</div></div>
             </div>
           </div>
           <div class="story-card" id="sc3">
-            <div class="story-tag">EdTech / Казань</div>
-            <div class="story-quote">«Я думал гранты только для крупных. Оказалось УМНИК даётся молодым до 30 лет — получил 500К на прототип»</div>
+            <div class="story-tag">Пример · EdTech / Казань</div>
+            <div class="story-quote">«Думал гранты только для крупных. УМНИК даётся молодым до 30 лет — Грантовик нашёл это за 30 секунд»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">ИМ</div><div><div class="story-name">Илья М.</div><div class="story-biz">Основатель EdTech-проекта</div></div></div>
               <div class="story-grant"><div class="story-grant-sum">500 тыс ₽</div><div class="story-grant-name">УМНИК</div></div>
@@ -404,7 +405,7 @@ button,input,textarea,select{font:inherit}
     <div class="cta-left">
       <div class="cta-eyebrow">Свяжитесь с нами</div>
       <h2 class="cta-hed">Разберёмся<br>в грантах<br><em>вместе</em></h2>
-      <p class="cta-deck">На раннем этапе мы лично проверяем каждый подбор и помогаем подготовить заявку. Отвечаем в течение 24 часов.</p>
+      <p class="cta-deck">На раннем этапе мы бесплатно проверяем 1–3 программы и пишем вам конкретный план действий. Отвечаем в течение 24 часов.</p>
       <div class="cta-contacts">
         <div class="cc"><div class="cc-icon">✉</div><div><div class="cc-label">Почта</div><div class="cc-val"><a href="mailto:info@grantovik.ru">info@grantovik.ru</a></div></div></div>
         <div class="cc"><div class="cc-icon">🌐</div><div><div class="cc-label">Сайт</div><div class="cc-val"><a href="https://grantovik.ru">grantovik.ru</a></div></div></div>
@@ -413,6 +414,7 @@ button,input,textarea,select{font:inherit}
     </div>
     <div class="cta-right">
       <div class="form-title">Оставить заявку</div>
+      <div class="form-subtitle">Мы бесплатно проверим 1–3 подходящие программы и напишем вам план действий</div>
       <div id="form-wrap">
         <form id="contact-form" onsubmit="submitForm(event)">
           <div class="form-field"><label>Ваше имя</label><input type="text" id="f-name" placeholder="Как вас зовут" required/></div>
@@ -438,12 +440,12 @@ button,input,textarea,select{font:inherit}
           </div>
           <div class="form-field"><label>О проекте и цели</label><textarea id="f-project" placeholder="Коротко: что делаете, на какой стадии, что нужно" required></textarea></div>
           <button type="submit" class="form-submit" id="form-submit-btn">Отправить заявку →</button>
-          <div class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
+          <div class="form-note">Мы не гарантируем получение гранта, но помогаем найти подходящие программы. Данные обрабатываются по ФЗ-152.</div>
         </form>
         <div class="form-success" id="form-success">
           <div class="form-success-icon">✓</div>
           <h3>Заявка отправлена!</h3>
-          <p>Свяжемся по адресу <span id="success-email"></span><br>в течение 24 часов.</p>
+          <p>Свяжемся по адресу <span id="success-email"></span><br>в течение 24 часов с планом действий.</p>
         </div>
       </div>
     </div>
@@ -471,8 +473,11 @@ button,input,textarea,select{font:inherit}
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Грантовик. Все права защищены.</div>
-      <div class="footer-legal"><a href="#">Политика конфиденциальности</a><a href="#">Соглашение</a></div>
+      <div class="footer-copy">© 2026 Грантовик. Все права защищены. Мы не гарантируем получение гранта, но помогаем найти подходящие меры поддержки. Персональные данные обрабатываются в соответствии с ФЗ-152 «О персональных данных».</div>
+      <div class="footer-legal">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Соглашение</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -525,6 +530,12 @@ const DEFAULT_QUIZ={title:'Уточните вашу цель — подберё
   {icon:'🌍',text:'Выйти на экспорт',goal:'экспорт продукции или услуг'},
   {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
 ]};
+
+// Динамическая дата
+const _d=new Date();
+const _days=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
+const _months=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+document.getElementById('site-date').textContent=`${_days[_d.getDay()]}, ${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 
 let currentStory=0;
 function showStory(n){
@@ -685,8 +696,9 @@ async function loadGrants(d){
     document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
     document.getElementById('quiz-btn').disabled=false;
   }catch(e){
-    console.error('Grants error:',e);
     document.getElementById('grants-body').innerHTML='<div class="ld">Не удалось загрузить. Попробуйте позже.</div>';
+    document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
+    document.getElementById('quiz-btn').disabled=false;
   }
 }
 
@@ -704,7 +716,6 @@ async function loadSteps(d){
         <span class="stag ${tm[s.urgency]||'t-month'}">${s.urgency}</span></div>
       </div>`).join('')}</div>`;
   }catch(e){
-    console.error('Steps error:',e);
     document.getElementById('steps-body').innerHTML='<div class="ld">Не удалось сформировать план.</div>';
   }
 }
@@ -744,7 +755,7 @@ function resetAll(){
 
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
-  const p=`Составь 4 новости о реальных российских программах поддержки бизнеса. Используй только реально существующие программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг. ТОЛЬКО JSON без лишнего текста:\n[{"tag":"Грант или Субсидии или Программа или Стартапы","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"https://fasie.ru или https://sk.ru или https://mspbank.ru или https://rfrit.ru"}]`;
+  const p=`Составь 4 новости о реальных российских программах поддержки бизнеса. Только реально существующие программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг. ТОЛЬКО JSON без лишнего текста:\n[{"tag":"Грант или Субсидии или Программа или Стартапы","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"https://fasie.ru или https://sk.ru или https://mspbank.ru или https://rfrit.ru"}]`;
   try{
     const txt=await claudeAPI(p,800);
     const news=JSON.parse(txt);
