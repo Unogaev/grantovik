@@ -116,6 +116,23 @@ button,input,textarea,select{font:inherit}
 .gi-info .gmeta span{font-size:10px;color:var(--ink-3)}
 .gbar{height:2px;background:var(--cream-3);margin-top:4px}
 .gfill{height:2px;background:var(--ink)}
+.grants-disclaimer{font-size:11px;color:var(--ink-3);padding:8px 0;border-top:1px solid var(--rule);margin-top:4px;font-style:italic}
+/* ОФФЕР БЛОК */
+.offer-block{background:var(--ink);color:var(--cream);padding:16px;margin-top:4px;margin-bottom:8px}
+.offer-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.offer-badge{background:var(--red);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;color:#fff;flex-shrink:0}
+.offer-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--cream);line-height:1.2}
+.offer-steps{display:grid;gap:8px;margin-bottom:14px}
+.offer-step{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:rgba(242,239,230,.8);line-height:1.5}
+.offer-step-num{width:18px;height:18px;border:1px solid rgba(242,239,230,.3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--cream);flex-shrink:0}
+.offer-price{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.offer-price-item{flex:1;min-width:120px;background:rgba(255,255,255,.07);padding:10px 12px}
+.offer-price-label{font-size:10px;color:rgba(242,239,230,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.offer-price-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--cream);line-height:1}
+.offer-price-sub{font-size:11px;color:rgba(242,239,230,.5);margin-top:2px}
+.offer-btn{width:100%;padding:12px;background:var(--red);color:#fff;border:none;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;letter-spacing:.02em}
+.offer-btn:hover{background:#9B2D22}
+.offer-note{font-size:11px;color:rgba(242,239,230,.3);text-align:center;margin-top:8px}
 .step-list{display:grid;gap:7px}
 .step{display:flex;gap:10px;align-items:flex-start}
 .snum{width:22px;height:22px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink);flex-shrink:0;margin-top:1px}
@@ -148,6 +165,27 @@ button,input,textarea,select{font:inherit}
 .col-n{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.85;letter-spacing:-.05em;color:var(--cream-3);margin-bottom:12px}
 .col h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px;line-height:1.15}
 .col p{font-size:13px;color:var(--ink-2);line-height:1.65}
+/* ТАРИФЫ */
+.pricing-section{padding:36px 0;border-bottom:2px solid var(--ink)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.price-card{background:var(--paper);border:1px solid var(--rule);padding:24px;position:relative}
+.price-card.featured{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.price-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 12px;white-space:nowrap}
+.price-name{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.price-card.featured .price-name{color:rgba(242,239,230,.5)}
+.price-val{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:4px;color:var(--ink)}
+.price-card.featured .price-val{color:var(--cream)}
+.price-per{font-size:12px;color:var(--ink-3);margin-bottom:16px}
+.price-card.featured .price-per{color:rgba(242,239,230,.5)}
+.price-features{display:grid;gap:8px;margin-bottom:20px}
+.pf{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink-2);line-height:1.4}
+.price-card.featured .pf{color:rgba(242,239,230,.8)}
+.pf-check{color:var(--green);font-weight:700;flex-shrink:0}
+.price-card.featured .pf-check{color:#4ADE80}
+.price-btn{width:100%;padding:11px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.price-btn:hover{background:var(--ink);color:var(--cream)}
+.price-card.featured .price-btn{background:var(--red);border-color:var(--red);color:#fff}
+.price-card.featured .price-btn:hover{background:#9B2D22}
 .news-section{padding:36px 0;border-bottom:2px solid var(--ink)}
 .news-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
 .news-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-.03em}
@@ -163,7 +201,6 @@ button,input,textarea,select{font:inherit}
 .news-date{font-size:11px;color:var(--ink-3)}
 .news-src{font-size:11px;color:var(--red);font-weight:600}
 .news-loader{text-align:center;padding:20px;color:var(--ink-3);font-size:13px;font-style:italic;grid-column:1/-1}
-.cta-section{padding:0;border-bottom:2px solid var(--ink)}
 .cta-box{background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:0}
 .cta-left{padding:56px clamp(24px,5vw,72px)}
 .cta-right{padding:56px clamp(24px,5vw,72px);border-left:1px solid rgba(255,255,255,.1)}
@@ -211,7 +248,7 @@ button,input,textarea,select{font:inherit}
 .footer-legal a{font-size:12px;color:var(--ink-3)}
 .footer-legal a:hover{color:var(--red)}
 @media(max-width:900px){
-  .hero-grid,.cta-box,.footer-top{grid-template-columns:1fr}
+  .hero-grid,.cta-box,.footer-top,.pricing-grid{grid-template-columns:1fr}
   .hero-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px}
   .inn-panel{padding-left:0;padding-top:20px}
   .three-col{grid-template-columns:1fr 1fr}
@@ -241,6 +278,7 @@ button,input,textarea,select{font:inherit}
   </div>
   <nav class="nav-strip">
     <a href="#how">Как работает</a>
+    <a href="#pricing">Тарифы</a>
     <a href="#news">Новости</a>
     <a href="#access">Написать нам</a>
     <a class="nav-cta" href="#inn-input">Ввести ИНН →</a>
@@ -301,9 +339,9 @@ button,input,textarea,select{font:inherit}
           </div>
           <div class="story-card" id="sc2">
             <div class="story-tag">Пример · Агробизнес / Москва</div>
-            <div class="story-quote">«Хотел построить завод — консультанты просили 30%. Грантовик нашёл программу i.moscow на 100 млн и грант Минсельхоза бесплатно»</div>
+            <div class="story-quote">«Хотел построить завод — консультанты просили 30%. Грантовик нашёл программу i.moscow на 100 млн бесплатно»</div>
             <div class="story-bottom">
-              <div class="story-person"><div class="story-avatar">ЕУ</div><div><div class="story-name">Евгений У.</div><div class="story-biz">Агробизнес</div></div></div>
+              <div class="story-person"><div class="story-avatar">ЕУ</div><div><div class="story-name">Евгений У.</div><div class="story-biz">Агробизнес, Москва</div></div></div>
               <div class="story-grant"><div class="story-grant-sum">до 100 млн ₽</div><div class="story-grant-name">i.moscow</div></div>
             </div>
           </div>
@@ -350,6 +388,32 @@ button,input,textarea,select{font:inherit}
             <div class="rb-head"><div class="rb-icon">★</div><div><div class="rb-lbl">Топ программ</div><div class="rb-title">Подходящие гранты для вашей компании</div></div></div>
             <div class="rb-body" id="grants-body"><div class="ld">Подбираем программы...</div></div>
           </div>
+          <!-- ОФФЕР БЛОК — появляется после грантов -->
+          <div class="offer-block" id="offer-block" style="display:none">
+            <div class="offer-top">
+              <div class="offer-badge">Помощь с заявкой</div>
+              <div class="offer-title">Хотите чтобы мы помогли подать заявку?</div>
+            </div>
+            <div class="offer-steps">
+              <div class="offer-step"><div class="offer-step-num">1</div>Проверяем ваши шансы и выбираем лучшую программу</div>
+              <div class="offer-step"><div class="offer-step-num">2</div>Готовим документы и заполняем заявку под ключ</div>
+              <div class="offer-step"><div class="offer-step-num">3</div>Сопровождаем до получения решения</div>
+            </div>
+            <div class="offer-price">
+              <div class="offer-price-item">
+                <div class="offer-price-label">Аванс за подготовку</div>
+                <div class="offer-price-val">30–50 тыс ₽</div>
+                <div class="offer-price-sub">идёт в зачёт комиссии</div>
+              </div>
+              <div class="offer-price-item">
+                <div class="offer-price-label">Комиссия при успехе</div>
+                <div class="offer-price-val">10%</div>
+                <div class="offer-price-sub">от суммы гранта</div>
+              </div>
+            </div>
+            <button class="offer-btn" onclick="applyAction()">Оставить заявку на сопровождение →</button>
+            <div class="offer-note">При гранте 5 млн ₽ — комиссия 500 тыс ₽. Платите только при результате.</div>
+          </div>
           <div class="rblock">
             <div class="rb-head"><div class="rb-icon">→</div><div><div class="rb-lbl">План действий</div><div class="rb-title">С чего начать прямо сейчас</div></div></div>
             <div class="rb-body" id="steps-body"><div class="ld">Формируем план...</div></div>
@@ -374,49 +438,24 @@ button,input,textarea,select{font:inherit}
     <div class="src-group">
       <div class="src-lbl">Федеральные</div>
       <div class="src-tags">
-        <span class="src-tag">Фонд Бортника</span>
-        <span class="src-tag">Сколково</span>
-        <span class="src-tag">Президентский фонд</span>
-        <span class="src-tag">РФРИТ</span>
-        <span class="src-tag">Минпромторг</span>
-        <span class="src-tag">Минэкономразвития</span>
-        <span class="src-tag">Минсельхоз</span>
-        <span class="src-tag">Росмолодёжь</span>
-        <span class="src-tag">РЭЦ</span>
-        <span class="src-tag">ФРП</span>
-        <span class="src-tag">Корпорация МСП</span>
-        <span class="src-tag">Фонд НТИ</span>
+        <span class="src-tag">Фонд Бортника</span><span class="src-tag">Сколково</span><span class="src-tag">Президентский фонд</span><span class="src-tag">РФРИТ</span><span class="src-tag">Минпромторг</span><span class="src-tag">Минэкономразвития</span><span class="src-tag">Минсельхоз</span><span class="src-tag">Росмолодёжь</span><span class="src-tag">РЭЦ</span><span class="src-tag">ФРП</span><span class="src-tag">Корпорация МСП</span><span class="src-tag">Фонд НТИ</span>
       </div>
     </div>
     <div class="src-group">
       <div class="src-lbl">Банки</div>
       <div class="src-tags">
-        <span class="src-tag">МСП Банк</span>
-        <span class="src-tag">Сбербанк</span>
-        <span class="src-tag">ВТБ</span>
-        <span class="src-tag">Альфа-Банк</span>
-        <span class="src-tag">Газпромбанк</span>
-        <span class="src-tag">Россельхозбанк</span>
-        <span class="src-tag">Промсвязьбанк</span>
-        <span class="src-tag">Тинькофф</span>
-        <span class="src-tag">Совкомбанк</span>
-        <span class="src-tag">Росагролизинг</span>
+        <span class="src-tag">МСП Банк</span><span class="src-tag">Сбербанк</span><span class="src-tag">ВТБ</span><span class="src-tag">Альфа-Банк</span><span class="src-tag">Газпромбанк</span><span class="src-tag">Россельхозбанк</span><span class="src-tag">Промсвязьбанк</span><span class="src-tag">Тинькофф</span><span class="src-tag">Совкомбанк</span><span class="src-tag">Росагролизинг</span>
       </div>
     </div>
     <div class="src-group">
       <div class="src-lbl">Московские</div>
       <div class="src-tags">
-        <span class="src-tag">i.moscow</span>
-        <span class="src-tag">МЭЦ</span>
-        <span class="src-tag">Фонд Москвы</span>
-        <span class="src-tag">Правительство Москвы</span>
+        <span class="src-tag">i.moscow</span><span class="src-tag">МЭЦ</span><span class="src-tag">Фонд Москвы</span><span class="src-tag">Правительство Москвы</span>
       </div>
     </div>
     <div class="src-group">
       <div class="src-lbl">Региональные</div>
-      <div class="src-tags">
-        <span class="src-tag">85 региональных фондов</span>
-      </div>
+      <div class="src-tags"><span class="src-tag">85 региональных фондов</span></div>
     </div>
   </div>
 </div>
@@ -424,9 +463,60 @@ button,input,textarea,select{font:inherit}
   <div class="wrap">
     <div class="sec-kicker">Как работает</div>
     <div class="three-col">
-      <div class="col" style="padding-left:0"><div class="col-n">01</div><h3>Введите ИНН</h3><p>Система мгновенно подтягивает данные из реестра ФНС. Если ваши планы шире ОКВЭД — умный опросник уточнит цель.</p></div>
+      <div class="col" style="padding-left:0"><div class="col-n">01</div><h3>Введите ИНН</h3><p>Система мгновенно подтягивает данные из реестра ФНС. Умный опросник уточнит вашу цель — даже если планы шире ОКВЭД.</p></div>
       <div class="col"><div class="col-n">02</div><h3>ИИ разбирается вместо вас</h3><p>Анализирует 300+ программ от федеральных фондов, банков и региональных институтов — и отбирает только подходящие именно вам.</p></div>
-      <div class="col" style="padding-right:0"><div class="col-n">03</div><h3>Получите план и заявку</h3><p>Список грантов с объяснением, конкретные шаги с дедлайнами и совет эксперта — всё за 30 секунд.</p></div>
+      <div class="col" style="padding-right:0"><div class="col-n">03</div><h3>Получите план или помощь</h3><p>Подбор грантов бесплатно. Хотите помощь с заявкой — наши эксперты сопроводят до результата за фиксированный аванс + % от успеха.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ТАРИФЫ -->
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="sec-kicker">Тарифы</div>
+    <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-.03em;margin-bottom:8px">Выберите формат работы</div>
+    <div style="font-size:14px;color:var(--ink-3);margin-bottom:0">Подбор грантов всегда бесплатный. Платите только за сопровождение.</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Самостоятельно</div>
+        <div class="price-val">0 ₽</div>
+        <div class="price-per">навсегда бесплатно</div>
+        <div class="price-features">
+          <div class="pf"><span class="pf-check">✓</span>Анализ по ИНН</div>
+          <div class="pf"><span class="pf-check">✓</span>Подбор грантов под вашу цель</div>
+          <div class="pf"><span class="pf-check">✓</span>План действий с шагами</div>
+          <div class="pf"><span class="pf-check">✓</span>Совет эксперта</div>
+          <div class="pf"><span class="pf-check">✓</span>300+ программ в базе</div>
+        </div>
+        <button class="price-btn" onclick="document.getElementById('inn').focus();window.scrollTo(0,0)">Начать бесплатно →</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Популярный</div>
+        <div class="price-name">С сопровождением</div>
+        <div class="price-val">30–50 тыс</div>
+        <div class="price-per">аванс + 10% при получении гранта</div>
+        <div class="price-features">
+          <div class="pf"><span class="pf-check">✓</span>Всё из бесплатного тарифа</div>
+          <div class="pf"><span class="pf-check">✓</span>Экспертный аудит шансов</div>
+          <div class="pf"><span class="pf-check">✓</span>Подготовка всех документов</div>
+          <div class="pf"><span class="pf-check">✓</span>Заполнение заявки под ключ</div>
+          <div class="pf"><span class="pf-check">✓</span>Сопровождение до решения</div>
+          <div class="pf"><span class="pf-check">✓</span>Аванс идёт в зачёт комиссии</div>
+        </div>
+        <button class="price-btn" onclick="applyOffer()">Оставить заявку →</button>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Корпоративный</div>
+        <div class="price-val">от 100 тыс</div>
+        <div class="price-per">за проект / ежемесячный ретейнер</div>
+        <div class="price-features">
+          <div class="pf"><span class="pf-check">✓</span>Всё из тарифа «С сопровождением»</div>
+          <div class="pf"><span class="pf-check">✓</span>Несколько заявок одновременно</div>
+          <div class="pf"><span class="pf-check">✓</span>Персональный менеджер</div>
+          <div class="pf"><span class="pf-check">✓</span>Мониторинг новых программ</div>
+          <div class="pf"><span class="pf-check">✓</span>Приоритетная обработка</div>
+        </div>
+        <button class="price-btn" onclick="applyOffer()">Обсудить условия →</button>
+      </div>
     </div>
   </div>
 </section>
@@ -446,7 +536,7 @@ button,input,textarea,select{font:inherit}
     <div class="cta-left">
       <div class="cta-eyebrow">Свяжитесь с нами</div>
       <h2 class="cta-hed">Разберёмся<br>в грантах<br><em>вместе</em></h2>
-      <p class="cta-deck">На раннем этапе мы бесплатно проверяем 1–3 программы и пишем вам конкретный план действий. Отвечаем в течение 24 часов.</p>
+      <p class="cta-deck">Подбор грантов бесплатный. За сопровождение берём аванс 30–50 тыс ₽ + 10% от суммы при успехе. Платите только когда у вас уже есть деньги.</p>
       <div class="cta-contacts">
         <div class="cc"><div class="cc-icon">✉</div><div><div class="cc-label">Почта</div><div class="cc-val"><a href="mailto:info@grantovik.ru">info@grantovik.ru</a></div></div></div>
         <div class="cc"><div class="cc-icon">🌐</div><div><div class="cc-label">Сайт</div><div class="cc-val"><a href="https://grantovik.ru">grantovik.ru</a></div></div></div>
@@ -455,7 +545,7 @@ button,input,textarea,select{font:inherit}
     </div>
     <div class="cta-right">
       <div class="form-title">Оставить заявку</div>
-      <div class="form-subtitle">Мы бесплатно проверим 1–3 подходящие программы и напишем вам план действий</div>
+      <div class="form-subtitle">Расскажите о проекте — предложим оптимальный формат работы</div>
       <div id="form-wrap">
         <form id="contact-form" onsubmit="submitForm(event)">
           <div class="form-field"><label>Ваше имя</label><input type="text" id="f-name" placeholder="Как вас зовут" required/></div>
@@ -479,14 +569,24 @@ button,input,textarea,select{font:inherit}
               <option>Другое</option>
             </select>
           </div>
+          <div class="form-field">
+            <label>Формат работы</label>
+            <select id="f-format">
+              <option value="">Выберите формат</option>
+              <option>Хочу сопровождение (аванс + % от успеха)</option>
+              <option>Нужна консультация</option>
+              <option>Корпоративный проект</option>
+              <option>Просто узнать подробнее</option>
+            </select>
+          </div>
           <div class="form-field"><label>О проекте и цели</label><textarea id="f-project" placeholder="Коротко: что делаете, на какой стадии, что нужно" required></textarea></div>
           <button type="submit" class="form-submit" id="form-submit-btn">Отправить заявку →</button>
-          <div class="form-note">Мы не гарантируем получение гранта, но помогаем найти подходящие программы. Данные обрабатываются по ФЗ-152.</div>
+          <div class="form-note">Мы не гарантируем получение гранта, но помогаем найти подходящие программы и подготовить сильную заявку. Данные обрабатываются по ФЗ-152.</div>
         </form>
         <div class="form-success" id="form-success">
           <div class="form-success-icon">✓</div>
           <h3>Заявка отправлена!</h3>
-          <p>Свяжемся по адресу <span id="success-email"></span><br>в течение 24 часов с планом действий.</p>
+          <p>Свяжемся по адресу <span id="success-email"></span><br>в течение 24 часов.</p>
         </div>
       </div>
     </div>
@@ -498,12 +598,13 @@ button,input,textarea,select{font:inherit}
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Грант<span>о</span>вик</div>
-        <p>Платформа поиска финансирования для российского бизнеса. Агрегируем 300+ программ от федеральных фондов, банков и региональных институтов.</p>
+        <p>Платформа поиска финансирования для российского бизнеса. 300+ программ от федеральных фондов, банков и региональных институтов.</p>
       </div>
       <div class="footer-col">
         <h4>Навигация</h4>
         <a href="#inn-input">Анализ по ИНН</a>
         <a href="#how">Как работает</a>
+        <a href="#pricing">Тарифы</a>
         <a href="#news">Новости</a>
         <a href="#access">Контакты</a>
       </div>
@@ -514,7 +615,7 @@ button,input,textarea,select{font:inherit}
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Грантовик. Все права защищены. Мы не гарантируем получение гранта, но помогаем найти подходящие меры поддержки. Персональные данные обрабатываются в соответствии с ФЗ-152.</div>
+      <div class="footer-copy">© 2026 Грантовик. Все права защищены. Мы не гарантируем получение гранта, но помогаем найти подходящие программы и подготовить сильную заявку. Данные обрабатываются по ФЗ-152.</div>
       <div class="footer-legal"><a href="#">Политика конфиденциальности</a><a href="#">Соглашение</a></div>
     </div>
   </div>
@@ -574,15 +675,17 @@ const DEFAULT_QUIZ={title:'Уточните вашу цель — подберё
 const SOURCES_CONTEXT=`
 ИСТОЧНИКИ ФИНАНСИРОВАНИЯ — ищи программы среди ВСЕХ этих организаций:
 
-ФЕДЕРАЛЬНЫЕ ФОНДЫ: Фонд содействия инновациям (Бортника) — УМНИК до 500 тыс, СТАРТ до 4 млн, РАЗВИТИЕ до 20 млн; Сколково — гранты резидентам до 50 млн + налоговые льготы; Президентский фонд культурных инициатив — до 3 млн; РФРИТ — гранты IT-компаниям до 300 млн; Фонд развития промышленности (ФРП) — займы от 5 до 500 млн под 1-5%; Фонд НТИ — до 100 млн; Росмолодёжь — до 500 тыс молодым предпринимателям до 25 лет.
+ФЕДЕРАЛЬНЫЕ ФОНДЫ: Фонд содействия инновациям (Бортника) — УМНИК до 500 тыс, СТАРТ до 4 млн, РАЗВИТИЕ до 20 млн; Сколково — гранты резидентам до 50 млн + налоговые льготы; Президентский фонд культурных инициатив — до 3 млн; РФРИТ — гранты IT до 300 млн; ФРП — займы от 5 до 500 млн под 1-5%; Фонд НТИ — до 100 млн; Росмолодёжь — до 500 тыс молодым до 25 лет.
 
-МИНИСТЕРСТВА: Минпромторг — субсидии производителям, импортозамещение до 500 млн; Минэкономразвития — МСП, самозанятые, социальное предпринимательство; Минсельхоз — агрогранты, техника, переработка, мелиорация; РЭЦ (Российский экспортный центр) — субсидии экспортёрам до 10 млн; Корпорация МСП — поручительства и льготные кредиты.
+МИНИСТЕРСТВА: Минпромторг — субсидии производителям и импортозамещение до 500 млн; Минэкономразвития — МСП поддержка; Минсельхоз — агрогранты, техника, переработка; РЭЦ — субсидии экспортёрам до 10 млн; Корпорация МСП — поручительства и льготные кредиты.
 
-БАНКИ С ЛЬГОТНЫМИ ПРОГРАММАМИ: МСП Банк — кредиты от 4% для МСП до 500 млн; Сбербанк — льготное кредитование МСП, программа 1764; ВТБ — господдержка МСП, кредиты под 4.5%; Альфа-Банк — программы для предпринимателей, кредиты МСП; Газпромбанк — промышленные и инновационные проекты; Россельхозбанк — агробизнес, фермеры, переработка под 1-5% по Минсельхозу; Промсвязьбанк — ОПК и МСП; Тинькофф — программы для малого бизнеса; Совкомбанк — льготные кредиты МСП; Росагролизинг — сельхозтехника в лизинг без первоначального взноса.
+БАНКИ: МСП Банк — кредиты от 4% до 500 млн; Сбербанк — программа 1764, льготное кредитование МСП; ВТБ — господдержка МСП под 4.5%; Альфа-Банк — программы для предпринимателей; Газпромбанк — промышленные проекты; Россельхозбанк — агробизнес под 1-5% по Минсельхозу; Промсвязьбанк — ОПК и МСП; Тинькофф — малый бизнес; Совкомбанк — льготные кредиты МСП; Росагролизинг — сельхозтехника в лизинг.
 
-МОСКОВСКИЕ ПРОГРАММЫ (только для компаний с московской пропиской): i.moscow (Московский инновационный кластер) — грант до 100 млн на импортозамещающее производство (возмещение 50% затрат на оборудование, строительство, ПО), субсидия на оборудование до 30 млн, субсидия на патентование 75 тыс за патент, субсидия на экспорт до 10 млн; Московский экспортный центр (МЭЦ) — до 3 млн на сертификацию и продвижение; Правительство Москвы — субсидии промышленным предприятиям.
+МОСКОВСКИЕ (только для московских компаний): i.moscow — грант до 100 млн на импортозамещающее производство (50% затрат), субсидия на оборудование до 30 млн, субсидия на патент 75 тыс, субсидия на экспорт до 10 млн; МЭЦ — до 3 млн на сертификацию; Правительство Москвы — субсидии промышленным предприятиям.
 
-РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов есть региональный фонд поддержки МСП, региональный центр инжиниринга, региональный фонд развития промышленности — ищи по региону компании.
+РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов — региональный фонд МСП, центр инжиниринга, региональный ФРП.
+
+ВАЖНО: НЕ УКАЗЫВАЙ конкретные даты дедлайнов — пиши "постоянный приём", "ежегодный конкурс" или "уточните на сайте оператора". Даты конкурсов меняются каждый год.
 `;
 
 // Динамическая дата
@@ -661,6 +764,7 @@ async function runWithGoal(){
   document.getElementById('quiz-btn').disabled=true;
   document.getElementById('quiz-btn').textContent='Анализируем...';
   document.getElementById('result-wrap').style.display='block';
+  document.getElementById('offer-block').style.display='none';
   document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
   setSt('load','ИИ подбирает программы под вашу цель...');
   const d={...currentCompany,goal:selectedGoal};
@@ -729,7 +833,8 @@ async function claudeAPI(prompt,maxTokens){
 async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ ПРЕДПРИНИМАТЕЛЯ: ${d.goal}`:'';
   const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nКОМПАНИЯ ИЗ МОСКВЫ — обязательно рассмотри программы i.moscow, МЭЦ, Правительство Москвы.':'';
-  const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||goal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — рассмотри Россельхозбанк, Росагролизинг, Минсельхоз, ФРП, Минпромторг.':'';
+  const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||selectedGoal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — рассмотри Россельхозбанк, Росагролизинг, Минсельхоз, ФРП, Минпромторг.':'';
+
   const p=`${SOURCES_CONTEXT}
 
 Компания: ${d.name}
@@ -739,8 +844,9 @@ async function loadGrants(d){
 Размер: ${d.size}
 Стадия: ${d.stage}${goal}${moscow}${agro}
 
-Подбери 4 наиболее подходящих программы из списка выше. Учитывай регион, отрасль и цель предпринимателя. ТОЛЬКО JSON:
-[{"name":"точное название программы","org":"организация-оператор","pct":число 62-97,"sum":"сумма финансирования","deadline":"срок подачи или постоянный приём","why":"почему подходит этой компании под эту цель"}]`;
+Подбери 4 наиболее подходящих программы. ВАЖНО: вместо конкретных дат пиши "постоянный приём", "ежегодный конкурс" или "уточните на сайте". ТОЛЬКО JSON:
+[{"name":"точное название программы","org":"организация-оператор","pct":число 62-97,"sum":"сумма финансирования","deadline":"постоянный приём или ежегодный конкурс или уточните на сайте","why":"почему подходит этой компании под эту цель"}]`;
+
   try{
     const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
@@ -757,7 +863,12 @@ async function loadGrants(d){
           <div class="gbar"><div class="gfill" style="width:${g.pct}%"></div></div>
         </div>
         <div class="gi-pct">${g.pct}<small>%</small></div>
-      </div>`).join('');
+      </div>`).join('')+
+      `<div class="grants-disclaimer">⚠️ Дедлайны уточняйте на сайтах программ — конкурсы открываются ежегодно в разные сроки.</div>`;
+
+    // Показываем оффер блок
+    document.getElementById('offer-block').style.display='block';
+
     setSt('ok','Готово — программы подобраны под вашу цель');
     document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
     document.getElementById('quiz-btn').disabled=false;
@@ -770,7 +881,7 @@ async function loadGrants(d){
 
 async function loadSteps(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта с учётом цели. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
     const txt=await claudeAPI(p,800);
     const steps=JSON.parse(txt);
@@ -800,9 +911,16 @@ async function loadAdvice(d){
 function applyAction(){
   if(currentCompany){
     document.getElementById('f-inn').value=document.getElementById('inn').value;
-    document.getElementById('f-project').value=`Цель: ${selectedGoal||'развитие бизнеса'}. Интересует грант «${bestGrant}» для компании ${currentCompany.name}`;
+    document.getElementById('f-project').value=`Цель: ${selectedGoal||'развитие бизнеса'}. Интересует грант «${bestGrant}» для компании ${currentCompany.name}. Хочу сопровождение.`;
+    document.getElementById('f-format').value='Хочу сопровождение (аванс + % от успеха)';
   }
   document.getElementById('access').scrollIntoView({behavior:'smooth'});
+}
+
+function applyOffer(){
+  document.getElementById('f-format').value='Хочу сопровождение (аванс + % от успеха)';
+  document.getElementById('access').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>document.getElementById('f-name').focus(),500);
 }
 
 function resetAll(){
@@ -810,6 +928,7 @@ function resetAll(){
   document.getElementById('result-wrap').style.display='none';
   document.getElementById('quiz-block').style.display='none';
   document.getElementById('stories-block').style.display='block';
+  document.getElementById('offer-block').style.display='none';
   setSt('','');
   currentCompany=null;selectedGoal='';bestGrant='';
   document.getElementById('grants-body').innerHTML='<div class="ld">Подбираем программы...</div>';
@@ -839,7 +958,7 @@ async function loadNews(){
       </div>`).join('');
   }catch(e){
     document.getElementById('news-grid').innerHTML=`
-      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
+      <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора на первом этапе.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
       <div class="news-card"><a href="https://i.moscow/grant_import" target="_blank"><div class="news-tag">Грант</div><h3>i.moscow: до 100 млн ₽ на импортозамещающее производство</h3><p>Московский инновационный кластер возмещает до 50% затрат на оборудование, строительство и ПО для московских компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ i.moscow</span></div></a></div>
       <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank"><div class="news-tag">Программа</div><h3>Сколково: резидентство и гранты до 50 млн ₽</h3><p>Статус резидента даёт льготы по налогам, доступ к грантам и инфраструктуре для технологических компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div></a></div>
       <div class="news-card"><a href="https://www.rshb.ru/natural/loans/" target="_blank"><div class="news-tag">Банки</div><h3>Россельхозбанк: льготные кредиты агробизнесу от 1-5%</h3><p>Льготное кредитование фермеров и агропредприятий по госпрограмме Минсельхоза на технику и переработку.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ rshb.ru</span></div></a></div>`;
@@ -862,8 +981,9 @@ async function submitForm(e){
         email,
         inn:document.getElementById('f-inn').value,
         direction:document.getElementById('f-direction').value,
+        format:document.getElementById('f-format').value,
         project:document.getElementById('f-project').value,
-        _subject:`Новая заявка с grantovik.ru от ${name}`,
+        _subject:`Заявка с grantovik.ru — ${document.getElementById('f-format').value||'новая заявка'} от ${name}`,
         _replyto:email,
       })
     });
@@ -877,7 +997,7 @@ async function submitForm(e){
   }catch(err){
     btn.disabled=false;
     btn.textContent='Отправить заявку →';
-    alert('Не удалось отправить форму. Напишите нам напрямую: info@grantovik.ru');
+    alert('Не удалось отправить форму. Напишите напрямую: info@grantovik.ru');
   }
 }
 
