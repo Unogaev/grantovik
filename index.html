@@ -300,11 +300,11 @@ button,input,textarea,select{font:inherit}
             </div>
           </div>
           <div class="story-card" id="sc2">
-            <div class="story-tag">Пример · Агробизнес / Краснодар</div>
-            <div class="story-quote">«Хотел построить завод — консультанты просили 30%. Грантовик нашёл программу Россельхозбанка и грант Минсельхоза бесплатно»</div>
+            <div class="story-tag">Пример · Агробизнес / Москва</div>
+            <div class="story-quote">«Хотел построить завод — консультанты просили 30%. Грантовик нашёл программу i.moscow на 100 млн и грант Минсельхоза бесплатно»</div>
             <div class="story-bottom">
               <div class="story-person"><div class="story-avatar">ЕУ</div><div><div class="story-name">Евгений У.</div><div class="story-biz">Агробизнес</div></div></div>
-              <div class="story-grant"><div class="story-grant-sum">до 100 млн ₽</div><div class="story-grant-name">Минсельхоз</div></div>
+              <div class="story-grant"><div class="story-grant-sum">до 100 млн ₽</div><div class="story-grant-name">i.moscow</div></div>
             </div>
           </div>
           <div class="story-card" id="sc3">
@@ -369,8 +369,6 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
-
-<!-- ИСТОЧНИКИ — полный список -->
 <div class="sources">
   <div class="wrap src-inner">
     <div class="src-group">
@@ -422,7 +420,6 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </div>
-
 <section class="section" id="how">
   <div class="wrap">
     <div class="sec-kicker">Как работает</div>
@@ -517,16 +514,14 @@ button,input,textarea,select{font:inherit}
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Грантовик. Все права защищены. Мы не гарантируем получение гранта, но помогаем найти подходящие меры поддержки. Персональные данные обрабатываются в соответствии с ФЗ-152 «О персональных данных».</div>
-      <div class="footer-legal">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Соглашение</a>
-      </div>
+      <div class="footer-copy">© 2026 Грантовик. Все права защищены. Мы не гарантируем получение гранта, но помогаем найти подходящие меры поддержки. Персональные данные обрабатываются в соответствии с ФЗ-152.</div>
+      <div class="footer-legal"><a href="#">Политика конфиденциальности</a><a href="#">Соглашение</a></div>
     </div>
   </div>
 </footer>
 <script>
 const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
+const FORMSPREE_ID='xqeorgny';
 let bestGrant='',storyTimer,currentCompany=null,selectedGoal='';
 
 const OKVED_INDUSTRY={'01':'Агротех','02':'Агротех','03':'Агротех','10':'Производство','11':'Производство','13':'Производство','14':'Производство','15':'Производство','16':'Производство','17':'Производство','18':'Производство','20':'Производство','21':'Биотех / медтех','22':'Производство','23':'Производство','24':'Производство','25':'Производство','26':'IT / ИИ','27':'Производство','28':'Производство','29':'Производство','35':'CleanTech','36':'CleanTech','38':'CleanTech','41':'Строительство','42':'Строительство','43':'Строительство','45':'Торговля','46':'Торговля','47':'Торговля','49':'Логистика','50':'Логистика','51':'Логистика','52':'Логистика','53':'Логистика','55':'Туризм','56':'Туризм','58':'IT / медиа','59':'IT / медиа','60':'IT / медиа','61':'IT / телеком','62':'IT / ИИ / софт','63':'IT / данные','64':'Финтех','65':'Финтех','66':'Финтех','68':'Строительство','72':'Наука / R&D','73':'Наука / R&D','74':'Профессиональные услуги','85':'EdTech','86':'Биотех / медтех','87':'Биотех / медтех','88':'НКО','90':'Культура','91':'Культура','93':'Спорт','94':'НКО'};
@@ -575,6 +570,20 @@ const DEFAULT_QUIZ={title:'Уточните вашу цель — подберё
   {icon:'🌍',text:'Выйти на экспорт',goal:'экспорт продукции или услуг'},
   {icon:'💰',text:'Пополнить оборотные средства',goal:'пополнение оборотных средств'},
 ]};
+
+const SOURCES_CONTEXT=`
+ИСТОЧНИКИ ФИНАНСИРОВАНИЯ — ищи программы среди ВСЕХ этих организаций:
+
+ФЕДЕРАЛЬНЫЕ ФОНДЫ: Фонд содействия инновациям (Бортника) — УМНИК до 500 тыс, СТАРТ до 4 млн, РАЗВИТИЕ до 20 млн; Сколково — гранты резидентам до 50 млн + налоговые льготы; Президентский фонд культурных инициатив — до 3 млн; РФРИТ — гранты IT-компаниям до 300 млн; Фонд развития промышленности (ФРП) — займы от 5 до 500 млн под 1-5%; Фонд НТИ — до 100 млн; Росмолодёжь — до 500 тыс молодым предпринимателям до 25 лет.
+
+МИНИСТЕРСТВА: Минпромторг — субсидии производителям, импортозамещение до 500 млн; Минэкономразвития — МСП, самозанятые, социальное предпринимательство; Минсельхоз — агрогранты, техника, переработка, мелиорация; РЭЦ (Российский экспортный центр) — субсидии экспортёрам до 10 млн; Корпорация МСП — поручительства и льготные кредиты.
+
+БАНКИ С ЛЬГОТНЫМИ ПРОГРАММАМИ: МСП Банк — кредиты от 4% для МСП до 500 млн; Сбербанк — льготное кредитование МСП, программа 1764; ВТБ — господдержка МСП, кредиты под 4.5%; Альфа-Банк — программы для предпринимателей, кредиты МСП; Газпромбанк — промышленные и инновационные проекты; Россельхозбанк — агробизнес, фермеры, переработка под 1-5% по Минсельхозу; Промсвязьбанк — ОПК и МСП; Тинькофф — программы для малого бизнеса; Совкомбанк — льготные кредиты МСП; Росагролизинг — сельхозтехника в лизинг без первоначального взноса.
+
+МОСКОВСКИЕ ПРОГРАММЫ (только для компаний с московской пропиской): i.moscow (Московский инновационный кластер) — грант до 100 млн на импортозамещающее производство (возмещение 50% затрат на оборудование, строительство, ПО), субсидия на оборудование до 30 млн, субсидия на патентование 75 тыс за патент, субсидия на экспорт до 10 млн; Московский экспортный центр (МЭЦ) — до 3 млн на сертификацию и продвижение; Правительство Москвы — субсидии промышленным предприятиям.
+
+РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов есть региональный фонд поддержки МСП, региональный центр инжиниринга, региональный фонд развития промышленности — ищи по региону компании.
+`;
 
 // Динамическая дата
 const _d=new Date();
@@ -717,24 +726,10 @@ async function claudeAPI(prompt,maxTokens){
   return data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
 }
 
-const SOURCES_CONTEXT=`
-ИСТОЧНИКИ ФИНАНСИРОВАНИЯ — ищи программы среди всех этих организаций:
-
-ФЕДЕРАЛЬНЫЕ ФОНДЫ: Фонд содействия инновациям (Бортника) — УМНИК, СТАРТ, РАЗВИТИЕ; Сколково — гранты резидентам до 50 млн; Президентский фонд культурных инициатив; РФРИТ — гранты IT-компаниям; Фонд развития промышленности (ФРП) — займы от 5 млн; Фонд НТИ; Росмолодёжь — гранты до 500 тыс.
-
-МИНИСТЕРСТВА: Минпромторг — субсидии производителям, импортозамещение; Минэкономразвития — МСП поддержка; Минсельхоз — агрогранты, сельхозтехника, переработка; РЭЦ (Российский экспортный центр) — экспортные субсидии до 10 млн; Корпорация МСП.
-
-БАНКИ С ЛЬГОТНЫМИ ПРОГРАММАМИ: МСП Банк — кредиты от 4% для МСП; Сбербанк — программы для бизнеса, льготное кредитование; ВТБ — господдержка МСП; Альфа-Банк — программы для предпринимателей; Газпромбанк — промышленные проекты; Россельхозбанк — агробизнес, фермеры, переработка; Промсвязьбанк — ОПК и МСП; Тинькофф — программы для малого бизнеса; Совкомбанк — льготные кредиты МСП; Росагролизинг — сельхозтехника в лизинг.
-
-МОСКОВСКИЕ ПРОГРАММЫ (для компаний из Москвы): i.moscow (Московский инновационный кластер) — гранты до 100 млн на импортозамещение, субсидии на оборудование до 30 млн, патентование, экспорт; Московский экспортный центр (МЭЦ) — до 3 млн на сертификацию; Фонд поддержки промышленности Москвы; Правительство Москвы — субсидии.
-
-РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов есть региональный фонд поддержки МСП, региональный центр инжиниринга, фонд развития промышленности региона.
-`;
-
 async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ ПРЕДПРИНИМАТЕЛЯ: ${d.goal}`:'';
-  const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nКОМПАНИЯ ИЗ МОСКВЫ — обязательно рассмотри московские программы i.moscow, МЭЦ, Правительство Москвы.':'';
-  const agro=d.industry&&d.industry.toLowerCase().includes('агро')?'\nАГРОСЕКТОР — рассмотри программы Минсельхоза, Россельхозбанка, Росагролизинга.':'';
+  const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nКОМПАНИЯ ИЗ МОСКВЫ — обязательно рассмотри программы i.moscow, МЭЦ, Правительство Москвы.':'';
+  const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||goal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — рассмотри Россельхозбанк, Росагролизинг, Минсельхоз, ФРП, Минпромторг.':'';
   const p=`${SOURCES_CONTEXT}
 
 Компания: ${d.name}
@@ -744,8 +739,8 @@ async function loadGrants(d){
 Размер: ${d.size}
 Стадия: ${d.stage}${goal}${moscow}${agro}
 
-Подбери 4 наиболее подходящих программы финансирования из списка выше. Учитывай регион, отрасль и цель. ТОЛЬКО JSON без лишнего текста:
-[{"name":"точное название программы","org":"организация","pct":число от 62 до 97,"sum":"сумма финансирования","deadline":"срок подачи или постоянный","why":"1-2 предложения почему подходит именно этой компании под эту цель"}]`;
+Подбери 4 наиболее подходящих программы из списка выше. Учитывай регион, отрасль и цель предпринимателя. ТОЛЬКО JSON:
+[{"name":"точное название программы","org":"организация-оператор","pct":число 62-97,"sum":"сумма финансирования","deadline":"срок подачи или постоянный приём","why":"почему подходит этой компании под эту цель"}]`;
   try{
     const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
@@ -775,7 +770,7 @@ async function loadGrants(d){
 
 async function loadSteps(d){
   const goal=d.goal?`Цель: ${d.goal}.`:'';
-  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
+  const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага для получения гранта с учётом цели. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"конкретное действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
     const txt=await claudeAPI(p,800);
     const steps=JSON.parse(txt);
@@ -826,7 +821,7 @@ function resetAll(){
 
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
-  const p=`Составь 4 актуальные новости о российских программах поддержки бизнеса. Используй реальные программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг, i.moscow, Россельхозбанк, Альфа-Банк МСП, РЭЦ. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru или i.moscow или rshb.ru","url":"реальный URL программы"}]`;
+  const p=`Составь 4 актуальные новости о российских программах поддержки бизнеса. Только реальные программы: УМНИК, СТАРТ, Сколково, МСП Банк, РФРИТ, Минпромторг, i.moscow, Россельхозбанк, Альфа-Банк МСП, РЭЦ, ФРП. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"заголовок до 10 слов","desc":"2 предложения о реальной программе","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru или i.moscow или rshb.ru","url":"реальный URL программы"}]`;
   try{
     const txt=await claudeAPI(p,800);
     const news=JSON.parse(txt);
@@ -845,7 +840,7 @@ async function loadNews(){
   }catch(e){
     document.getElementById('news-grid').innerHTML=`
       <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
-      <div class="news-card"><a href="https://i.moscow/grant_import" target="_blank"><div class="news-tag">Грант</div><h3>i.moscow: до 100 млн ₽ на импортозамещающее производство</h3><p>Московский инновационный кластер возмещает до 50% затрат на оборудование, строительство и ПО.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ i.moscow</span></div></a></div>
+      <div class="news-card"><a href="https://i.moscow/grant_import" target="_blank"><div class="news-tag">Грант</div><h3>i.moscow: до 100 млн ₽ на импортозамещающее производство</h3><p>Московский инновационный кластер возмещает до 50% затрат на оборудование, строительство и ПО для московских компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ i.moscow</span></div></a></div>
       <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank"><div class="news-tag">Программа</div><h3>Сколково: резидентство и гранты до 50 млн ₽</h3><p>Статус резидента даёт льготы по налогам, доступ к грантам и инфраструктуре для технологических компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div></a></div>
       <div class="news-card"><a href="https://www.rshb.ru/natural/loans/" target="_blank"><div class="news-tag">Банки</div><h3>Россельхозбанк: льготные кредиты агробизнесу от 1-5%</h3><p>Льготное кредитование фермеров и агропредприятий по госпрограмме Минсельхоза на технику и переработку.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ rshb.ru</span></div></a></div>`;
   }
@@ -854,19 +849,21 @@ async function loadNews(){
 async function submitForm(e){
   e.preventDefault();
   const btn=document.getElementById('form-submit-btn');
-  btn.disabled=true;btn.textContent='Отправляем...';
+  btn.disabled=true;
+  btn.textContent='Отправляем...';
   const email=document.getElementById('f-email').value;
+  const name=document.getElementById('f-name').value;
   try{
-    const resp=await fetch('https://formspree.io/f/xpwzgvkd',{
+    const resp=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
-        name:document.getElementById('f-name').value,
+        name,
         email,
         inn:document.getElementById('f-inn').value,
         direction:document.getElementById('f-direction').value,
         project:document.getElementById('f-project').value,
-        _subject:`Заявка с grantovik.ru от ${document.getElementById('f-name').value}`,
+        _subject:`Новая заявка с grantovik.ru от ${name}`,
         _replyto:email,
       })
     });
@@ -874,12 +871,13 @@ async function submitForm(e){
       document.getElementById('contact-form').style.display='none';
       document.getElementById('form-success').style.display='block';
       document.getElementById('success-email').textContent=email;
-    }else{throw new Error();}
-  }catch{
-    btn.disabled=false;btn.textContent='Отправить заявку →';
-    const name=document.getElementById('f-name').value;
-    const project=document.getElementById('f-project').value;
-    window.location.href=`mailto:info@grantovik.ru?subject=${encodeURIComponent('Заявка от '+name)}&body=${encodeURIComponent('Имя: '+name+'\nEmail: '+email+'\n\nПроект: '+project)}`;
+    }else{
+      throw new Error('Form error');
+    }
+  }catch(err){
+    btn.disabled=false;
+    btn.textContent='Отправить заявку →';
+    alert('Не удалось отправить форму. Напишите нам напрямую: info@grantovik.ru');
   }
 }
 
