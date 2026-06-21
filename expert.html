@@ -17,7 +17,6 @@
 html,body{height:100%;overflow:hidden}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
 a{color:inherit;text-decoration:none}
-
 .masthead{border-bottom:3px solid var(--ink);padding:0 clamp(20px,4vw,56px);flex-shrink:0}
 .mast-inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
 .logo-link{display:flex;align-items:baseline;gap:10px}
@@ -26,54 +25,46 @@ a{color:inherit;text-decoration:none}
 .logo-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
 .back-btn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink-2);padding:7px 14px;border:1px solid var(--rule-heavy);transition:.12s}
 .back-btn:hover{color:var(--red);border-color:var(--red)}
-
 .layout{display:grid;grid-template-columns:300px 1fr;flex:1;min-height:0}
-
-.sidebar{border-right:2px solid var(--ink);padding:28px 24px;overflow-y:auto;background:var(--paper);display:flex;flex-direction:column;gap:20px}
-
-.expert-card{text-align:center;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sidebar{border-right:2px solid var(--ink);padding:24px 20px;overflow-y:auto;background:var(--paper);display:flex;flex-direction:column;gap:18px}
+.expert-card{text-align:center;padding-bottom:18px;border-bottom:1px solid var(--rule)}
 .expert-avatar{width:72px;height:72px;border-radius:50%;background:var(--ink);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;position:relative;border:3px solid var(--cream-3)}
 .expert-avatar-inner{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--cream)}
-.expert-status{position:absolute;bottom:2px;right:2px;width:14px;height:14px;background:#22C55E;border-radius:50%;border:2px solid var(--paper)}
+.expert-status{position:absolute;bottom:2px;right:2px;width:13px;height:13px;background:#22C55E;border-radius:50%;border:2px solid var(--paper)}
 .expert-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:2px}
-.expert-title{font-size:11px;color:var(--red);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.expert-title{font-size:11px;color:var(--red);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
 .expert-exp{font-size:11px;color:var(--ink-3);margin-bottom:10px}
 .expert-desc{font-size:12px;color:var(--ink-2);line-height:1.65;text-align:left}
-
 .sidebar-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.quick-btn{display:block;width:100%;padding:9px 12px;background:var(--cream);border:1px solid var(--rule);font-size:12px;color:var(--ink-2);cursor:pointer;text-align:left;line-height:1.4;transition:.12s;font-family:'Inter',sans-serif;margin-bottom:6px}
+.quick-btn{display:block;width:100%;padding:9px 11px;background:var(--cream);border:1px solid var(--rule);font-size:12px;color:var(--ink-2);cursor:pointer;text-align:left;line-height:1.4;transition:.12s;font-family:'Inter',sans-serif;margin-bottom:5px}
 .quick-btn:hover{border-color:var(--red);color:var(--red);background:var(--paper)}
-
 .expertise-tags{display:flex;flex-wrap:wrap;gap:5px}
 .etag{font-size:10px;font-weight:600;color:var(--ink-2);background:var(--cream-2);padding:3px 8px}
-
 .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .stat-mini{background:var(--cream);padding:8px;text-align:center}
 .stat-mini-n{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--ink)}
 .stat-mini-l{font-size:10px;color:var(--ink-3);font-weight:500;margin-top:1px}
-
 .offer-mini{background:var(--ink);padding:14px;margin-top:auto}
-.offer-mini-title{font-size:12px;font-weight:600;color:var(--cream);margin-bottom:6px;line-height:1.4}
-.offer-mini-price{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--cream);margin-bottom:4px}
-.offer-mini-sub{font-size:10px;color:rgba(242,239,230,.5);margin-bottom:10px}
-.offer-mini-btn{display:block;width:100%;padding:9px;background:var(--red);color:#fff;border:none;font-size:12px;font-weight:700;cursor:pointer;text-align:center;transition:.12s}
+.offer-mini-eyebrow{font-size:10px;color:rgba(242,239,230,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.offer-mini-title{font-size:12px;font-weight:600;color:var(--cream);margin-bottom:8px;line-height:1.4}
+.offer-mini-prices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.offer-mini-price{background:rgba(255,255,255,.07);padding:8px;text-align:center}
+.offer-mini-price-val{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--cream)}
+.offer-mini-price-sub{font-size:9px;color:rgba(242,239,230,.4);margin-top:2px}
+.offer-mini-btn{display:block;width:100%;padding:9px;background:var(--red);color:#fff;border:none;font-size:12px;font-weight:700;cursor:pointer;text-align:center;transition:.12s;text-decoration:none}
 .offer-mini-btn:hover{background:#9B2D22}
-
 .disclaimer{font-size:10px;color:var(--ink-3);line-height:1.55;padding-top:12px;border-top:1px solid var(--rule)}
-
 .chat-wrap{display:flex;flex-direction:column;min-height:0;background:var(--cream)}
-.chat-header{padding:14px 24px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--paper)}
+.chat-header{padding:12px 24px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--paper)}
 .chat-header-left{display:flex;align-items:center;gap:10px}
-.chat-header-dot{width:8px;height:8px;background:#22C55E;border-radius:50%}
+.chat-header-dot{width:8px;height:8px;background:#22C55E;border-radius:50%;flex-shrink:0}
 .chat-header-text{font-size:13px;color:var(--ink-2)}
 .chat-header-text b{color:var(--ink)}
 .chat-header-right{font-size:11px;color:var(--ink-3)}
-
 .messages{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
 .messages::-webkit-scrollbar{width:3px}
 .messages::-webkit-scrollbar-thumb{background:var(--cream-3)}
-
-.msg{display:flex;gap:10px;max-width:85%}
+.msg{display:flex;gap:10px;max-width:84%}
 .msg.user{align-self:flex-end;flex-direction:row-reverse}
 .msg-avatar{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:2px}
 .msg.alex .msg-avatar{background:var(--ink);color:var(--cream);font-family:'Playfair Display',serif;font-size:13px}
@@ -83,7 +74,6 @@ a{color:inherit;text-decoration:none}
 .msg.user .msg-bubble{background:var(--ink);color:var(--cream);border-radius:10px 0 10px 10px}
 .msg-time{font-size:10px;color:var(--ink-3);margin-top:4px;display:block}
 .msg.user .msg-time{text-align:right}
-
 .typing-wrap{display:flex;gap:10px;align-items:flex-start}
 .typing-avatar{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:'Playfair Display',serif;flex-shrink:0;margin-top:2px}
 .typing{display:flex;align-items:center;gap:4px;padding:11px 15px;background:var(--paper);border:1px solid var(--rule);border-radius:0 10px 10px 10px}
@@ -91,17 +81,15 @@ a{color:inherit;text-decoration:none}
 .typing-dot:nth-child(2){animation-delay:.2s}
 .typing-dot:nth-child(3){animation-delay:.4s}
 @keyframes td{0%,60%,100%{opacity:.3;transform:scale(.8)}30%{opacity:1;transform:scale(1)}}
-
 .capture-form{display:none;background:var(--ink);padding:14px 18px;margin:0 24px 14px;border-left:4px solid var(--red)}
-.capture-form-title{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:10px}
+.capture-title{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:10px;line-height:1.4}
 .capture-row{display:flex;gap:8px;flex-wrap:wrap}
 .capture-input{flex:1;min-width:120px;border:none;border-bottom:1px solid rgba(255,255,255,.2);background:transparent;color:var(--cream);font-size:13px;padding:6px 0;outline:none;font-family:'Inter',sans-serif}
 .capture-input::placeholder{color:rgba(242,239,230,.35)}
-.capture-submit{padding:8px 16px;background:var(--red);color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.capture-submit{padding:8px 16px;background:var(--red);color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer}
 .capture-submit:hover{background:#9B2D22}
 .capture-note{font-size:10px;color:rgba(242,239,230,.4);margin-top:6px}
-
-.input-area{padding:14px 24px;border-top:2px solid var(--ink);background:var(--paper);flex-shrink:0}
+.input-area{padding:12px 24px;border-top:2px solid var(--ink);background:var(--paper);flex-shrink:0}
 .input-row{display:flex;border:2px solid var(--ink);overflow:hidden}
 .input-row textarea{flex:1;border:none;padding:11px 14px;font-size:14px;background:var(--cream);outline:none;color:var(--ink);resize:none;height:46px;font-family:'Inter',sans-serif;line-height:1.4}
 .input-row textarea::placeholder{color:var(--ink-3)}
@@ -109,7 +97,6 @@ a{color:inherit;text-decoration:none}
 .send-btn:hover{background:var(--red)}
 .send-btn:disabled{opacity:.4;cursor:not-allowed}
 .input-hint{font-size:11px;color:var(--ink-3);margin-top:6px;text-align:center}
-
 @media(max-width:768px){
   html,body{overflow:auto}
   .layout{grid-template-columns:1fr}
@@ -128,7 +115,6 @@ a{color:inherit;text-decoration:none}
     <a href="/" class="back-btn">← На главную</a>
   </div>
 </header>
-
 <div class="layout">
   <aside class="sidebar">
     <div class="expert-card">
@@ -139,9 +125,8 @@ a{color:inherit;text-decoration:none}
       <div class="expert-name">Александр</div>
       <div class="expert-title">Старший эксперт · Грантовик</div>
       <div class="expert-exp">12 лет в сфере господдержки бизнеса</div>
-      <div class="expert-desc">Специализируюсь на подборе программ финансирования для российского бизнеса. Знаю все федеральные, московские и региональные программы — от УМНИК до i.moscow. Помогу разобраться за несколько минут.</div>
+      <div class="expert-desc">Специализируюсь на подборе и сопровождении заявок на гранты, субсидии и льготные кредиты для российского бизнеса. Знаю все нюансы — от требований фондов до типичных ошибок в заявках.</div>
     </div>
-
     <div>
       <div class="sidebar-label">Специализация</div>
       <div class="expertise-tags">
@@ -157,7 +142,6 @@ a{color:inherit;text-decoration:none}
         <span class="etag">Россельхозбанк</span>
       </div>
     </div>
-
     <div>
       <div class="sidebar-label">Частые вопросы</div>
       <button class="quick-btn" onclick="sendQuick('Какие гранты подходят для малого бизнеса в Москве?')">Гранты для малого бизнеса в Москве</button>
@@ -165,9 +149,9 @@ a{color:inherit;text-decoration:none}
       <button class="quick-btn" onclick="sendQuick('Что такое программа СТАРТ Фонда Бортника и кому она подходит?')">Программа СТАРТ — кому подходит?</button>
       <button class="quick-btn" onclick="sendQuick('Какие льготные кредиты есть для агробизнеса?')">Льготные кредиты для агробизнеса</button>
       <button class="quick-btn" onclick="sendQuick('Как стать резидентом Сколково и что это даёт?')">Резидентство Сколково — что даёт?</button>
-      <button class="quick-btn" onclick="sendQuick('Сколько стоит ваша помощь с подачей заявки?')">Сколько стоит сопровождение?</button>
+      <button class="quick-btn" onclick="sendQuick('Сколько стоит ваша помощь с подачей заявки на грант?')">Сколько стоит сопровождение?</button>
+      <button class="quick-btn" onclick="sendQuick('Какие программы поддержки есть для IT-компаний?')">Поддержка IT-компаний</button>
     </div>
-
     <div>
       <div class="sidebar-label">База знаний</div>
       <div class="stats-mini">
@@ -177,40 +161,44 @@ a{color:inherit;text-decoration:none}
         <div class="stat-mini"><div class="stat-mini-n">5%</div><div class="stat-mini-l">комиссия</div></div>
       </div>
     </div>
-
     <div class="offer-mini">
-      <div class="offer-mini-title">Хотите чтобы мы подали заявку за вас?</div>
-      <div class="offer-mini-price">199 000 ₽</div>
-      <div class="offer-mini-sub">аванс + 5% при получении гранта</div>
+      <div class="offer-mini-eyebrow">Сопровождение под ключ</div>
+      <div class="offer-mini-title">Хотите чтобы мы подготовили и подали заявку за вас?</div>
+      <div class="offer-mini-prices">
+        <div class="offer-mini-price">
+          <div class="offer-mini-price-val">199 000 ₽</div>
+          <div class="offer-mini-price-sub">аванс за работу</div>
+        </div>
+        <div class="offer-mini-price">
+          <div class="offer-mini-price-val">+ 5%</div>
+          <div class="offer-mini-price-sub">при получении гранта</div>
+        </div>
+      </div>
       <a href="/#access" class="offer-mini-btn">Оставить заявку →</a>
     </div>
-
     <div class="disclaimer">
-      Александр — ИИ-ассистент Грантовика на базе Claude. Консультация бесплатна. Мы не гарантируем получение гранта, но помогаем найти подходящие программы и подготовить сильную заявку.
+      Александр — ИИ-ассистент Грантовика. Консультация бесплатна. Мы не гарантируем получение гранта, но помогаем найти подходящие программы и подготовить сильную заявку.
     </div>
   </aside>
-
   <main class="chat-wrap">
     <div class="chat-header">
       <div class="chat-header-left">
         <div class="chat-header-dot"></div>
         <div class="chat-header-text"><b>Александр</b> · Старший эксперт по грантам · онлайн</div>
       </div>
-      <div class="chat-header-right">Бесплатная консультация</div>
+      <div class="chat-header-right">Бесплатная консультация · 24/7</div>
     </div>
-
     <div class="messages" id="messages">
       <div class="msg alex">
         <div class="msg-avatar">А</div>
         <div>
-          <div class="msg-bubble">Добрый день! Меня зовут Александр, я старший эксперт Грантовика по программам государственной поддержки.<br><br>За 12 лет работы в этой сфере я разобрался во всех программах — от небольших грантов Фонда Бортника до крупных субсидий Минпромторга и московских программ i.moscow.<br><br>Задайте любой вопрос — про конкретную программу, требования, шансы на одобрение или с чего начать. Отвечу честно и по делу.</div>
+          <div class="msg-bubble">Добрый день! Меня зовут Александр, я старший эксперт Грантовика по программам государственной поддержки.<br><br>За 12 лет работы в этой сфере разобрался во всех программах — от небольших грантов Фонда Бортника до крупных субсидий Минпромторга и московских программ i.moscow.<br><br>Задайте любой вопрос — про конкретную программу, требования, шансы на одобрение или с чего начать. Отвечу честно и по делу.</div>
           <span class="msg-time" id="init-time"></span>
         </div>
       </div>
     </div>
-
     <div class="capture-form" id="capture-form">
-      <div class="capture-form-title">Хотите чтобы наш эксперт связался с вами лично и помог с заявкой?</div>
+      <div class="capture-title">Хотите чтобы наш эксперт связался с вами лично и помог подготовить заявку?</div>
       <div class="capture-row">
         <input class="capture-input" id="cap-name" placeholder="Ваше имя"/>
         <input class="capture-input" id="cap-email" placeholder="Email"/>
@@ -218,7 +206,6 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="capture-note">Свяжемся в течение 24 часов. Без спама.</div>
     </div>
-
     <div class="input-area">
       <div class="input-row">
         <textarea id="msg-input" placeholder="Задайте вопрос про гранты, субсидии или льготные кредиты..."></textarea>
@@ -228,106 +215,83 @@ a{color:inherit;text-decoration:none}
     </div>
   </main>
 </div>
-
 <script>
 const SYSTEM_PROMPT=`Ты Александр — старший эксперт по государственному финансированию компании Грантовик (grantovik.ru).
 
 ТВОЙ ПРОФИЛЬ:
-- 12 лет опыта в сфере господдержки бизнеса
-- Специализация: подбор и сопровождение заявок на гранты, субсидии, льготные кредиты
-- Говоришь как опытный профессионал — уверенно, конкретно, без воды
-- Не используешь шаблонные фразы типа "отличный вопрос", "конечно помогу", "безусловно"
-- Даёшь конкретные цифры, названия программ, реальные советы из практики
-- Иногда делишься инсайдами: "На практике фонды смотрят в первую очередь на..."
-- Пишешь короткими абзацами — легко читать на любом устройстве
-- Если вопрос размытый — задаёшь один уточняющий вопрос
+— 12 лет опыта в сфере господдержки бизнеса
+— Специализация: подбор и сопровождение заявок на гранты, субсидии, льготные кредиты
+— Говоришь уверенно и конкретно — как опытный консультант, не как бот
+— НЕ используешь: "отличный вопрос", "конечно помогу", "безусловно", "рад помочь"
+— Даёшь конкретные цифры, названия программ, реальные советы из практики
+— Иногда делишься инсайдами: "На практике фонды смотрят в первую очередь на..."
+— Пишешь короткими абзацами — легко читать
+— Если вопрос размытый — задаёшь один уточняющий вопрос
 
 ТВОИ ЗНАНИЯ:
 
 ФЕДЕРАЛЬНЫЕ ФОНДЫ:
-— Фонд Бортника (fasie.ru): УМНИК — до 500 тыс для молодых учёных до 30 лет; СТАРТ-1 — до 4 млн для ранних стадий; СТАРТ-2 — до 8 млн; РАЗВИТИЕ — до 20 млн. Конкурс дважды в год.
+— Фонд Бортника (fasie.ru): УМНИК — до 500 тыс для учёных до 30 лет; СТАРТ-1 — до 4 млн для ранних стадий; СТАРТ-2 — до 8 млн; РАЗВИТИЕ — до 20 млн. Конкурс дважды в год.
 — Сколково (sk.ru): статус резидента + гранты до 50 млн + 0% налог на прибыль + льготы по страховым взносам. Приём постоянный.
 — РФРИТ (rfrit.ru): гранты IT-компаниям до 300 млн на разработку отечественного ПО.
-— ФРП — Фонд развития промышленности (frprf.ru): займы от 5 до 500 млн под 1-5% годовых. Для производственных проектов.
+— ФРП (frprf.ru): займы от 5 до 500 млн под 1-5% для производственных проектов.
 — Фонд НТИ: до 100 млн для технологических компаний по приоритетам НТИ.
 — Росмолодёжь: до 500 тыс для молодых предпринимателей до 25 лет.
-— Президентский фонд культурных инициатив: до 3 млн для культурных и творческих проектов.
+— Президентский фонд культурных инициатив: до 3 млн для культурных проектов.
 
 МИНИСТЕРСТВА:
-— Минпромторг: субсидии на НИОКР и производство, импортозамещение до 500 млн. Конкурс ежегодно.
-— Минсельхоз: гранты на технику, переработку, мелиорацию от 3 до 30 млн. Через региональные министерства.
+— Минпромторг: субсидии на НИОКР и производство, импортозамещение до 500 млн.
+— Минсельхоз: гранты на технику, переработку, мелиорацию от 3 до 30 млн. Через регионы.
 — РЭЦ (exportcenter.ru): субсидии экспортёрам до 10 млн на сертификацию, выставки, продвижение.
-— Корпорация МСП: поручительства и льготные кредиты для малого и среднего бизнеса.
+— Корпорация МСП: поручительства и льготные кредиты для МСП.
 — Минэкономразвития: поддержка МСП, социального предпринимательства, самозанятых.
 
 БАНКИ С ЛЬГОТНЫМИ ПРОГРАММАМИ:
 — МСП Банк (mspbank.ru): кредиты от 4% для МСП до 500 млн.
 — Сбербанк: программа 1764, льготное кредитование МСП под 4-6%.
 — ВТБ: программы господдержки МСП под 4.5%.
-— Альфа-Банк: программы для предпринимателей.
 — Россельхозбанк (rshb.ru): агробизнес под 1-5% по программе Минсельхоза.
 — Росагролизинг: сельхозтехника в лизинг без первоначального взноса.
 
 МОСКОВСКИЕ ПРОГРАММЫ (только для компаний с московской пропиской):
-— i.moscow (i.moscow): грант до 100 млн на импортозамещающее производство (возмещение 50% затрат на оборудование, строительство, ПО); субсидия на оборудование до 30 млн; субсидия на патент 75 тыс; субсидия на экспорт до 10 млн.
-— МЭЦ — Московский экспортный центр: до 3 млн на сертификацию и продвижение за рубежом.
+— i.moscow: грант до 100 млн на импортозамещающее производство (50% затрат на оборудование, строительство, ПО); субсидия на оборудование до 30 млн; субсидия на патент 75 тыс; субсидия на экспорт до 10 млн.
+— МЭЦ: до 3 млн на сертификацию и продвижение за рубежом.
 — Правительство Москвы: субсидии промышленным предприятиям на модернизацию.
 
-РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов есть региональный фонд МСП, центр инжиниринга, региональный ФРП — суммы меньше, конкуренция ниже.
+РЕГИОНАЛЬНЫЕ: в каждом из 85 регионов — региональный фонд МСП, центр инжиниринга, региональный ФРП. Суммы меньше, конкуренция ниже.
 
 УСЛОВИЯ ГРАНТОВИКА:
-— Подбор грантов на сайте grantovik.ru: БЕСПЛАТНО
+— Подбор грантов на grantovik.ru: БЕСПЛАТНО
 — Сопровождение под ключ: аванс 199 000 ₽ + 5% от суммы гранта при успехе
 — Аванс идёт в зачёт комиссии
-— Пример: грант 10 млн → аванс 199к + комиссия 301к = итого 500к; клиент получает 9.5 млн
-— Корпоративный тариф: от 300 000 ₽ ретейнер для компаний с несколькими проектами
-— Отвечаем: info@grantovik.ru, в течение 24 часов
+— Пример: грант 10 млн → аванс 199к + комиссия 301к = 500к; клиент получает 9.5 млн
+— Корпоративный тариф: от 300 000 ₽ для компаний с несколькими проектами
+— Контакт: info@grantovik.ru, ответ в течение 24 часов
 
 ПРАВИЛА ОТВЕТОВ:
 1. НЕ называй конкретные даты дедлайнов — они меняются. Говори "ежегодный конкурс" или "уточните на сайте программы"
 2. НЕ гарантируй получение гранта — решение принимает оператор
-3. Если человек готов подать заявку или спрашивает про сопровождение — предложи оставить контакты
+3. Если человек спрашивает про сопровождение или готов подавать — предложи оставить контакты
 4. Если не знаешь точного ответа — скажи честно и предложи уточнить у команды
-5. После 3-4 обменов — мягко предложи сопровождение если тема подходящая
+5. После 3-4 обменов мягко предложи сопровождение если тема подходящая
 
-ПРИМЕРЫ ХОРОШИХ ОТВЕТОВ:
+ПРИМЕРЫ СИЛЬНЫХ ОТВЕТОВ:
 — "На практике Фонд Бортника смотрит в первую очередь на научно-технический потенциал команды, а не на финансовые показатели — это даёт шанс даже ранним стартапам."
-— "i.moscow — одна из лучших программ для московских производственников. Возмещают до 50% реальных затрат, причём можно подать на уже понесённые расходы за последние 2 года."
+— "i.moscow — одна из лучших программ для московских производственников. Возмещают до 50% реальных затрат, причём можно подать на уже понесённые расходы."
 — "Льготный кредит Россельхозбанка под 1-3% реально получить — главное правильно оформить бизнес-план и показать наличие сбыта."`;
 
 let messages=[];
 let msgCount=0;
 let captureShown=false;
 
-function getTime(){return new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});}
+function getTime(){
+  return new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});
+}
 document.getElementById('init-time').textContent=getTime();
 
 function scrollToBottom(){
   const m=document.getElementById('messages');
   m.scrollTop=m.scrollHeight;
-}
-
-function addMessage(role,text){
-  const container=document.getElementById('messages');
-  const div=document.createElement('div');
-  div.className=`msg ${role==='user'?'user':'alex'}`;
-  const avatar=document.createElement('div');
-  avatar.className='msg-avatar';
-  avatar.textContent=role==='user'?'Вы':'А';
-  const inner=document.createElement('div');
-  const bubble=document.createElement('div');
-  bubble.className='msg-bubble';
-  bubble.innerHTML=text.replace(/\n/g,'<br>');
-  const time=document.createElement('span');
-  time.className='msg-time';
-  time.textContent=getTime();
-  inner.appendChild(bubble);
-  inner.appendChild(time);
-  div.appendChild(avatar);
-  div.appendChild(inner);
-  container.appendChild(div);
-  scrollToBottom();
-  return bubble;
 }
 
 function showTyping(){
@@ -352,6 +316,69 @@ function hideTyping(){
   if(t)t.remove();
 }
 
+function addUserMessage(text){
+  const container=document.getElementById('messages');
+  const div=document.createElement('div');
+  div.className='msg user';
+  const avatar=document.createElement('div');
+  avatar.className='msg-avatar';
+  avatar.textContent='Вы';
+  const inner=document.createElement('div');
+  const bubble=document.createElement('div');
+  bubble.className='msg-bubble';
+  bubble.innerHTML=text.replace(/\n/g,'<br>');
+  const time=document.createElement('span');
+  time.className='msg-time';
+  time.textContent=getTime();
+  inner.appendChild(bubble);
+  inner.appendChild(time);
+  div.appendChild(avatar);
+  div.appendChild(inner);
+  container.appendChild(div);
+  scrollToBottom();
+}
+
+function addAlexMessage(text, animate=true){
+  const container=document.getElementById('messages');
+  const div=document.createElement('div');
+  div.className='msg alex';
+  const avatar=document.createElement('div');
+  avatar.className='msg-avatar';
+  avatar.textContent='А';
+  const inner=document.createElement('div');
+  const bubble=document.createElement('div');
+  bubble.className='msg-bubble';
+  const time=document.createElement('span');
+  time.className='msg-time';
+  time.textContent=getTime();
+  inner.appendChild(bubble);
+  inner.appendChild(time);
+  div.appendChild(avatar);
+  div.appendChild(inner);
+  container.appendChild(div);
+
+  return new Promise(resolve=>{
+    if(!animate){
+      bubble.innerHTML=text.replace(/\n/g,'<br>');
+      scrollToBottom();
+      resolve();
+      return;
+    }
+    let i=0;
+    const interval=setInterval(()=>{
+      if(i<text.length){
+        bubble.innerHTML=text.slice(0,i+1).replace(/\n/g,'<br>');
+        i++;
+        if(i%15===0)scrollToBottom();
+      }else{
+        clearInterval(interval);
+        scrollToBottom();
+        resolve();
+      }
+    },16);
+  });
+}
+
 async function sendMessage(){
   const input=document.getElementById('msg-input');
   const text=input.value.trim();
@@ -359,10 +386,12 @@ async function sendMessage(){
   input.value='';
   input.style.height='46px';
   document.getElementById('send-btn').disabled=true;
-  addMessage('user',text);
+
+  addUserMessage(text);
   messages.push({role:'user',content:text});
   msgCount++;
   showTyping();
+
   try{
     const response=await fetch('/api/claude',{
       method:'POST',
@@ -377,49 +406,24 @@ async function sendMessage(){
     const data=await response.json();
     const reply=data.content?.map(b=>b.text||'').join('').trim();
     hideTyping();
+
     if(reply){
-      const container=document.getElementById('messages');
-      const div=document.createElement('div');
-      div.className='msg alex';
-      const avatar=document.createElement('div');
-      avatar.className='msg-avatar';
-      avatar.textContent='А';
-      const inner=document.createElement('div');
-      const bubble=document.createElement('div');
-      bubble.className='msg-bubble';
-      const time=document.createElement('span');
-      time.className='msg-time';
-      time.textContent=getTime();
-      inner.appendChild(bubble);
-      inner.appendChild(time);
-      div.appendChild(avatar);
-      div.appendChild(inner);
-      container.appendChild(div);
-      let i=0;
-      const interval=setInterval(()=>{
-        if(i<reply.length){
-          bubble.innerHTML=reply.slice(0,i+1).replace(/\n/g,'<br>');
-          i++;
-          if(i%10===0)scrollToBottom();
-        }else{
-          clearInterval(interval);
-          scrollToBottom();
-          document.getElementById('send-btn').disabled=false;
-          input.focus();
-          if(msgCount>=3&&!captureShown){
-            captureShown=true;
-            setTimeout(()=>{
-              document.getElementById('capture-form').style.display='block';
-              scrollToBottom();
-            },1500);
-          }
-        }
-      },16);
+      await addAlexMessage(reply,true);
       messages.push({role:'assistant',content:reply});
+      document.getElementById('send-btn').disabled=false;
+      input.focus();
+
+      if(msgCount>=3&&!captureShown){
+        captureShown=true;
+        setTimeout(()=>{
+          document.getElementById('capture-form').style.display='block';
+          scrollToBottom();
+        },1500);
+      }
     }
   }catch(e){
     hideTyping();
-    addMessage('alex','Произошла ошибка соединения. Напишите нам напрямую: info@grantovik.ru');
+    await addAlexMessage('Произошла ошибка соединения. Напишите нам напрямую: info@grantovik.ru',false);
     document.getElementById('send-btn').disabled=false;
   }
 }
@@ -432,7 +436,10 @@ function sendQuick(text){
 async function submitCapture(){
   const name=document.getElementById('cap-name').value.trim();
   const email=document.getElementById('cap-email').value.trim();
-  if(!name||!email)return;
+  if(!name||!email){
+    alert('Пожалуйста, заполните имя и email');
+    return;
+  }
   try{
     await fetch('https://formspree.io/f/xqeorgny',{
       method:'POST',
@@ -445,14 +452,35 @@ async function submitCapture(){
       })
     });
   }catch(e){}
+
   document.getElementById('capture-form').innerHTML=
     '<div style="color:#22C55E;font-size:13px;font-weight:600;padding:8px 0">✓ Принято! Свяжемся в течение 24 часов.</div>';
-  addMessage('alex',`${name}, передал ваши данные команде. Свяжемся сегодня по адресу ${email} — обсудим вашу ситуацию и предложим конкретный план действий.`);
+
+  await addAlexMessage(
+    `${name}, передал ваши данные команде. Свяжемся сегодня по адресу ${email} — обсудим вашу ситуацию и предложим конкретный план действий.`,
+    true
+  );
 }
 
-document.getElementById('msg-input').addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
+// Автозапуск вопроса с главной страницы
+window.addEventListener('load',()=>{
+  const q=sessionStorage.getItem('expertQuestion');
+  if(q){
+    sessionStorage.removeItem('expertQuestion');
+    setTimeout(()=>{
+      document.getElementById('msg-input').value=q;
+      sendMessage();
+    },800);
+  }
 });
+
+document.getElementById('msg-input').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
 document.getElementById('msg-input').addEventListener('input',function(){
   this.style.height='46px';
   this.style.height=Math.min(this.scrollHeight,120)+'px';
