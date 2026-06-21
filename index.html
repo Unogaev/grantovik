@@ -215,6 +215,94 @@ button,input,textarea,select{font:inherit}
 .alex-input-row input::placeholder{color:rgba(242,239,230,.3)}
 .alex-input-row button{padding:0 16px;background:var(--red);color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
 .alex-input-row button:hover{background:#9B2D22}
+/* СЧЁТЧИК */
+.counter-section{border-bottom:2px solid var(--ink);background:var(--ink)}
+.counter-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.08)}
+.counter-item{padding:28px 32px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.counter-item:last-child{border-right:none}
+.counter-n{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,56px);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--cream)}
+.counter-n span{color:var(--red)}
+.counter-l{font-size:11px;color:rgba(242,239,230,.4);font-weight:500;text-transform:uppercase;letter-spacing:.12em;margin-top:6px}
+/* ИСТОРИИ УСПЕХА */
+.success-section{padding:48px 0;border-bottom:2px solid var(--ink);background:var(--paper)}
+.success-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px}
+.success-hed{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,40px);font-weight:900;letter-spacing:-.03em}
+.success-sub{font-size:13px;color:var(--ink-3);margin-top:4px}
+.snav{display:flex;gap:8px}
+.snav-btn{width:36px;height:36px;border:1px solid var(--rule-heavy);background:transparent;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:.12s;color:var(--ink)}
+.snav-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.success-track-wrap{overflow:hidden}
+.success-track{display:flex;gap:16px;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.success-item{flex:0 0 calc(33.333% - 11px);background:var(--cream);border:1px solid var(--rule);padding:24px;display:flex;flex-direction:column;border-top:3px solid var(--green)}
+.si-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+.si-sum{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--green);margin-bottom:2px}
+.si-program{font-size:12px;color:var(--ink-3);font-weight:600;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.si-quote{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;line-height:1.65;color:var(--ink);flex:1;margin-bottom:16px}
+.si-challenge{font-size:12px;color:var(--ink-3);line-height:1.55;margin-bottom:14px;padding:10px;background:var(--paper);border-left:2px solid var(--cream-3)}
+.si-person{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--rule)}
+.si-avatar{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.si-name{font-size:13px;font-weight:600;color:var(--ink)}
+.si-biz{font-size:11px;color:var(--ink-3)}
+.si-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;background:var(--green);color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+.success-dots{display:flex;gap:6px;justify-content:center;margin-top:24px}
+.success-dot{width:28px;height:3px;background:var(--cream-3);cursor:pointer;transition:.15s}
+.success-dot.active{background:var(--ink)}
+/* КАЛЬКУЛЯТОР */
+.calc-section{padding:48px 0;border-bottom:2px solid var(--ink);background:var(--cream)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start}
+.calc-left{padding-right:48px;border-right:1px solid var(--rule)}
+.calc-right{padding-left:48px}
+.calc-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+.calc-hed{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px}
+.calc-hed em{font-style:italic;color:var(--red)}
+.calc-desc{font-size:14px;color:var(--ink-2);line-height:1.7}
+.calc-field{margin-bottom:16px}
+.calc-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;display:block}
+.calc-input-row{display:flex;border:2px solid var(--ink);overflow:hidden}
+.calc-input-row input{flex:1;border:none;padding:12px 16px;font-size:20px;font-weight:600;background:var(--paper);outline:none;color:var(--ink);font-family:'Inter',sans-serif}
+.calc-input-row span{padding:0 16px;background:var(--cream-2);display:flex;align-items:center;font-size:14px;font-weight:600;color:var(--ink-3);border-left:1px solid var(--rule)}
+.calc-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.calc-opt{padding:10px 12px;border:1px solid var(--rule);background:var(--paper);cursor:pointer;font-size:12px;color:var(--ink-2);text-align:center;font-weight:600;transition:.12s;font-family:'Inter',sans-serif}
+.calc-opt:hover{border-color:var(--ink)}
+.calc-opt.sel{border-color:var(--ink);background:var(--ink);color:var(--cream)}
+.calc-btn{width:100%;padding:13px;background:var(--red);color:#fff;border:none;font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;transition:.15s}
+.calc-btn:hover{background:#9B2D22}
+.calc-result{display:none;background:var(--ink);padding:24px;color:var(--cream);margin-top:0}
+.calc-result-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,239,230,.4);margin-bottom:16px}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.calc-result-row:last-of-type{border-bottom:none;padding-bottom:0}
+.calc-result-key{font-size:12px;color:rgba(242,239,230,.5)}
+.calc-result-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--cream)}
+.calc-result-val.green{color:#4ADE80}
+.calc-result-val.amber{color:#FCD34D}
+.calc-result-cta{width:100%;padding:12px;background:var(--red);color:#fff;border:none;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;margin-top:16px}
+.calc-result-cta:hover{background:#9B2D22}
+.calc-result-note{font-size:10px;color:rgba(242,239,230,.3);text-align:center;margin-top:8px;line-height:1.5}
+/* ДЕДЛАЙНЫ */
+.deadlines-section{padding:48px 0;border-bottom:2px solid var(--ink);background:var(--cream-2)}
+.deadlines-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start}
+.deadlines-hed{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px}
+.deadlines-desc{font-size:13px;color:var(--ink-2);line-height:1.7;margin-bottom:20px}
+.deadlines-note{font-size:11px;color:var(--ink-3);font-style:italic;margin-top:12px;line-height:1.5}
+.deadlines-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:var(--ink);color:var(--cream);font-size:13px;font-weight:600;border:none;cursor:pointer;transition:.15s;text-decoration:none}
+.deadlines-cta:hover{background:var(--red)}
+.deadlines-list{display:grid;gap:8px}
+.dl-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--cream-3)}
+.dl-item.urgent{border-left-color:var(--red)}
+.dl-item.soon{border-left-color:var(--amber)}
+.dl-item.open{border-left-color:var(--green)}
+.dl-badge{flex-shrink:0;padding:3px 8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;white-space:nowrap}
+.dl-badge.urgent{background:var(--red);color:#fff}
+.dl-badge.soon{background:var(--amber);color:#fff}
+.dl-badge.open{background:var(--green);color:#fff}
+.dl-body{flex:1;min-width:0}
+.dl-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.dl-org{font-size:11px;color:var(--ink-3);margin-bottom:3px}
+.dl-sum{font-size:12px;color:var(--green);font-weight:600}
+.dl-right{flex-shrink:0;text-align:right}
+.dl-deadline-label{font-size:10px;color:var(--ink-3)}
+.dl-deadline-val{font-size:13px;font-weight:700;color:var(--ink);margin-top:2px}
+/* НОВОСТИ */
 .news-section{padding:36px 0;border-bottom:2px solid var(--ink)}
 .news-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
 .news-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-.03em}
@@ -287,12 +375,20 @@ button,input,textarea,select{font:inherit}
   .cta-left,.cta-right,.alex-left,.alex-right{padding:32px clamp(20px,5vw,72px)}
   .cta-right{border-left:none;border-top:1px solid rgba(255,255,255,.1)}
   .alex-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .counter-grid{grid-template-columns:1fr 1fr}
+  .counter-item{border-bottom:1px solid rgba(255,255,255,.08)}
+  .success-item{flex:0 0 100%}
+  .calc-grid,.deadlines-grid{grid-template-columns:1fr}
+  .calc-left{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:32px}
+  .calc-right{padding-left:0;padding-top:32px}
+  .deadlines-grid{gap:24px}
 }
 @media(max-width:560px){
   .stats-row{grid-template-columns:1fr 1fr}
   .three-col,.news-grid{grid-template-columns:1fr}
   .co-grid{grid-template-columns:1fr}
   .inn-btn{min-width:90px;padding:0 12px;font-size:13px}
+  .calc-opts{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -310,6 +406,7 @@ button,input,textarea,select{font:inherit}
     <a href="#how">Как работает</a>
     <a href="#pricing">Тарифы</a>
     <a href="#alexander">ИИ-эксперт</a>
+    <a href="#success">Истории успеха</a>
     <a href="#news">Новости</a>
     <a href="#access">Написать нам</a>
     <a class="nav-cta" href="#inn-input">Ввести ИНН →</a>
@@ -440,7 +537,7 @@ button,input,textarea,select{font:inherit}
               <div class="offer-step"><div class="offer-step-n">3</div>Сопровождаем до получения решения</div>
             </div>
             <button class="offer-btn" onclick="applyAction()">Оставить заявку на сопровождение →</button>
-            <div class="offer-example">Пример: грант 10 млн → аванс 199к + комиссия 301к = 500к. Вы получаете 9.5 млн.</div>
+            <div class="offer-example">Пример: грант 10 млн → вы платите 500к → получаете 9.5 млн.</div>
           </div>
           <div class="rblock">
             <div class="rb-head"><div class="rb-icon">→</div><div><div class="rb-lbl">План действий</div><div class="rb-title">С чего начать прямо сейчас</div></div></div>
@@ -532,12 +629,11 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
-
 <!-- БЛОК АЛЕКСАНДРА -->
 <section class="alex-section" id="alexander">
   <div class="alex-grid">
     <div class="alex-left">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,239,230,.4);margin-bottom:20px">ИИ-эксперт · Бесплатная консультация 24/7</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,239,230,.4);margin-bottom:20px">ИИ-эксперт · Договор прямо в чате · 24/7</div>
       <div class="alex-avatar-row">
         <div class="alex-avatar">
           <span class="alex-avatar-letter">А</span>
@@ -549,41 +645,22 @@ button,input,textarea,select{font:inherit}
           <div class="alex-exp">12 лет в сфере господдержки бизнеса</div>
         </div>
       </div>
-      <p class="alex-desc">Знаю все 300+ программ — от небольших грантов Фонда Бортника до крупных субсидий Минпромторга и московских программ i.moscow. Задайте любой вопрос — отвечу честно, конкретно и без воды.</p>
+      <p class="alex-desc">Знаю все 300+ программ. Отвечу на любой вопрос про гранты — и если решите работать с нами, оформлю договор прямо в чате за 2 минуты. Никуда ехать не нужно.</p>
       <div class="alex-tags">
-        <span class="alex-tag">Фонд Бортника</span>
-        <span class="alex-tag">Сколково</span>
-        <span class="alex-tag">i.moscow</span>
-        <span class="alex-tag">Минпромторг</span>
-        <span class="alex-tag">ФРП</span>
-        <span class="alex-tag">Минсельхоз</span>
-        <span class="alex-tag">РФРИТ</span>
-        <span class="alex-tag">Россельхозбанк</span>
-        <span class="alex-tag">РЭЦ</span>
-        <span class="alex-tag">МСП Банк</span>
+        <span class="alex-tag">Фонд Бортника</span><span class="alex-tag">Сколково</span><span class="alex-tag">i.moscow</span><span class="alex-tag">Минпромторг</span><span class="alex-tag">ФРП</span><span class="alex-tag">Минсельхоз</span><span class="alex-tag">РФРИТ</span><span class="alex-tag">Россельхозбанк</span><span class="alex-tag">РЭЦ</span><span class="alex-tag">МСП Банк</span>
       </div>
-      <a href="expert.html" class="alex-cta">Задать вопрос Александру →</a>
-      <div class="alex-free">Бесплатно · Ответ за секунды · Работает 24/7</div>
+      <a href="expert.html" class="alex-cta">Поговорить с Александром →</a>
+      <div class="alex-free">Бесплатно · Договор оформляем прямо в чате · 24/7</div>
     </div>
     <div class="alex-right">
       <div class="alex-questions-label">Частые вопросы — нажмите чтобы спросить</div>
-      <a class="alex-q" onclick="goExpert('Какие гранты подходят для малого бизнеса?');return false" href="expert.html">
-        <span class="alex-q-icon">💡</span><span class="alex-q-text">Какие гранты подходят для малого бизнеса?</span>
-      </a>
-      <a class="alex-q" onclick="goExpert('Как получить грант на открытие производства?');return false" href="expert.html">
-        <span class="alex-q-icon">🏭</span><span class="alex-q-text">Как получить грант на открытие производства?</span>
-      </a>
-      <a class="alex-q" onclick="goExpert('Какие программы поддержки есть в Москве?');return false" href="expert.html">
-        <span class="alex-q-icon">🏙</span><span class="alex-q-text">Какие программы поддержки есть в Москве?</span>
-      </a>
-      <a class="alex-q" onclick="goExpert('Какие льготные кредиты есть для агробизнеса?');return false" href="expert.html">
-        <span class="alex-q-icon">🌱</span><span class="alex-q-text">Льготные кредиты для агробизнеса</span>
-      </a>
-      <a class="alex-q" onclick="goExpert('Как стать резидентом Сколково и что это даёт?');return false" href="expert.html">
-        <span class="alex-q-icon">🚀</span><span class="alex-q-text">Резидентство Сколково — что даёт?</span>
-      </a>
+      <a class="alex-q" onclick="goExpert('Какие гранты подходят для малого бизнеса?');return false" href="expert.html"><span class="alex-q-icon">💡</span><span class="alex-q-text">Какие гранты подходят для малого бизнеса?</span></a>
+      <a class="alex-q" onclick="goExpert('Как получить грант на открытие производства?');return false" href="expert.html"><span class="alex-q-icon">🏭</span><span class="alex-q-text">Как получить грант на открытие производства?</span></a>
+      <a class="alex-q" onclick="goExpert('Какие программы поддержки есть в Москве?');return false" href="expert.html"><span class="alex-q-icon">🏙</span><span class="alex-q-text">Какие программы поддержки есть в Москве?</span></a>
+      <a class="alex-q" onclick="goExpert('Какие льготные кредиты есть для агробизнеса?');return false" href="expert.html"><span class="alex-q-icon">🌱</span><span class="alex-q-text">Льготные кредиты для агробизнеса</span></a>
+      <a class="alex-q" onclick="goExpert('Хочу оформить договор на сопровождение');return false" href="expert.html"><span class="alex-q-icon">📝</span><span class="alex-q-text">Оформить договор на сопровождение прямо сейчас</span></a>
       <div class="alex-input-box">
-        <div class="alex-input-label">Или задайте свой вопрос прямо здесь:</div>
+        <div class="alex-input-label">Или задайте свой вопрос:</div>
         <div class="alex-input-row">
           <input id="quick-q" type="text" placeholder="Напишите вопрос про гранты..." onkeydown="if(event.key==='Enter')askAlex()"/>
           <button onclick="askAlex()">Спросить →</button>
@@ -592,7 +669,296 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
-
+<!-- СЧЁТЧИК -->
+<section class="counter-section">
+  <div class="counter-grid">
+    <div class="counter-item">
+      <div class="counter-n" id="cnt-grants">0<span>+</span></div>
+      <div class="counter-l">программ в базе</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n" id="cnt-regions">0</div>
+      <div class="counter-l">регионов России</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n" id="cnt-money">0 <span>млрд ₽</span></div>
+      <div class="counter-l">доступно прямо сейчас</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n" id="cnt-time">30 <span>сек</span></div>
+      <div class="counter-l">до первого результата</div>
+    </div>
+  </div>
+</section>
+<!-- ИСТОРИИ УСПЕХА -->
+<section class="success-section" id="success">
+  <div class="wrap">
+    <div class="success-header">
+      <div>
+        <div class="sec-kicker">Истории успеха</div>
+        <div class="success-hed">Реальные кейсы<br>наших клиентов</div>
+        <div class="success-sub">Примеры сценариев — как компании находят финансирование</div>
+      </div>
+      <div class="snav">
+        <button class="snav-btn" onclick="slideSuccess(-1)">←</button>
+        <button class="snav-btn" onclick="slideSuccess(1)">→</button>
+      </div>
+    </div>
+    <div class="success-track-wrap">
+      <div class="success-track" id="success-track">
+        <div class="success-item">
+          <div class="si-tag">IT · Москва · 2024</div>
+          <div class="si-sum">4 млн ₽</div>
+          <div class="si-program">Фонд Бортника · СТАРТ-1</div>
+          <div class="si-challenge">Задача: разработать SaaS-платформу для автоматизации HR. Инвесторов нет, своих денег не хватает.</div>
+          <div class="si-quote">«Мы не знали что для нас вообще есть программы. Думали гранты — это для заводов. Грантовик показал СТАРТ-1 — подали сами, получили 4 млн и разработали продукт без потери доли.»</div>
+          <div class="si-person">
+            <div class="si-avatar">АК</div>
+            <div>
+              <div class="si-name">Алексей К.</div>
+              <div class="si-biz">Основатель SaaS-стартапа, Москва</div>
+              <span class="si-badge">✓ Грант получен</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-item">
+          <div class="si-tag">Производство · Москва · 2024</div>
+          <div class="si-sum">28 млн ₽</div>
+          <div class="si-program">i.moscow · Субсидия на оборудование</div>
+          <div class="si-challenge">Задача: открыть производство медицинских изделий в Москве. Нужно оборудование на 60 млн руб.</div>
+          <div class="si-quote">«Мы не знали про i.moscow. Грантовик показал — можно получить 50% стоимости оборудования обратно. Подали, получили 28 млн — купили линию и запустились.»</div>
+          <div class="si-person">
+            <div class="si-avatar">МС</div>
+            <div>
+              <div class="si-name">Марина С.</div>
+              <div class="si-biz">Директор производственной компании, Москва</div>
+              <span class="si-badge">✓ Грант получен</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-item">
+          <div class="si-tag">Агротех · Подмосковье · 2024</div>
+          <div class="si-sum">15 млн ₽</div>
+          <div class="si-program">Минсельхоз · Грант на переработку</div>
+          <div class="si-challenge">Задача: построить цех переработки овощей. ОКВЭД торговый — думали не подойдут.</div>
+          <div class="si-quote">«Консультанты говорили что с торговым ОКВЭД нельзя. Грантовик объяснил как правильно подать через Минсельхоз — получили 15 млн на строительство цеха.»</div>
+          <div class="si-person">
+            <div class="si-avatar">ВП</div>
+            <div>
+              <div class="si-name">Василий П.</div>
+              <div class="si-biz">Владелец агрохолдинга, Подмосковье</div>
+              <span class="si-badge">✓ Грант получен</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-item">
+          <div class="si-tag">IT · Казань · 2023</div>
+          <div class="si-sum">500 тыс ₽</div>
+          <div class="si-program">Фонд Бортника · УМНИК</div>
+          <div class="si-challenge">Задача: молодой разработчик хочет создать ИИ-инструмент для образования. Без компании, без инвесторов.</div>
+          <div class="si-quote">«Думал гранты только для взрослых компаний. Оказалось УМНИК дают физлицам до 30 лет — получил 500 тыс и запустил проект. Теперь у меня 200 пользователей.»</div>
+          <div class="si-person">
+            <div class="si-avatar">ИМ</div>
+            <div>
+              <div class="si-name">Илья М.</div>
+              <div class="si-biz">Основатель EdTech-проекта, Казань</div>
+              <span class="si-badge">✓ Грант получен</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-item">
+          <div class="si-tag">Экспорт · Екатеринбург · 2024</div>
+          <div class="si-sum">8 млн ₽</div>
+          <div class="si-program">РЭЦ · Субсидия на экспорт</div>
+          <div class="si-challenge">Задача: выйти на рынок Казахстана и Узбекистана. Нужна сертификация и участие в выставках.</div>
+          <div class="si-quote">«Про РЭЦ слышали, но не знали как подавать. Грантовик объяснил что возмещают до 80% затрат на сертификацию и выставки — получили 8 млн и вышли на два рынка.»</div>
+          <div class="si-person">
+            <div class="si-avatar">ОН</div>
+            <div>
+              <div class="si-name">Ольга Н.</div>
+              <div class="si-biz">Директор по экспорту, Екатеринбург</div>
+              <span class="si-badge">✓ Субсидия получена</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-item">
+          <div class="si-tag">Биотех · Новосибирск · 2024</div>
+          <div class="si-sum">50 млн ₽</div>
+          <div class="si-program">Сколково · Грант резидента</div>
+          <div class="si-challenge">Задача: разработать диагностический тест для онкологии. Нужно 3 года и 80 млн руб. на R&D.</div>
+          <div class="si-quote">«Мы думали Сколково только для московских компаний. Грантовик показал что это не так — получили статус резидента и грант 50 млн. Плюс налоговые льготы сэкономили ещё 12 млн.»</div>
+          <div class="si-person">
+            <div class="si-avatar">ДЛ</div>
+            <div>
+              <div class="si-name">Дмитрий Л.</div>
+              <div class="si-biz">CEO биотех-компании, Новосибирск</div>
+              <span class="si-badge">✓ Грант получен</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="success-dots" id="success-dots"></div>
+  </div>
+</section>
+<!-- КАЛЬКУЛЯТОР -->
+<section class="calc-section" id="calculator">
+  <div class="wrap">
+    <div class="calc-grid">
+      <div class="calc-left">
+        <div class="calc-kicker">Калькулятор финансирования</div>
+        <div class="calc-hed">Сколько денег<br>вы можете<br><em>получить?</em></div>
+        <p class="calc-desc" style="margin-top:16px">Введите бюджет проекта и выберите отрасль — рассчитаем максимальную сумму господдержки и стоимость нашего сопровождения.</p>
+      </div>
+      <div class="calc-right">
+        <div class="calc-field">
+          <label class="calc-label">Бюджет проекта</label>
+          <div class="calc-input-row">
+            <input id="calc-sum" type="number" placeholder="10 000 000" min="1000000" step="1000000" oninput="calcUpdate()"/>
+            <span>₽</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">Отрасль</label>
+          <div class="calc-opts">
+            <div class="calc-opt sel" onclick="calcSelect(this,'it')">IT / ИИ</div>
+            <div class="calc-opt" onclick="calcSelect(this,'production')">Производство</div>
+            <div class="calc-opt" onclick="calcSelect(this,'agro')">Агросектор</div>
+            <div class="calc-opt" onclick="calcSelect(this,'export')">Экспорт</div>
+            <div class="calc-opt" onclick="calcSelect(this,'moscow')">Москва (любая)</div>
+            <div class="calc-opt" onclick="calcSelect(this,'other')">Другое</div>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcRun()">Рассчитать →</button>
+        <div class="calc-result" id="calc-result">
+          <div class="calc-result-label">Результат расчёта</div>
+          <div class="calc-result-row">
+            <span class="calc-result-key">Максимальная сумма гранта</span>
+            <span class="calc-result-val green" id="cr-grant">—</span>
+          </div>
+          <div class="calc-result-row">
+            <span class="calc-result-key">Рекомендуемая программа</span>
+            <span class="calc-result-val" id="cr-program" style="font-size:14px;font-family:'Inter',sans-serif;font-weight:600">—</span>
+          </div>
+          <div class="calc-result-row">
+            <span class="calc-result-key">Аванс за сопровождение</span>
+            <span class="calc-result-val amber" id="cr-advance">199 000 ₽</span>
+          </div>
+          <div class="calc-result-row">
+            <span class="calc-result-key">Комиссия при успехе (5%)</span>
+            <span class="calc-result-val" id="cr-fee">—</span>
+          </div>
+          <div class="calc-result-row">
+            <span class="calc-result-key">Вы получаете на руки</span>
+            <span class="calc-result-val green" id="cr-net">—</span>
+          </div>
+          <button class="calc-result-cta" onclick="applyOffer()">Оставить заявку на сопровождение →</button>
+          <div class="calc-result-note">Расчёт ориентировочный. Точную сумму определяет оператор программы.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ДЕДЛАЙНЫ -->
+<section class="deadlines-section" id="deadlines">
+  <div class="wrap">
+    <div class="deadlines-grid">
+      <div>
+        <div class="sec-kicker">Актуальные программы</div>
+        <div class="deadlines-hed">Открытые<br>программы<br>прямо сейчас</div>
+        <p class="deadlines-desc">Список постоянно действующих программ. Большинство принимают заявки круглый год — но конкурсы закрываются внезапно.</p>
+        <a href="expert.html" class="deadlines-cta">Спросить Александра →</a>
+        <p class="deadlines-note">⚠️ Конкретные даты дедлайнов уточняйте на официальных сайтах программ — они меняются ежегодно.</p>
+      </div>
+      <div class="deadlines-list">
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">СТАРТ-1 · Фонд содействия инновациям</div>
+            <div class="dl-org">Фонд Бортника · fasie.ru</div>
+            <div class="dl-sum">до 4 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Приём</div>
+            <div class="dl-deadline-val">Постоянный</div>
+          </div>
+        </div>
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">Грант на производство · i.moscow</div>
+            <div class="dl-org">Московский инновационный кластер · i.moscow</div>
+            <div class="dl-sum">до 100 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Приём</div>
+            <div class="dl-deadline-val">Постоянный</div>
+          </div>
+        </div>
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">Резидентство Сколково + грант</div>
+            <div class="dl-org">Сколково · sk.ru</div>
+            <div class="dl-sum">до 50 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Приём</div>
+            <div class="dl-deadline-val">Постоянный</div>
+          </div>
+        </div>
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">Льготный заём ФРП · от 5 млн</div>
+            <div class="dl-org">Фонд развития промышленности · frprf.ru</div>
+            <div class="dl-sum">от 5 до 500 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Ставка</div>
+            <div class="dl-deadline-val">1–5%</div>
+          </div>
+        </div>
+        <div class="dl-item soon">
+          <div class="dl-badge soon">Ежегодно</div>
+          <div class="dl-body">
+            <div class="dl-name">УМНИК · для молодых учёных до 30 лет</div>
+            <div class="dl-org">Фонд Бортника · fasie.ru</div>
+            <div class="dl-sum">до 500 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Конкурс</div>
+            <div class="dl-deadline-val">2 раза в год</div>
+          </div>
+        </div>
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">Субсидия на экспорт · РЭЦ</div>
+            <div class="dl-org">Российский экспортный центр · exportcenter.ru</div>
+            <div class="dl-sum">до 10 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Приём</div>
+            <div class="dl-deadline-val">Постоянный</div>
+          </div>
+        </div>
+        <div class="dl-item open">
+          <div class="dl-badge open">Открыто</div>
+          <div class="dl-body">
+            <div class="dl-name">Льготный кредит агробизнесу</div>
+            <div class="dl-org">Россельхозбанк по программе Минсельхоза</div>
+            <div class="dl-sum">от 1 000 000 ₽</div>
+          </div>
+          <div class="dl-right">
+            <div class="dl-deadline-label">Ставка</div>
+            <div class="dl-deadline-val">1–5%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="news-section" id="news">
   <div class="wrap">
     <div class="news-header">
@@ -609,7 +975,7 @@ button,input,textarea,select{font:inherit}
     <div class="cta-left">
       <div class="cta-eyebrow">Сопровождение под ключ</div>
       <h2 class="cta-hed">Подготовим<br>и подадим<br><em>за вас</em></h2>
-      <p class="cta-deck">Аванс 199 000 ₽ покрывает полную подготовку — анализ, документы, заявка, сопровождение. При получении гранта — 5% от суммы, аванс идёт в зачёт.</p>
+      <p class="cta-deck">Аванс 199 000 ₽ покрывает полную подготовку. При получении гранта — 5% от суммы, аванс идёт в зачёт. Договор оформляем прямо в чате с Александром.</p>
       <div class="cta-contacts">
         <div class="cc"><div class="cc-icon">✉</div><div><div class="cc-label">Почта</div><div class="cc-val"><a href="mailto:info@grantovik.ru">info@grantovik.ru</a></div></div></div>
         <div class="cc"><div class="cc-icon">💬</div><div><div class="cc-label">ИИ-консультант</div><div class="cc-val"><a href="expert.html">Поговорить с Александром →</a></div></div></div>
@@ -677,6 +1043,8 @@ button,input,textarea,select{font:inherit}
         <a href="#how">Как работает</a>
         <a href="#pricing">Тарифы</a>
         <a href="expert.html">ИИ-эксперт Александр</a>
+        <a href="#success">Истории успеха</a>
+        <a href="#calculator">Калькулятор</a>
         <a href="#news">Новости</a>
         <a href="#access">Контакты</a>
       </div>
@@ -747,26 +1115,123 @@ const DEFAULT_QUIZ={title:'Уточните вашу цель — подберё
 
 const SOURCES_CONTEXT=`
 ИСТОЧНИКИ ФИНАНСИРОВАНИЯ — ищи среди ВСЕХ этих организаций:
-
-ФЕДЕРАЛЬНЫЕ: Фонд Бортника — УМНИК до 500 тыс, СТАРТ до 4 млн, РАЗВИТИЕ до 20 млн; Сколково — гранты до 50 млн + налоговые льготы; РФРИТ — IT гранты до 300 млн; ФРП — займы от 5 до 500 млн под 1-5%; Фонд НТИ — до 100 млн; Росмолодёжь — до 500 тыс до 25 лет; Президентский фонд — до 3 млн.
-
+ФЕДЕРАЛЬНЫЕ: Фонд Бортника — УМНИК до 500 тыс, СТАРТ до 4 млн, РАЗВИТИЕ до 20 млн; Сколково — гранты до 50 млн + налоговые льготы; РФРИТ — IT гранты до 300 млн; ФРП — займы от 5 до 500 млн под 1-5%; Фонд НТИ — до 100 млн; Росмолодёжь — до 500 тыс до 25 лет.
 МИНИСТЕРСТВА: Минпромторг — импортозамещение до 500 млн; Минсельхоз — агрогранты, техника, переработка; РЭЦ — экспортёрам до 10 млн; Корпорация МСП — поручительства.
-
 БАНКИ: МСП Банк — от 4%; Сбербанк программа 1764; ВТБ — 4.5%; Россельхозбанк — агро от 1-5%; Росагролизинг — техника в лизинг.
-
-МОСКОВСКИЕ (только Москва): i.moscow — до 100 млн на производство (50% затрат), оборудование до 30 млн, экспорт до 10 млн; МЭЦ — до 3 млн; Правительство Москвы — субсидии промышленникам.
-
+МОСКОВСКИЕ (только Москва): i.moscow — до 100 млн на производство (50% затрат), оборудование до 30 млн, экспорт до 10 млн; МЭЦ — до 3 млн; Правительство Москвы — субсидии.
 РЕГИОНАЛЬНЫЕ: в каждом регионе есть фонд МСП, центр инжиниринга, региональный ФРП.
-
-ВАЖНО: НЕ указывай конкретные даты дедлайнов — пиши "постоянный приём" или "уточните на сайте оператора".
-УСЛОВИЯ ГРАНТОВИКА: подбор бесплатно; сопровождение — аванс 199 000 руб + 5% при успехе.
+ВАЖНО: НЕ указывай конкретные даты дедлайнов — пиши "постоянный приём" или "уточните на сайте".
 `;
 
+// Дата
 const _d=new Date();
 const _days=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
 const _months=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 document.getElementById('site-date').textContent=`${_days[_d.getDay()]}, ${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 
+// Анимация счётчиков
+function animateCounter(el,target,suffix,duration){
+  let start=0;
+  const step=target/60;
+  const timer=setInterval(()=>{
+    start+=step;
+    if(start>=target){start=target;clearInterval(timer);}
+    el.innerHTML=Math.round(start)+(suffix||'');
+  },duration/60);
+}
+
+function initCounters(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animateCounter(document.getElementById('cnt-grants'),'300','<span>+</span>',1500);
+        animateCounter(document.getElementById('cnt-regions'),'85','',1200);
+        animateCounter(document.getElementById('cnt-money'),'2.5',' <span>трлн ₽</span>',2000);
+        document.getElementById('cnt-time').innerHTML='30 <span>сек</span>';
+        obs.disconnect();
+      }
+    });
+  },{threshold:.3});
+  obs.observe(document.querySelector('.counter-section'));
+}
+initCounters();
+
+// Слайдер историй успеха
+let successIdx=0;
+const SUCCESS_ITEMS=6;
+const SUCCESS_VISIBLE=3;
+
+function initSuccessDots(){
+  const dots=document.getElementById('success-dots');
+  const pages=SUCCESS_ITEMS-SUCCESS_VISIBLE+1;
+  dots.innerHTML='';
+  for(let i=0;i<pages;i++){
+    const d=document.createElement('span');
+    d.className='success-dot'+(i===0?' active':'');
+    d.onclick=()=>goSuccess(i);
+    dots.appendChild(d);
+  }
+}
+
+function goSuccess(n){
+  const pages=SUCCESS_ITEMS-SUCCESS_VISIBLE+1;
+  successIdx=Math.max(0,Math.min(n,pages-1));
+  const itemW=document.querySelector('.success-item')?.offsetWidth||0;
+  const gap=16;
+  document.getElementById('success-track').style.transform=`translateX(-${successIdx*(itemW+gap)}px)`;
+  document.querySelectorAll('.success-dot').forEach((d,i)=>d.classList.toggle('active',i===successIdx));
+}
+
+function slideSuccess(dir){goSuccess(successIdx+dir);}
+initSuccessDots();
+
+// Калькулятор
+let calcIndustry='it';
+const CALC_DATA={
+  it:{pct:.6,program:'РФРИТ / Сколково / СТАРТ',max:50000000},
+  production:{pct:.5,program:'ФРП / Минпромторг',max:500000000},
+  agro:{pct:.5,program:'Минсельхоз / Россельхозбанк',max:30000000},
+  export:{pct:.4,program:'РЭЦ / МЭЦ',max:10000000},
+  moscow:{pct:.5,program:'i.moscow / Правительство Москвы',max:100000000},
+  other:{pct:.4,program:'Корпорация МСП / Региональный фонд',max:20000000},
+};
+
+function calcSelect(el,industry){
+  document.querySelectorAll('.calc-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  calcIndustry=industry;
+  if(document.getElementById('calc-result').style.display==='block')calcRun();
+}
+
+function calcUpdate(){
+  if(document.getElementById('calc-result').style.display==='block')calcRun();
+}
+
+function fmt(n){
+  if(n>=1000000000)return(n/1000000000).toFixed(1)+' млрд ₽';
+  if(n>=1000000)return Math.round(n/1000000)+' млн ₽';
+  return Math.round(n).toLocaleString('ru-RU')+' ₽';
+}
+
+function calcRun(){
+  const sum=parseFloat(document.getElementById('calc-sum').value)||0;
+  if(sum<100000){alert('Введите сумму проекта (минимум 100 000 ₽)');return;}
+  const d=CALC_DATA[calcIndustry];
+  const grant=Math.min(sum*d.pct,d.max);
+  const fee=grant*0.05;
+  const advance=199000;
+  const net=grant-fee;
+  document.getElementById('cr-grant').textContent=fmt(grant);
+  document.getElementById('cr-program').textContent=d.program;
+  document.getElementById('cr-advance').textContent=fmt(advance);
+  document.getElementById('cr-fee').textContent=fmt(fee);
+  document.getElementById('cr-net').textContent=fmt(net);
+  const result=document.getElementById('calc-result');
+  result.style.display='block';
+  result.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ИНН флоу
 let currentStory=0;
 function showStory(n){
   document.querySelectorAll('.story-card').forEach((c,i)=>c.classList.toggle('active',i===n));
@@ -1008,7 +1473,7 @@ function resetAll(){
 
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
-  const p=`4 новости о российских программах поддержки. Только реальные программы. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"заголовок до 10 слов","desc":"2 предложения","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru или i.moscow","url":"реальный URL"}]`;
+  const p=`4 новости о российских программах поддержки бизнеса. Только реальные программы. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"заголовок до 10 слов","desc":"2 предложения","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru или i.moscow","url":"реальный URL"}]`;
   try{
     const txt=await claudeAPI(p,800);
     const news=JSON.parse(txt);
@@ -1026,7 +1491,7 @@ async function loadNews(){
       <div class="news-card"><a href="https://fasie.ru/programs/programm-start/" target="_blank"><div class="news-tag">Грант</div><h3>СТАРТ-1: до 4 млн ₽ для инновационных компаний</h3><p>Фонд Бортника финансирует ранние стадии технологических проектов без требования соинвестора.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ fasie.ru</span></div></a></div>
       <div class="news-card"><a href="https://i.moscow/grant_import" target="_blank"><div class="news-tag">Грант</div><h3>i.moscow: до 100 млн ₽ на импортозамещающее производство</h3><p>Московский инновационный кластер возмещает до 50% затрат на оборудование и строительство.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ i.moscow</span></div></a></div>
       <div class="news-card"><a href="https://sk.ru/foundation/grants/" target="_blank"><div class="news-tag">Программа</div><h3>Сколково: резидентство и гранты до 50 млн ₽</h3><p>Статус резидента даёт льготы по налогам и доступ к грантам для технологических компаний.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ sk.ru</span></div></a></div>
-      <div class="news-card"><a href="https://www.rshb.ru/natural/loans/" target="_blank"><div class="news-tag">Банки</div><h3>Россельхозбанк: льготные кредиты агробизнесу от 1-5%</h3><p>Льготное кредитование фермеров и агропредприятий по госпрограмме Минсельхоза.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ rshb.ru</span></div></a></div>`;
+      <div class="news-card"><a href="https://www.rshb.ru/natural/loans/" target="_blank"><div class="news-tag">Банки</div><h3>Россельхозбанк: льготные кредиты агробизнесу от 1-5%</h3><p>Льготное кредитование по госпрограмме Минсельхоза на технику и переработку.</p><div class="news-meta"><span class="news-date">Постоянный приём</span><span class="news-src">→ rshb.ru</span></div></a></div>`;
   }
 }
 
@@ -1061,7 +1526,6 @@ async function submitForm(e){
   }
 }
 
-// Передача вопроса на страницу эксперта
 function goExpert(question){
   sessionStorage.setItem('expertQuestion',question);
   window.location.href='expert.html';
