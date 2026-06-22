@@ -116,6 +116,21 @@ button,input,textarea,select{font:inherit}
 .gi-info .gmeta span{font-size:10px;color:var(--ink-3)}
 .gbar{height:2px;background:var(--cream-3);margin-top:4px}
 .gfill{height:2px;background:var(--ink)}
+/* РАЗМЫТЫЕ ГРАНТЫ */
+.grants-locked-wrap{position:relative;margin-top:0}
+.gi-locked{filter:blur(5px);pointer-events:none;user-select:none;opacity:.6}
+.unlock-block{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(100% - 8px);background:var(--paper);border:2px solid var(--ink);padding:20px;text-align:center;z-index:10;box-shadow:0 8px 32px rgba(26,24,16,.2)}
+.unlock-icon{font-size:28px;margin-bottom:10px}
+.unlock-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.unlock-desc{font-size:12px;color:var(--ink-2);line-height:1.6;margin-bottom:14px}
+.unlock-input-row{display:flex;border:2px solid var(--ink);overflow:hidden;margin-bottom:8px}
+.unlock-input-row input{flex:1;border:none;padding:10px 12px;font-size:13px;background:var(--cream);outline:none;color:var(--ink);font-family:'Inter',sans-serif;min-width:0}
+.unlock-input-row input::placeholder{color:var(--ink-3)}
+.unlock-input-row button{padding:0 14px;background:var(--red);color:#fff;border:none;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:.15s}
+.unlock-input-row button:hover{background:#9B2D22}
+.unlock-input-row button:disabled{opacity:.5;cursor:not-allowed}
+.unlock-hint{font-size:11px;color:var(--ink-3);line-height:1.5}
+.unlock-badge{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .offer-block{background:var(--ink);color:var(--cream);padding:20px;margin-top:4px;margin-bottom:8px;display:none}
 .offer-eyebrow{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,239,230,.4);margin-bottom:8px}
 .offer-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;color:var(--cream)}
@@ -421,6 +436,8 @@ button,input,textarea,select{font:inherit}
   .alex-cta{font-size:13px;padding:11px 16px}
   .price-val{font-size:28px}
   .cta-hed{font-size:clamp(24px,7vw,36px)}
+  .unlock-block{padding:16px}
+  .unlock-title{font-size:15px}
 }
 @media(max-width:380px){
   .logo{font-size:clamp(34px,10vw,50px)}
@@ -616,45 +633,43 @@ button,input,textarea,select{font:inherit}
       <div class="price-card">
         <div class="price-name">Самостоятельно</div>
         <div class="price-val">0 ₽</div>
-        <div class="price-per">навсегда бесплатно</div>
+        <div class="price-per">2 гранта бесплатно</div>
         <div class="price-features">
           <div class="pf"><span class="pf-check">✓</span>Анализ компании по ИНН</div>
-          <div class="pf"><span class="pf-check">✓</span>Подбор грантов под вашу цель</div>
+          <div class="pf"><span class="pf-check">✓</span>2 подходящих гранта</div>
           <div class="pf"><span class="pf-check">✓</span>Конкретный план действий</div>
-          <div class="pf"><span class="pf-check">✓</span>300+ программ в базе</div>
           <div class="pf"><span class="pf-check">✓</span>Консультация с Александром</div>
         </div>
         <button class="price-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Начать бесплатно →</button>
       </div>
       <div class="price-card featured">
-        <div class="price-badge">Рекомендуем</div>
+        <div class="price-badge">Популярное</div>
+        <div class="price-name">Грантовый дозор</div>
+        <div class="price-val">2 999 ₽</div>
+        <div class="price-per">в месяц · все гранты + мониторинг</div>
+        <div class="price-features">
+          <div class="pf"><span class="pf-check">✓</span>Все подходящие гранты без ограничений</div>
+          <div class="pf"><span class="pf-check">✓</span>Ежемесячный мониторинг новых программ</div>
+          <div class="pf"><span class="pf-check">✓</span>Уведомления о дедлайнах</div>
+          <div class="pf"><span class="pf-check">✓</span>Изменения условий программ</div>
+          <div class="pf"><span class="pf-check">✓</span>Приоритетные ответы Александра</div>
+        </div>
+        <button class="price-btn" onclick="applyOffer('dozor')">Подключить дозор →</button>
+        <div class="price-example">Первый месяц бесплатно — введите email при анализе</div>
+      </div>
+      <div class="price-card">
         <div class="price-name">Сопровождение под ключ</div>
         <div class="price-val">199 000 ₽</div>
         <div class="price-per">аванс + 5% от суммы гранта при успехе</div>
         <div class="price-features">
-          <div class="pf"><span class="pf-check">✓</span>Всё из бесплатного тарифа</div>
-          <div class="pf"><span class="pf-check">✓</span>Экспертный аудит шансов</div>
+          <div class="pf"><span class="pf-check">✓</span>Всё из Грантового дозора</div>
           <div class="pf"><span class="pf-check">✓</span>Подготовка полного пакета документов</div>
           <div class="pf"><span class="pf-check">✓</span>Заполнение заявки под ключ</div>
           <div class="pf"><span class="pf-check">✓</span>Сопровождение до решения</div>
           <div class="pf"><span class="pf-check">✓</span>Договор оформляем прямо в чате</div>
         </div>
-        <button class="price-btn" onclick="applyOffer()">Оставить заявку →</button>
+        <button class="price-btn" onclick="applyOffer('full')">Оставить заявку →</button>
         <div class="price-example">Грант 10 млн → вы платите 500к → получаете 9.5 млн</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Корпоративный</div>
-        <div class="price-val">от 300 000 ₽</div>
-        <div class="price-per">ретейнер + % от каждого гранта</div>
-        <div class="price-features">
-          <div class="pf"><span class="pf-check">✓</span>Всё из тарифа «Сопровождение»</div>
-          <div class="pf"><span class="pf-check">✓</span>Несколько заявок одновременно</div>
-          <div class="pf"><span class="pf-check">✓</span>Выделенный старший эксперт</div>
-          <div class="pf"><span class="pf-check">✓</span>Мониторинг новых программ</div>
-          <div class="pf"><span class="pf-check">✓</span>Приоритетная обработка 24/7</div>
-        </div>
-        <button class="price-btn" onclick="applyOffer()">Обсудить условия →</button>
-        <div class="price-example">Для холдингов с несколькими направлениями</div>
       </div>
     </div>
   </div>
@@ -695,8 +710,6 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
-
-<!-- СЧЁТЧИКИ С ДАТОЙ ОБНОВЛЕНИЯ -->
 <section class="counter-section">
   <div class="counter-update">🟢 Обновлено: <span id="update-date"></span></div>
   <div class="counter-grid">
@@ -706,7 +719,6 @@ button,input,textarea,select{font:inherit}
     <div class="counter-item"><div class="counter-n">30 <span>сек</span></div><div class="counter-l">до первого результата</div></div>
   </div>
 </section>
-
 <section class="success-section" id="success">
   <div class="wrap">
     <div class="success-header">
@@ -768,7 +780,7 @@ button,input,textarea,select{font:inherit}
           <div class="calc-result-row"><span class="calc-result-key">Аванс за сопровождение</span><span class="calc-result-val amber">199 000 ₽</span></div>
           <div class="calc-result-row"><span class="calc-result-key">Комиссия при успехе (5%)</span><span class="calc-result-val" id="cr-fee">—</span></div>
           <div class="calc-result-row"><span class="calc-result-key">Вы получаете на руки</span><span class="calc-result-val green" id="cr-net">—</span></div>
-          <button class="calc-result-cta" onclick="applyOffer()">Оставить заявку на сопровождение →</button>
+          <button class="calc-result-cta" onclick="applyOffer('full')">Оставить заявку на сопровождение →</button>
           <div class="calc-result-note">Расчёт ориентировочный. Точную сумму определяет оператор программы.</div>
         </div>
       </div>
@@ -846,8 +858,8 @@ button,input,textarea,select{font:inherit}
             <label>Формат работы</label>
             <select id="f-format">
               <option value="">Выберите формат</option>
+              <option>Грантовый дозор (2 999 ₽/мес)</option>
               <option>Сопровождение под ключ (199 000 ₽ + 5%)</option>
-              <option>Корпоративный тариф</option>
               <option>Консультация</option>
               <option>Хочу узнать подробнее</option>
             </select>
@@ -895,8 +907,7 @@ button,input,textarea,select{font:inherit}
       <div class="footer-legal"><a href="#">Политика</a><a href="#">Соглашение</a></div>
     </div>
   </div>
-</footer>
-<script>
+</<script>
 const DADATA_TOKEN='b093fd6f105a14cf768bf79bcd5191b6a03e69c0';
 const FORMSPREE_ID='xqeorgny';
 let bestGrant='',storyTimer,currentCompany=null,selectedGoal='';
@@ -963,8 +974,6 @@ const _d=new Date();
 const _days=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
 const _months=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 document.getElementById('site-date').textContent=`${_days[_d.getDay()]}, ${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
-
-// Дата обновления счётчика
 document.getElementById('update-date').textContent=`${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 
 // Счётчики
@@ -1020,20 +1029,12 @@ function goSuccess(n){
   successIdx=Math.max(0,Math.min(n,pages-1));
   const items=document.querySelectorAll('.success-item');
   const itemW=items[0]?.offsetWidth||0;
-  const gap=14;
-  document.getElementById('success-track').style.transform=`translateX(-${successIdx*(itemW+gap)}px)`;
+  document.getElementById('success-track').style.transform=`translateX(-${successIdx*(itemW+14)}px)`;
   document.querySelectorAll('.success-dot').forEach((d,i)=>d.classList.toggle('active',i===successIdx));
 }
 
-function slideSuccess(dir){
-  initSuccessDots();
-  goSuccess(successIdx+dir);
-}
-
-window.addEventListener('resize',()=>{
-  initSuccessDots();
-  goSuccess(0);
-});
+function slideSuccess(dir){initSuccessDots();goSuccess(successIdx+dir);}
+window.addEventListener('resize',()=>{initSuccessDots();goSuccess(0);});
 initSuccessDots();
 
 // Калькулятор
@@ -1070,7 +1071,6 @@ function calcRun(){
   const d=CALC_DATA[calcIndustry];
   const grant=Math.min(sum*d.pct,d.max);
   const fee=grant*0.05;
-  const advance=199000;
   const net=grant-fee;
   document.getElementById('cr-grant').textContent=fmt(grant);
   document.getElementById('cr-program').textContent=d.program;
@@ -1081,7 +1081,7 @@ function calcRun(){
   setTimeout(()=>result.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
 
-// ИНН — истории
+// ИНН истории
 let currentStory=0;
 const storyCards=document.querySelectorAll('.story-card');
 function showStory(n){
@@ -1240,8 +1240,13 @@ async function loadGrants(d){
     bestGrant=grants[0]?.name||'';
     document.getElementById('apply-btn').textContent=`Оставить заявку на «${bestGrant}» →`;
     document.getElementById('f-inn').value=document.getElementById('inn').value;
-    document.getElementById('grants-body').innerHTML=grants.map(g=>`
-      <div class="gi">
+
+    // Первые 2 открыты, остальные заблокированы
+    const openGrants=grants.slice(0,2);
+    const lockedGrants=grants.slice(2);
+
+    const grantHTML=(g,locked=false)=>`
+      <div class="gi${locked?' gi-locked':''}">
         <div class="gi-info" style="flex:1">
           <div class="gname">${g.name}</div>
           <div class="gorg">${g.org}</div>
@@ -1250,8 +1255,40 @@ async function loadGrants(d){
           <div class="gbar"><div class="gfill" style="width:${g.pct}%"></div></div>
         </div>
         <div class="gi-pct">${g.pct}<small>%</small></div>
-      </div>`).join('')+
-      `<div style="font-size:11px;color:var(--ink-3);padding:8px 0;border-top:1px solid var(--rule);margin-top:4px;font-style:italic">⚠️ Дедлайны уточняйте на сайтах программ — конкурсы открываются ежегодно.</div>`;
+      </div>`;
+
+    let html=openGrants.map(g=>grantHTML(g,false)).join('');
+
+    if(lockedGrants.length>0){
+      html+=`<div class="grants-locked-wrap">`;
+      html+=lockedGrants.map(g=>grantHTML(g,true)).join('');
+      html+=`<div class="unlock-block">
+        <div class="unlock-badge">🔒 Закрыто</div>
+        <div class="unlock-title">Ещё ${lockedGrants.length} программы скрыты</div>
+        <div class="unlock-desc">Введите email — разблокируете все гранты и будете получать новые программы каждый месяц бесплатно</div>
+        <div id="unlock-form">
+          <div class="unlock-input-row">
+            <input type="email" id="unlock-email" placeholder="ваш@email.com"/>
+            <button onclick="unlockGrants()">Разблокировать →</button>
+          </div>
+          <div class="unlock-hint">🎁 Первый месяц бесплатно · Затем «Грантовый дозор» 2 999 ₽/мес</div>
+        </div>
+        <div id="unlock-success" style="display:none;text-align:center;padding:8px 0">
+          <div style="font-size:24px;margin-bottom:6px">✅</div>
+          <div style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:4px">Гранты разблокированы!</div>
+          <div style="font-size:12px;color:var(--ink-3)">Подробности отправили на ваш email</div>
+        </div>
+      </div>`;
+      html+=`</div>`;
+    }
+
+    html+=`<div style="font-size:11px;color:var(--ink-3);padding:8px 0;border-top:1px solid var(--rule);margin-top:4px;font-style:italic">⚠️ Дедлайны уточняйте на сайтах программ — конкурсы открываются ежегодно.</div>`;
+
+    document.getElementById('grants-body').innerHTML=html;
+    window._lockedGrants=lockedGrants;
+    window._allGrants=grants;
+    window._companyData=d;
+
     document.getElementById('offer-block').style.display='block';
     setSt('ok','Готово — программы подобраны под вашу цель');
     document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
@@ -1261,6 +1298,54 @@ async function loadGrants(d){
     document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
     document.getElementById('quiz-btn').disabled=false;
   }
+}
+
+async function unlockGrants(){
+  const emailEl=document.getElementById('unlock-email');
+  const email=emailEl?.value?.trim()||'';
+  if(!email||!email.includes('@')){
+    if(emailEl)emailEl.style.border='2px solid var(--red)';
+    return;
+  }
+  const btn=document.querySelector('#unlock-form button');
+  if(btn){btn.disabled=true;btn.textContent='Отправляем...';}
+
+  // Отправляем в Formspree
+  try{
+    await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        email,
+        company:window._companyData?.name||'—',
+        inn:document.getElementById('inn').value||'—',
+        industry:window._companyData?.industry||'—',
+        goal:selectedGoal||'—',
+        type:'🔓 Разблокировка грантов · Грантовый дозор',
+        all_grants:window._allGrants?.map((g,i)=>`${i+1}. ${g.name} — ${g.sum}`).join('\n')||'—',
+        _subject:`🔓 Дозор: ${window._companyData?.name||email}`,
+        _replyto:email,
+        message:`Пользователь разблокировал гранты и подписался на дозор.\n\nEmail: ${email}\nКомпания: ${window._companyData?.name}\nИНН: ${document.getElementById('inn').value}\nОтрасль: ${window._companyData?.industry}\nЦель: ${selectedGoal}\n\nВсе найденные гранты:\n${window._allGrants?.map((g,i)=>`${i+1}. ${g.name} — ${g.sum}`).join('\n')}`
+      })
+    });
+  }catch(e){}
+
+  // Разблокируем визуально
+  document.querySelectorAll('.gi-locked').forEach(el=>el.classList.remove('gi-locked'));
+  const unlockBlock=document.querySelector('.unlock-block');
+  if(unlockBlock){
+    const form=document.getElementById('unlock-form');
+    const success=document.getElementById('unlock-success');
+    if(form)form.style.display='none';
+    if(success)success.style.display='block';
+    setTimeout(()=>{
+      unlockBlock.style.transition='opacity .4s';
+      unlockBlock.style.opacity='0';
+      setTimeout(()=>unlockBlock.remove(),400);
+    },2000);
+  }
+  const wrap=document.querySelector('.grants-locked-wrap');
+  if(wrap){wrap.style.position='static';wrap.style.overflow='visible';}
 }
 
 async function loadSteps(d){
@@ -1301,8 +1386,12 @@ function applyAction(){
   document.getElementById('access').scrollIntoView({behavior:'smooth'});
 }
 
-function applyOffer(){
-  document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';
+function applyOffer(type){
+  if(type==='dozor'){
+    document.getElementById('f-format').value='Грантовый дозор (2 999 ₽/мес)';
+  }else{
+    document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';
+  }
   document.getElementById('access').scrollIntoView({behavior:'smooth'});
   setTimeout(()=>document.getElementById('f-name').focus(),500);
 }
@@ -1394,4 +1483,4 @@ document.getElementById('inn').addEventListener('input',e=>{e.target.value=e.tar
 loadNews();
 </script>
 </body>
-</html>
+</html>>
