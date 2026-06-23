@@ -23,10 +23,10 @@ button,input,textarea,select{font:inherit}
 .masthead{border-bottom:3px solid var(--ink);padding:0 clamp(16px,5vw,72px)}
 .mast-top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink-3);font-weight:500}
 .mast-top a{color:var(--red);font-weight:600}
-.mast-center{text-align:center;padding:20px 0 14px}
+.mast-center{text-align:center;padding:20px 0 16px}
 .logo{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,96px);font-weight:900;letter-spacing:-.04em;line-height:.92;color:var(--ink)}
 .logo span{color:var(--red)}
-.logo-sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:10px}
+.logo-sub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:12px}
 .nav-strip{display:flex;justify-content:space-between;align-items:center;padding:8px 0 0;border-top:1px solid var(--rule);flex-wrap:wrap;gap:6px}
 .nav-strip a{font-size:13px;font-weight:600;color:var(--ink-2)}
 .nav-strip a:hover{color:var(--red)}
@@ -52,6 +52,10 @@ button,input,textarea,select{font:inherit}
 .stat-l{font-size:11px;color:var(--ink-3);margin-top:2px;font-weight:500}
 .inn-panel{padding-left:40px;padding-bottom:36px}
 .inn-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+/* СПИСОК ЦЕННОСТЕЙ */
+.inn-value-list{margin-bottom:14px;padding:12px 14px;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--green)}
+.ivl-item{font-size:13px;color:var(--ink-2);padding:3px 0;line-height:1.5}
+.ivl-timer{font-size:11px;font-weight:700;color:var(--ink-3);margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);letter-spacing:.04em}
 .inn-input-row{display:flex;border:2px solid var(--ink);overflow:hidden;margin-bottom:10px}
 .inn-input-row input{flex:1;border:none;padding:14px 16px;font-size:18px;font-weight:500;letter-spacing:.06em;background:var(--paper);outline:none;color:var(--ink);min-width:0}
 .inn-input-row input::placeholder{font-size:13px;font-weight:400;letter-spacing:0;color:var(--ink-3)}
@@ -495,6 +499,13 @@ button,input,textarea,select{font:inherit}
       </div>
       <div class="inn-panel" id="inn-input">
         <div class="inn-eyebrow">Анализ по ИНН — бесплатно · данные из реестра ФНС</div>
+        <div class="inn-value-list">
+          <div class="ivl-item">✅ Определим ваш регион и отрасль</div>
+          <div class="ivl-item">✅ Найдём подходящие программы поддержки</div>
+          <div class="ivl-item">✅ Покажем сроки подачи заявок</div>
+          <div class="ivl-item">✅ Оценим потенциальную сумму финансирования</div>
+          <div class="ivl-timer">⏱️ Занимает 30 секунд · Бесплатно · Без регистрации</div>
+        </div>
         <div class="inn-input-row">
           <input id="inn" type="text" placeholder="Введите ИНН компании или ИП" maxlength="12" inputmode="numeric" autocomplete="off"/>
           <button class="inn-btn" id="go-btn" onclick="run()">Анализировать →</button>
@@ -677,7 +688,6 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
-<!-- БЛОК БУХГАЛТЕР -->
 <section class="accountant-section">
   <div class="wrap">
     <div class="accountant-grid">
@@ -980,29 +990,25 @@ const _months=['января','февраля','марта','апреля','ма
 document.getElementById('site-date').textContent=`${_days[_d.getDay()]}, ${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 document.getElementById('update-date').textContent=`${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 
-// АНИМАЦИЯ РУКОПИСНОГО ТЕКСТА (шрифт Caveat)
+// АНИМАЦИЯ РУКОПИСНОГО ТЕКСТА
 function initHandwrite(){
   const el=document.getElementById('hw-text');
   if(!el)return;
   const text=el.textContent.trim();
   el.innerHTML='';
-
   [...text].forEach(char=>{
     const span=document.createElement('span');
     span.className='hw-char';
-    span.textContent=char==='\n'?'\n':char;
+    span.textContent=char;
     if(char===' ')span.style.whiteSpace='pre';
     el.appendChild(span);
   });
-
   const chars=el.querySelectorAll('.hw-char');
   let triggered=false;
-
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting&&!triggered){
         triggered=true;
-        // Небольшая задержка перед стартом
         setTimeout(()=>{
           chars.forEach((c,i)=>{
             setTimeout(()=>{
@@ -1010,10 +1016,7 @@ function initHandwrite(){
               c.style.transition='opacity 0.02s';
             },i*42);
           });
-          // Красная черта после текста
-          setTimeout(()=>{
-            el.classList.add('hw-animated');
-          },chars.length*42+300);
+          setTimeout(()=>el.classList.add('hw-animated'),chars.length*42+300);
         },300);
         obs.disconnect();
       }
@@ -1046,7 +1049,7 @@ function initCounters(){
 }
 initCounters();
 
-// СЛАЙДЕР ИСТОРИЙ
+// СЛАЙДЕР
 let successIdx=0;
 const SUCCESS_TOTAL=6;
 function getVisibleCount(){return window.innerWidth<=600?1:window.innerWidth<=900?2:3;}
@@ -1109,7 +1112,7 @@ function calcRun(){
   setTimeout(()=>result.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
 
-// ИНН ИСТОРИИ
+// ИСТОРИИ ИНН
 let currentStory=0;
 const storyCards=document.querySelectorAll('.story-card');
 function showStory(n){
@@ -1212,16 +1215,11 @@ async function fetchFromDaData(inn){
     const regDate=d.state?.registration_date?new Date(d.state.registration_date).toLocaleDateString('ru-RU'):'—';
     const region=d.address?.data?.region||d.address?.data?.city||'—';
     return{
-      name:s.value||inn,
-      type:d.type==='INDIVIDUAL'?'ИП':(d.opf?.short||'ООО'),
-      region,reg:regDate,
-      okved:(d.okved||'—')+' — '+(d.okved_type||''),
+      name:s.value||inn,type:d.type==='INDIVIDUAL'?'ИП':(d.opf?.short||'ООО'),
+      region,reg:regDate,okved:(d.okved||'—')+' — '+(d.okved_type||''),
       status:d.state?.status==='ACTIVE'?'Действующая':d.state?.status==='LIQUIDATING'?'В ликвидации':'Ликвидирована',
-      industry,
-      legal:d.type==='INDIVIDUAL'?'ИП':(s.value||'').startsWith('ПАО')?'АО':'ООО',
-      size,stage,
-      inn:d.inn||inn,kpp:d.kpp||'—',ogrn:d.ogrn||'—',
-      ceo:d.managers?.[0]?.name||'—'
+      industry,legal:d.type==='INDIVIDUAL'?'ИП':(s.value||'').startsWith('ПАО')?'АО':'ООО',
+      size,stage,inn:d.inn||inn,kpp:d.kpp||'—',ogrn:d.ogrn||'—',ceo:d.managers?.[0]?.name||'—'
     };
   }catch(e){console.error('DaData:',e);return null;}
 }
@@ -1253,12 +1251,7 @@ async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ: ${d.goal}`:'';
   const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nМОСКВА — включи i.moscow, МЭЦ.':'';
   const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||selectedGoal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — включи Россельхозбанк, Росагролизинг, Минсельхоз, ФРП.':'';
-  const p=`${SOURCES_CONTEXT}
-
-Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}
-
-Подбери 4 программы. ТОЛЬКО JSON:
-[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит"}]`;
+  const p=`${SOURCES_CONTEXT}\n\nКомпания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}\n\nПодбери 4 программы. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит"}]`;
   try{
     const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
@@ -1280,7 +1273,6 @@ async function loadGrants(d){
 
     const openGrants=grants.slice(0,2);
     const lockedGrants=grants.slice(2);
-
     let html=openGrants.map(g=>gHTML(g)).join('');
 
     if(lockedGrants.length>0){
@@ -1317,11 +1309,9 @@ async function loadGrants(d){
     }
 
     html+=`<div style="font-size:11px;color:var(--ink-3);padding:8px 0;border-top:1px solid var(--rule);margin-top:4px;font-style:italic">⚠️ Дедлайны уточняйте на сайтах программ — конкурсы открываются ежегодно.</div>`;
-
     document.getElementById('grants-body').innerHTML=html;
     window._allGrants=grants;
     window._companyData=d;
-
     document.getElementById('offer-block').style.display='block';
     setSt('ok','Готово — программы подобраны под вашу цель');
     document.getElementById('quiz-btn').textContent='Найти гранты под мою цель →';
@@ -1336,10 +1326,7 @@ async function loadGrants(d){
 async function unlockGrants(){
   const emailEl=document.getElementById('unlock-email');
   const email=emailEl?.value?.trim()||'';
-  if(!email||!email.includes('@')){
-    if(emailEl)emailEl.style.borderColor='var(--red)';
-    return;
-  }
+  if(!email||!email.includes('@')){if(emailEl)emailEl.style.borderColor='var(--red)';return;}
   const btn=document.querySelector('#unlock-form-block button');
   if(btn){btn.disabled=true;btn.textContent='...';}
   try{
@@ -1347,8 +1334,7 @@ async function unlockGrants(){
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
-        email,
-        company:window._companyData?.name||'—',
+        email,company:window._companyData?.name||'—',
         inn:document.getElementById('inn').value||'—',
         industry:window._companyData?.industry||'—',
         goal:selectedGoal||'—',
@@ -1411,11 +1397,8 @@ function applyAction(){
 }
 
 function applyOffer(type){
-  if(type==='dozor'){
-    document.getElementById('f-format').value='Грантовый дозор (2 999 ₽/мес)';
-  }else{
-    document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';
-  }
+  if(type==='dozor'){document.getElementById('f-format').value='Грантовый дозор (2 999 ₽/мес)';}
+  else{document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';}
   document.getElementById('access').scrollIntoView({behavior:'smooth'});
   setTimeout(()=>document.getElementById('f-name').focus(),500);
 }
