@@ -52,7 +52,6 @@ button,input,textarea,select{font:inherit}
 .stat-l{font-size:11px;color:var(--ink-3);margin-top:2px;font-weight:500}
 .inn-panel{padding-left:40px;padding-bottom:36px}
 .inn-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
-/* СПИСОК ЦЕННОСТЕЙ */
 .inn-value-list{margin-bottom:14px;padding:12px 14px;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--green)}
 .ivl-item{font-size:13px;color:var(--ink-2);padding:3px 0;line-height:1.5}
 .ivl-timer{font-size:11px;font-weight:700;color:var(--ink-3);margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);letter-spacing:.04em}
@@ -109,7 +108,9 @@ button,input,textarea,select{font:inherit}
 .co-l{font-size:10px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .co-v{font-size:12px;font-weight:600;color:var(--ink-2)}
 .co-v.ok{color:var(--green)}
-.gi{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule)}
+.gi-link{display:block;text-decoration:none;color:inherit}
+.gi-link:hover .gi{background:var(--cream-2)}
+.gi{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule);transition:.15s}
 .gi:last-child{border-bottom:none}
 .gi-pct{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--ink);min-width:38px;text-align:right;flex-shrink:0;line-height:1.1}
 .gi-pct small{font-size:10px;font-weight:400;color:var(--ink-3);font-family:'Inter',sans-serif}
@@ -118,6 +119,7 @@ button,input,textarea,select{font:inherit}
 .gi-info .gwhy{font-size:11px;color:var(--ink-2);line-height:1.5}
 .gi-info .gmeta{display:flex;gap:8px;margin-top:3px;flex-wrap:wrap}
 .gi-info .gmeta span{font-size:10px;color:var(--ink-3)}
+.gi-info .glink{font-size:10px;color:var(--red);font-weight:700;margin-top:3px;display:inline-block}
 .gbar{height:2px;background:var(--cream-3);margin-top:4px}
 .gfill{height:2px;background:var(--ink)}
 .grants-locked-wrap{position:relative}
@@ -202,7 +204,6 @@ button,input,textarea,select{font:inherit}
 .price-card.featured .price-btn:hover{background:#9B2D22}
 .price-example{font-size:11px;color:var(--ink-3);margin-top:10px;text-align:center;line-height:1.5}
 .price-card.featured .price-example{color:rgba(242,239,230,.35)}
-/* БЛОК БУХГАЛТЕР */
 .accountant-section{padding:56px 0;border-bottom:2px solid var(--ink);background:var(--cream);overflow:hidden}
 .accountant-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .accountant-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px}
@@ -216,7 +217,6 @@ button,input,textarea,select{font:inherit}
 .ac-card{background:var(--paper);border:1px solid var(--rule);padding:20px;display:flex;gap:14px;align-items:flex-start}
 .ac-card-red{border-color:rgba(192,57,43,.2);background:#FEF9F9}
 .ac-emoji{font-size:28px;flex-shrink:0;line-height:1}
-.ac-body{}
 .ac-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .ac-desc{font-size:13px;color:var(--ink-3);line-height:1.5;margin-bottom:8px}
 .ac-tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px}
@@ -990,7 +990,6 @@ const _months=['января','февраля','марта','апреля','ма
 document.getElementById('site-date').textContent=`${_days[_d.getDay()]}, ${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 document.getElementById('update-date').textContent=`${_d.getDate()} ${_months[_d.getMonth()]} ${_d.getFullYear()}`;
 
-// АНИМАЦИЯ РУКОПИСНОГО ТЕКСТА
 function initHandwrite(){
   const el=document.getElementById('hw-text');
   if(!el)return;
@@ -1010,12 +1009,7 @@ function initHandwrite(){
       if(e.isIntersecting&&!triggered){
         triggered=true;
         setTimeout(()=>{
-          chars.forEach((c,i)=>{
-            setTimeout(()=>{
-              c.style.opacity='1';
-              c.style.transition='opacity 0.02s';
-            },i*42);
-          });
+          chars.forEach((c,i)=>setTimeout(()=>{c.style.opacity='1';c.style.transition='opacity 0.02s';},i*42));
           setTimeout(()=>el.classList.add('hw-animated'),chars.length*42+300);
         },300);
         obs.disconnect();
@@ -1026,14 +1020,9 @@ function initHandwrite(){
 }
 initHandwrite();
 
-// СЧЁТЧИКИ
 function animateCounter(el,target,suffix,duration){
   let start=0;const step=target/60;
-  const timer=setInterval(()=>{
-    start+=step;
-    if(start>=target){start=target;clearInterval(timer);}
-    el.innerHTML=Math.round(start)+(suffix||'');
-  },duration/60);
+  const timer=setInterval(()=>{start+=step;if(start>=target){start=target;clearInterval(timer);}el.innerHTML=Math.round(start)+(suffix||'');},duration/60);
 }
 function initCounters(){
   const obs=new IntersectionObserver(entries=>{
@@ -1049,7 +1038,6 @@ function initCounters(){
 }
 initCounters();
 
-// СЛАЙДЕР
 let successIdx=0;
 const SUCCESS_TOTAL=6;
 function getVisibleCount(){return window.innerWidth<=600?1:window.innerWidth<=900?2:3;}
@@ -1076,7 +1064,6 @@ function slideSuccess(dir){initSuccessDots();goSuccess(successIdx+dir);}
 window.addEventListener('resize',()=>{initSuccessDots();goSuccess(0);});
 initSuccessDots();
 
-// КАЛЬКУЛЯТОР
 let calcIndustry='it';
 const CALC_DATA={
   it:{pct:.6,program:'РФРИТ / Сколково / СТАРТ',max:50000000},
@@ -1112,7 +1099,6 @@ function calcRun(){
   setTimeout(()=>result.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
 
-// ИСТОРИИ ИНН
 let currentStory=0;
 const storyCards=document.querySelectorAll('.story-card');
 function showStory(n){
@@ -1251,7 +1237,7 @@ async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ: ${d.goal}`:'';
   const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nМОСКВА — включи i.moscow, МЭЦ.':'';
   const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||selectedGoal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — включи Россельхозбанк, Росагролизинг, Минсельхоз, ФРП.':'';
-  const p=`${SOURCES_CONTEXT}\n\nКомпания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}\n\nПодбери 4 программы. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит"}]`;
+  const p=`${SOURCES_CONTEXT}\n\nКомпания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}\n\nПодбери 4 программы. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит","url":"официальный сайт без https например fasie.ru или frprf.ru или i.moscow или rshb.ru или sk.ru или rec.ru"}]`;
   try{
     const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
@@ -1260,16 +1246,19 @@ async function loadGrants(d){
     document.getElementById('f-inn').value=document.getElementById('inn').value;
 
     const gHTML=(g)=>`
-      <div class="gi">
-        <div class="gi-info" style="flex:1">
-          <div class="gname">${g.name}</div>
-          <div class="gorg">${g.org}</div>
-          <div class="gwhy">${g.why}</div>
-          <div class="gmeta"><span>💰 ${g.sum}</span><span>📅 ${g.deadline}</span></div>
-          <div class="gbar"><div class="gfill" style="width:${g.pct}%"></div></div>
+      <a class="gi-link" href="https://${g.url||'grantovik.ru'}" target="_blank" rel="noopener">
+        <div class="gi">
+          <div class="gi-info" style="flex:1">
+            <div class="gname">${g.name}</div>
+            <div class="gorg">${g.org}</div>
+            <div class="gwhy">${g.why}</div>
+            <div class="gmeta"><span>💰 ${g.sum}</span><span>📅 ${g.deadline}</span></div>
+            <div class="glink">→ перейти на ${g.url||'сайт программы'}</div>
+            <div class="gbar"><div class="gfill" style="width:${g.pct}%"></div></div>
+          </div>
+          <div class="gi-pct">${g.pct}<small>%</small></div>
         </div>
-        <div class="gi-pct">${g.pct}<small>%</small></div>
-      </div>`;
+      </a>`;
 
     const openGrants=grants.slice(0,2);
     const lockedGrants=grants.slice(2);
@@ -1421,7 +1410,7 @@ function resetAll(){
 async function loadNews(){
   document.getElementById('news-grid').innerHTML='<div class="news-loader">Загружаем актуальные новости...</div>';
   try{
-    const txt=await claudeAPI(`4 новости о российских программах поддержки бизнеса. Только реальные программы. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"до 10 слов","desc":"2 предложения","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"реальный URL"}]`,800);
+    const txt=await claudeAPI(`4 новости о российских программах поддержки бизнеса. ТОЛЬКО JSON:\n[{"tag":"Грант или Субсидии или Программа или Банки","title":"до 10 слов","desc":"2 предложения","source":"fasie.ru или sk.ru или mspbank.ru или rfrit.ru","url":"реальный URL"}]`,800);
     const news=JSON.parse(txt);
     document.getElementById('news-grid').innerHTML=news.map(n=>`
       <div class="news-card"><a href="${n.url}" target="_blank" rel="noopener">
