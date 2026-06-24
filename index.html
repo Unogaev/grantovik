@@ -204,8 +204,9 @@ button,input,textarea,select{font:inherit}
 .price-card.featured .price-btn:hover{background:#9B2D22}
 .price-example{font-size:11px;color:var(--ink-3);margin-top:10px;text-align:center;line-height:1.5}
 .price-card.featured .price-example{color:rgba(242,239,230,.35)}
+/* БЛОК БУХГАЛТЕР */
 .accountant-section{padding:56px 0;border-bottom:2px solid var(--ink);background:var(--cream);overflow:hidden}
-.accountant-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.accountant-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .accountant-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px}
 .handwrite-wrap{margin:0 0 28px;position:relative}
 .handwrite-text{font-family:'Caveat',cursive;font-size:clamp(32px,4.5vw,56px);font-weight:700;line-height:1.25;color:var(--ink);position:relative;display:block}
@@ -213,17 +214,8 @@ button,input,textarea,select{font:inherit}
 .handwrite-text.hw-animated::after{width:100%}
 .hw-char{display:inline;opacity:0}
 .accountant-sub{font-size:14px;color:var(--ink-2);line-height:1.75}
-.accountant-right{display:flex;flex-direction:column;gap:12px}
-.ac-card{background:var(--paper);border:1px solid var(--rule);padding:20px;display:flex;gap:14px;align-items:flex-start}
-.ac-card-red{border-color:rgba(192,57,43,.2);background:#FEF9F9}
-.ac-emoji{font-size:28px;flex-shrink:0;line-height:1}
-.ac-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.ac-desc{font-size:13px;color:var(--ink-3);line-height:1.5;margin-bottom:8px}
-.ac-tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px}
-.ac-tag-ok{background:#E3F7EC;color:var(--green)}
-.ac-tag-no{background:#FEE2E2;color:var(--red)}
-.ac-divider{text-align:center;font-size:24px;color:var(--ink-3);font-weight:300;line-height:1;padding:4px 0}
-.ac-solution{background:var(--ink);padding:20px;display:flex;flex-direction:column;gap:12px}
+.accountant-video{width:100%;display:block;border:1px solid var(--rule);max-height:340px;object-fit:cover}
+.ac-solution{background:var(--ink);padding:20px;display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .ac-solution-text{font-size:13px;color:rgba(242,239,230,.7);line-height:1.65}
 .ac-solution-btn{display:inline-block;padding:11px 20px;background:var(--red);color:#fff;font-size:13px;font-weight:700;text-align:center;transition:.15s;text-decoration:none;align-self:flex-start}
 .ac-solution-btn:hover{background:#9B2D22}
@@ -405,7 +397,7 @@ button,input,textarea,select{font:inherit}
   .three-col{grid-template-columns:1fr}
   .col,.col:not(:first-child),.col:last-child{border-right:none;padding:12px 0;border-bottom:1px solid var(--rule)}
   .pricing-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
-  .accountant-grid{grid-template-columns:1fr;gap:32px}
+  .accountant-grid{grid-template-columns:1fr;gap:24px}
   .alex-grid{grid-template-columns:1fr}
   .alex-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:28px clamp(16px,5vw,40px)}
   .alex-right{padding:24px clamp(16px,5vw,40px)}
@@ -688,6 +680,7 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 </section>
+<!-- БЛОК БУХГАЛТЕР С ВИДЕО -->
 <section class="accountant-section">
   <div class="wrap">
     <div class="accountant-grid">
@@ -698,24 +691,10 @@ button,input,textarea,select{font:inherit}
         </div>
         <p class="accountant-sub">Так же как стоматолог не обязан разбираться в строительстве. Господдержка — это отдельная специализация со своими программами, дедлайнами и требованиями.<br><br>Пока ваши сотрудники тратят время на поиск информации — конкуренты уже подали заявки и получают финансирование.</p>
       </div>
-      <div class="accountant-right">
-        <div class="ac-card">
-          <div class="ac-emoji">📊</div>
-          <div class="ac-body">
-            <div class="ac-title">Ваш бухгалтер</div>
-            <div class="ac-desc">Налоги, отчётность, зарплаты — его зона ответственности и его специализация</div>
-            <span class="ac-tag ac-tag-ok">✓ Делает это отлично</span>
-          </div>
-        </div>
-        <div class="ac-divider">≠</div>
-        <div class="ac-card ac-card-red">
-          <div class="ac-emoji">🏛</div>
-          <div class="ac-body">
-            <div class="ac-title">Гранты и субсидии</div>
-            <div class="ac-desc">300+ программ, дедлайны, требования, документы, комиссии — другая специальность</div>
-            <span class="ac-tag ac-tag-no">✗ Не его специализация</span>
-          </div>
-        </div>
+      <div>
+        <video class="accountant-video" autoplay muted loop playsinline>
+          <source src="/делаем_видео.mp4" type="video/mp4"/>
+        </video>
         <div class="ac-solution">
           <div class="ac-solution-text">Грантовик берёт гранты на себя — пока ваша команда занимается тем, в чём она сильна</div>
           <a href="#inn-input" class="ac-solution-btn">Проверить гранты по ИНН →</a>
