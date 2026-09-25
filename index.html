@@ -100,6 +100,22 @@ button,input,textarea,select{font:inherit}
 .quiz-btn:hover{background:#92400E}
 .quiz-btn:disabled{opacity:.4;cursor:not-allowed}
 .result-wrap{display:none}
+.nobiz-link{display:block;width:100%;text-align:left;background:none;border:1px dashed var(--ink-3);padding:10px 12px;margin-bottom:10px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:.15s;font-family:inherit}
+.nobiz-link:hover{border-color:var(--red);color:var(--red)}
+.nobiz-link small{display:block;font-size:11px;font-weight:400;color:var(--ink-3);margin-top:2px}
+.nobiz-block{display:none;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--green);padding:16px;margin-bottom:10px}
+.nobiz-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.nobiz-sub{font-size:11px;color:var(--ink-3);margin-bottom:14px;line-height:1.5}
+.nb-field{margin-bottom:10px}
+.nb-field label{display:block;font-size:11px;font-weight:600;color:var(--ink-2);margin-bottom:4px;letter-spacing:.02em}
+.nb-field input,.nb-field select{width:100%;padding:10px 12px;border:1px solid var(--rule);background:var(--cream);font-size:13px;color:var(--ink);font-family:inherit;outline:none;box-sizing:border-box}
+.nb-field input:focus,.nb-field select:focus{border-color:var(--ink)}
+.nb-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nb-btn{width:100%;padding:11px;background:var(--green);color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;margin-top:4px}
+.nb-btn:hover{background:var(--ink)}
+.nb-btn:disabled{opacity:.4;cursor:not-allowed}
+.nb-err{font-size:12px;color:var(--red);min-height:16px;margin-top:6px}
+@media(max-width:600px){.nb-row{grid-template-columns:1fr}}
 .rblock{border:1px solid var(--rule);background:var(--paper);margin-bottom:8px}
 .rb-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--cream);flex-wrap:wrap}
 .rb-icon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;border:1px solid var(--rule-heavy);color:var(--ink-2);flex-shrink:0}
@@ -511,6 +527,54 @@ button,input,textarea,select{font:inherit}
           <span class="ic" onclick="go('5010054180')">ИП пример</span>
           <span class="ic" onclick="go('7702070139')">Газпром</span>
         </div>
+        <button type="button" class="nobiz-link" id="nobiz-link" onclick="toggleNoBiz()">🌱 Пока нет компании — планирую открыть бизнес →<small>Многие гранты дают до регистрации: Агростартап, соцконтракт, УМНИК и другие</small></button>
+        <div class="nobiz-block" id="nobiz-block">
+          <div class="nobiz-title">Подберём поддержку для тех, кто только начинает</div>
+          <div class="nobiz-sub">5 вопросов вместо ИНН. Подскажем, какие программы доступны и когда регистрировать ИП, КФХ или ООО, чтобы не потерять право на грант.</div>
+          <div class="nb-field"><label>Регион</label><input id="nb-region" type="text" placeholder="Например: Оренбургская область"/></div>
+          <div class="nb-field"><label>Сфера будущего бизнеса</label>
+            <select id="nb-sphere">
+              <option value="">— выберите —</option>
+              <option>Сельское хозяйство (агро): растениеводство, животноводство, КФХ</option>
+              <option>Переработка сельхозпродукции, пищевое производство</option>
+              <option>Производство</option>
+              <option>IT, технологии, наука</option>
+              <option>Услуги, торговля, общепит</option>
+              <option>Туризм, креативные индустрии</option>
+              <option>Социальный проект</option>
+              <option>Пока не определился</option>
+            </select></div>
+          <div class="nb-row">
+            <div class="nb-field"><label>Возраст</label>
+              <select id="nb-age">
+                <option value="">— выберите —</option>
+                <option>до 25 лет</option>
+                <option>25–35 лет</option>
+                <option>36–55 лет</option>
+                <option>старше 55 лет</option>
+              </select></div>
+            <div class="nb-field"><label>Готов оформить</label>
+              <select id="nb-form">
+                <option>Пока не знаю — подскажите</option>
+                <option>КФХ</option>
+                <option>ИП</option>
+                <option>Самозанятость</option>
+                <option>ООО</option>
+              </select></div>
+          </div>
+          <div class="nb-field"><label>Ваш статус (если есть)</label>
+            <select id="nb-status">
+              <option>Ничего из перечисленного</option>
+              <option>Студент или аспирант</option>
+              <option>Малоимущая семья</option>
+              <option>Безработный</option>
+              <option>Участник СВО или член семьи</option>
+              <option>Работаю по найму</option>
+              <option>Пенсионер</option>
+            </select></div>
+          <button class="nb-btn" id="nb-btn" onclick="runNoBiz()">Подобрать меры поддержки →</button>
+          <div class="nb-err" id="nb-err"></div>
+        </div>
         <div class="inn-status" id="inn-status"></div>
         <div id="stories-block">
           <div class="stories-label">Примеры сценариев · как это работает</div>
@@ -606,7 +670,7 @@ button,input,textarea,select{font:inherit}
               <div class="advice-txt" id="advice-body"><span class="ld">Анализируем...</span></div>
               <div class="act-row">
                 <button class="btn-ink" id="apply-btn" onclick="applyAction()">Оставить заявку →</button>
-                <button class="btn-out" onclick="resetAll()">← Другой ИНН</button>
+                <button class="btn-out" onclick="resetAll()">← Начать заново</button>
               </div>
             </div>
           </div>
@@ -1104,6 +1168,8 @@ async function run(){
   const raw=document.getElementById('inn').value.replace(/\D/g,'');
   if(raw.length<10){setSt('err','Введите ИНН — 10 цифр для юрлица, 12 для ИП');return;}
   clearInterval(storyTimer);
+  window._noBiz=null;
+  document.getElementById('nobiz-block').style.display='none';
   document.getElementById('go-btn').disabled=true;
   document.getElementById('stories-block').style.display='none';
   document.getElementById('quiz-block').style.display='none';
@@ -1155,6 +1221,62 @@ async function runWithGoal(){
   document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
   setSt('load','ИИ подбирает программы под вашу цель...');
   const d={...currentCompany,goal:selectedGoal};
+  loadGrants(d);
+  loadSteps(d);
+  loadAdvice(d);
+}
+
+function toggleNoBiz(){
+  const b=document.getElementById('nobiz-block');
+  const open=b.style.display!=='block';
+  b.style.display=open?'block':'none';
+  if(open){
+    document.getElementById('quiz-block').style.display='none';
+    document.getElementById('result-wrap').style.display='none';
+    setSt('','');
+    b.scrollIntoView({behavior:'smooth',block:'nearest'});
+    setTimeout(()=>document.getElementById('nb-region').focus(),300);
+  }
+}
+
+function noBizSummary(nb){
+  return `Бизнес ещё не зарегистрирован. Регион: ${nb.region}. Сфера: ${nb.sphere}. Возраст: ${nb.age}. Статус: ${nb.status}. Готов оформить: ${nb.form}.`;
+}
+
+async function runNoBiz(){
+  const v=id=>document.getElementById(id).value.trim();
+  const nb={region:v('nb-region'),sphere:v('nb-sphere'),age:v('nb-age'),status:v('nb-status'),form:v('nb-form')};
+  const err=document.getElementById('nb-err');
+  if(!nb.region||!nb.sphere||!nb.age){err.textContent='Заполните регион, сферу и возраст';return;}
+  err.textContent='';
+  clearInterval(storyTimer);
+  window._noBiz=nb;
+  document.getElementById('inn').value='';
+  document.getElementById('stories-block').style.display='none';
+  document.getElementById('quiz-block').style.display='none';
+  document.getElementById('nobiz-block').style.display='none';
+  const isAgro=/агро|сельск|перераб/i.test(nb.sphere);
+  const d={
+    name:'Будущий бизнес',type:nb.form,region:nb.region,reg:'—',okved:'— (компания ещё не открыта)',
+    status:'Не зарегистрирован',industry:isAgro?'Агро / сельское хозяйство':nb.sphere,legal:nb.form,
+    size:'микро',stage:'идея, бизнес ещё не зарегистрирован',inn:'нет',kpp:'—',ogrn:'—',ceo:'—',noBiz:nb
+  };
+  currentCompany=d;
+  selectedGoal=`Открыть бизнес: ${nb.sphere}`;
+  document.getElementById('r-name').textContent='Бизнес пока не зарегистрирован';
+  document.getElementById('r-name').previousElementSibling.textContent='Ваш профиль';
+  document.getElementById('r-inn').textContent='нет — планирую открыть';
+  document.getElementById('r-type').textContent='Готов оформить: '+nb.form;
+  document.getElementById('r-region').textContent=nb.region;
+  document.getElementById('r-okved').textContent='—';
+  document.getElementById('r-industry').textContent=nb.sphere+' · '+nb.age+(nb.status!=='Ничего из перечисленного'?' · '+nb.status:'');
+  const badge=document.getElementById('r-badge');
+  badge.textContent='Старт с нуля';
+  badge.style.cssText='margin-left:auto;font-size:11px;padding:3px 10px;font-weight:600;background:#E3F7EC;color:#0E7A3A';
+  document.getElementById('result-wrap').style.display='block';
+  document.getElementById('offer-block').style.display='none';
+  document.getElementById('result-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
+  setSt('load','ИИ подбирает меры поддержки для старта...');
   loadGrants(d);
   loadSteps(d);
   loadAdvice(d);
@@ -1219,13 +1341,14 @@ async function loadGrants(d){
   const goal=d.goal?`\nЦЕЛЬ: ${d.goal}`:'';
   const moscow=d.region&&d.region.toLowerCase().includes('москв')?'\nМОСКВА — включи i.moscow, МЭЦ.':'';
   const agro=(d.industry&&d.industry.toLowerCase().includes('агро'))||selectedGoal.toLowerCase().includes('производств')?'\nАГРО/ПРОИЗВОДСТВО — включи Россельхозбанк, Росагролизинг, Минсельхоз, ФРП.':'';
-  const p=`${SOURCES_CONTEXT}\n\nКомпания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}\n\nПодбери 4 программы. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит","url":"официальный сайт без https например fasie.ru или frprf.ru или i.moscow или rshb.ru или sk.ru или rec.ru"}]`;
+  const nobiz=d.noBiz?`\nВАЖНО: ${noBizSummary(d.noBiz)} Подбирай ТОЛЬКО меры, на которые можно подать до регистрации бизнеса или сразу после неё: Агростартап (обязательство зарегистрировать КФХ/ИП после победы), социальный контракт на открытие бизнеса (для малоимущих), УМНИК и Студенческий стартап Фонда содействия инновациям, Росмолодёжь.Гранты (14–35 лет), региональные программы для участников СВО и начинающих предпринимателей, центры «Мой бизнес». Учитывай возраст и статус. В поле why обязательно укажи, какую форму (КФХ/ИП/самозанятость/ООО) и КОГДА регистрировать — до подачи или после победы.`:'';
+  const p=`${SOURCES_CONTEXT}\n\nКомпания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, размер: ${d.size}, стадия: ${d.stage}${goal}${moscow}${agro}${nobiz}\n\nПодбери 4 программы. ТОЛЬКО JSON:\n[{"name":"название","org":"организация","pct":62-97,"sum":"сумма","deadline":"постоянный приём или уточните на сайте","why":"почему подходит","url":"официальный сайт без https например fasie.ru или frprf.ru или i.moscow или rshb.ru или sk.ru или rec.ru"}]`;
   try{
     const txt=await claudeAPI(p,1200);
     const grants=JSON.parse(txt);
     bestGrant=grants[0]?.name||'';
     document.getElementById('apply-btn').textContent=`Оставить заявку на «${bestGrant}» →`;
-    document.getElementById('f-inn').value=document.getElementById('inn').value;
+    document.getElementById('f-inn').value=d.noBiz?'нет — планирую открыть':document.getElementById('inn').value;
 
     const gHTML=(g)=>`
       <a class="gi-link" href="https://${g.url||'grantovik.ru'}" target="_blank" rel="noopener">
@@ -1309,10 +1432,11 @@ async function unlockGrants(){
         inn:document.getElementById('inn').value||'—',
         industry:window._companyData?.industry||'—',
         goal:selectedGoal||'—',
+        nobiz_profile:window._noBiz?noBizSummary(window._noBiz):'—',
         grants:window._allGrants?.map((g,i)=>`${i+1}. ${g.name} — ${g.sum}`).join('\n')||'—',
-        _subject:`🔓 Дозор: ${window._companyData?.name||email}`,
+        _subject:window._noBiz?`🌱 Дозор (без бизнеса): ${window._noBiz.sphere} · ${window._noBiz.region}`:`🔓 Дозор: ${window._companyData?.name||email}`,
         _replyto:email,
-        message:`Разблокировка грантов\n\nEmail: ${email}\nКомпания: ${window._companyData?.name}\nИНН: ${document.getElementById('inn').value}\nОтрасль: ${window._companyData?.industry}\nЦель: ${selectedGoal}\n\nГранты:\n${window._allGrants?.map((g,i)=>`${i+1}. ${g.name} — ${g.sum}`).join('\n')}`
+        message:`Разблокировка грантов\n\nEmail: ${email}\nКомпания: ${window._companyData?.name}\nИНН: ${document.getElementById('inn').value}\nОтрасль: ${window._companyData?.industry}\nЦель: ${selectedGoal}${window._noBiz?'\nПрофиль: '+noBizSummary(window._noBiz):''}\n\nГранты:\n${window._allGrants?.map((g,i)=>`${i+1}. ${g.name} — ${g.sum}`).join('\n')}`
       })
     });
   }catch(e){}
@@ -1330,7 +1454,7 @@ async function unlockGrants(){
 }
 
 async function loadSteps(d){
-  const goal=d.goal?`Цель: ${d.goal}.`:'';
+  const goal=(d.goal?`Цель: ${d.goal}.`:'')+(d.noBiz?` ${noBizSummary(d.noBiz)} Шаги должны вести к получению господдержки: какую форму и в какой момент регистрировать, куда обратиться (центр «Мой бизнес», соцзащита, минсельхоз региона), что подготовить.`:'');
   const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n4 конкретных шага. ТОЛЬКО JSON:\n[{"num":1,"title":"заголовок","desc":"действие","urgency":"сейчас или на этой неделе или в этом месяце"}]`;
   try{
     const txt=await claudeAPI(p,800);
@@ -1348,7 +1472,7 @@ async function loadSteps(d){
 }
 
 async function loadAdvice(d){
-  const goal=d.goal?`Цель: ${d.goal}.`:'';
+  const goal=(d.goal?`Цель: ${d.goal}.`:'')+(d.noBiz?` ${noBizSummary(d.noBiz)} Главное предупреди: не регистрировать бизнес раньше времени, если программа требует статуса начинающего или регистрации после победы.`:'');
   const p=`Компания: ${d.name}, отрасль: ${d.industry}, регион: ${d.region}, стадия: ${d.stage}. ${goal}\n3-4 предложения — совет эксперта. Только текст.`;
   try{
     const txt=await claudeAPI(p,500);
@@ -1359,7 +1483,11 @@ async function loadAdvice(d){
 }
 
 function applyAction(){
-  if(currentCompany){
+  if(currentCompany&&currentCompany.noBiz){
+    document.getElementById('f-inn').value='нет — планирую открыть';
+    document.getElementById('f-project').value=`${noBizSummary(currentCompany.noBiz)} Интересует «${bestGrant}».`;
+    document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';
+  }else if(currentCompany){
     document.getElementById('f-inn').value=document.getElementById('inn').value;
     document.getElementById('f-project').value=`Цель: ${selectedGoal||'развитие бизнеса'}. Интересует грант «${bestGrant}» для компании ${currentCompany.name}.`;
     document.getElementById('f-format').value='Сопровождение под ключ (199 000 ₽ + 5%)';
@@ -1381,7 +1509,9 @@ function resetAll(){
   document.getElementById('stories-block').style.display='block';
   document.getElementById('offer-block').style.display='none';
   setSt('','');
-  currentCompany=null;selectedGoal='';bestGrant='';
+  currentCompany=null;selectedGoal='';bestGrant='';window._noBiz=null;
+  document.getElementById('nobiz-block').style.display='none';
+  document.getElementById('r-name').previousElementSibling.textContent='Реестр ФНС';
   document.getElementById('grants-body').innerHTML='<div class="ld">Подбираем программы...</div>';
   document.getElementById('steps-body').innerHTML='<div class="ld">Формируем план...</div>';
   document.getElementById('advice-body').innerHTML='<span class="ld">Анализируем...</span>';
@@ -1426,7 +1556,8 @@ async function submitForm(e){
         direction:document.getElementById('f-direction').value,
         format:document.getElementById('f-format').value,
         project:document.getElementById('f-project').value,
-        _subject:`Заявка с grantovik.ru — ${document.getElementById('f-format').value||'новая'} от ${name}`,
+        nobiz_profile:window._noBiz?noBizSummary(window._noBiz):'—',
+        _subject:`Заявка с grantovik.ru${window._noBiz?' 🌱 без бизнеса':''} — ${document.getElementById('f-format').value||'новая'} от ${name}`,
         _replyto:email,
       })
     });
